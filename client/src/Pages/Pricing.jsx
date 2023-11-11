@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 const Pricing = () => {
   return (
     <div>
@@ -10,7 +10,7 @@ const Pricing = () => {
         "\n@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);\n"
     }}
   />
-  <div className="min-w-screen min-h-screen bg-gray-100 px-5 py-5">
+  <div className="min-w-screen min-h-screen bg-white px-5 py-5">
   
     <div className="w-full mx-auto bg-grey-100  px-5 py-10 text-gray-600 mb-10">
       <div className="text-center max-w-xl mx-auto">
@@ -35,9 +35,11 @@ const Pricing = () => {
             </ul>
           </div>
           <div className="w-full">
-            <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
-              Buy Now
-            </button>
+          <Link to="/payment">
+                    <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
+                      Buy Now
+                    </button>
+                  </Link>
           </div>
         </div>
         <div className="w-full md:w-1/3 md:max-w-none  bg-white px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:-mx-3 md:mb-0 rounded-md shadow-lg shadow-gray-600 md:relative md:z-40 md:flex md:flex-col">
@@ -65,9 +67,11 @@ const Pricing = () => {
             </ul>
           </div>
           <div className="w-full">
-            <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
-              Buy Now
-            </button>
+          <Link to="/payment">
+                    <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
+                      Buy Now
+                    </button>
+                  </Link>
           </div>
         </div>
         <div className="w-full md:w-1/3 md:max-w-none bg-white px-8 md:px-10 py-8 md:py-10 mb-3 mx-auto md:my-6 rounded-md shadow-lg shadow-gray-600 md:flex md:flex-col">
@@ -93,9 +97,11 @@ const Pricing = () => {
             </ul>
           </div>
           <div className="w-full">
-            <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
-              Buy Now
-            </button>
+          <Link to="/payment">
+                    <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
+                      Buy Now
+                    </button>
+                  </Link>
           </div>
         </div>
       </div>

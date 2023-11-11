@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Category = () => {
   const [data, setData] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -28,7 +29,7 @@ const Category = () => {
   ];
 
   // Fetch products from the API
-  useEffect(() => {
+  useEffect(() => {AOS.init();
     axios
       .get("https://fakestoreapi.com/products/categories")
       .then((response) => {
@@ -41,9 +42,9 @@ const Category = () => {
   }, []);
 
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <h1 className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">Category</h1>
-      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2  w-full">
+    <div data-aos="fade-up" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <h1 data-aos="fade-up" className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">Category</h1>
+      <div data-aos="fade-up" className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2  w-full">
         {staticTitles.slice(0, visibleItems).map((title, index) => (
           <Link to={`/category/${title}`} key={index}>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl h-[20rem]">

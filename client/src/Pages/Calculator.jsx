@@ -1,54 +1,66 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Calculator = () => {
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
-  const [bmiResult, setBmiResult] = useState('');
+  const [bmiResult, setBmiResult] = useState(null);
   const [status, setStatus] = useState('');
   const [error, setError] = useState('');
   const [showResult, setShowResult] = useState(false);
 
-  function calculateBMI() {
-    // Ensure that height and weight are positive numbers
-    if (height <= 0 || weight <= 0) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const tableItems = [
+    { name: "18-25", email: "Normal Weight" },
+    { name: "25-30", email: "Overweight" },
+    { name: "30-40", email: "Obesity" },
+    { name: "40-above", email: "Morbid Obesity" },
+  ];
+
+  const calculateBMI = () => {
+    const numericHeight = parseFloat(height);
+    const numericWeight = parseFloat(weight);
+
+    if (isNaN(numericHeight) || isNaN(numericWeight) || numericHeight <= 0 || numericWeight <= 0) {
       setError('Please enter valid positive values for height and weight.');
       return;
     }
 
-    // Reset error message
     setError('');
 
-    let bmi = (weight / (height / 100) ** 2).toFixed(2);
+    const bmi = (numericWeight / ((numericHeight / 100) ** 2)).toFixed(2);
     setBmiResult(bmi);
 
-    let bmiStatus = getStatus(bmi);
+    const bmiStatus = getStatus(bmi);
     setStatus(bmiStatus);
 
-    // Show the result
     setShowResult(true);
-  }
+  };
 
-  function getStatus(bmi) {
+  const getStatus = (bmi) => {
     if (bmi < 18.5) return 'Underweight';
-    else if (bmi >= 18.5 && bmi < 25) return 'Healthy';
+    else if (bmi >= 18.5 && bmi < 25) return 'Normal Weight';
     else if (bmi >= 25 && bmi < 30) return 'Overweight';
-    else return 'Obese';
-  }
+    else if (bmi >= 30 && bmi < 40) return 'Obesity';
+    else return 'Morbid Obesity';
+  };
 
   return (
-    <section className="calculator-section flex justify-center items-center h-screen bg-white">
-      <div className="div-container w-[75rem] ">
-        <h1 className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">
-          BMI CALCULATOR
-        </h1>
-        <form className="bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <section data-aos="fade-up" className="calculator-section flex items-center justify-center min-h-screen bg-white">
+      <div className="container w-10/12 mx-auto p-8 bg-gray-40 shadow-lg rounded-lg flex flex-col items-center justify-center">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">BMI CALCULATOR</h1>
+        <form className="bg-gray-200 p-6 rounded-md w-10/12">
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <div className="mb-4">
             <label className="block text-sm font-bold mb-2" htmlFor="height">
-              Height(cm)
+              Height (cm)
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="input-field w-10/12"
               id="height"
               type="number"
               placeholder="e.g., 169"
@@ -58,10 +70,10 @@ const Calculator = () => {
           </div>
           <div className="mb-6">
             <label className="block text-sm font-bold mb-2" htmlFor="weight">
-              Weight(kg)
+              Weight (kg)
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="input-field w-10/12"
               id="weight"
               type="number"
               placeholder="e.g., 68"
@@ -69,26 +81,47 @@ const Calculator = () => {
               onChange={(e) => setWeight(e.target.value)}
             />
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex justify-center">
             <button
-              className="w-full p-2 bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600"
+              className="p-2 bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600 "
               type="button"
               onClick={calculateBMI}
             >
               Calculate
             </button>
           </div>
-          {showResult && bmiResult > 15 && (
-            <div className="result-container mt-5 text-center text-black shadow-lg shadow-grey-500/50">
-              <p>
-                Your BMI is <span className="strong">{bmiResult}</span>.
+          {showResult && bmiResult !== null && (
+            <div className="result-container mt-5 text-center text-gray-800">
+              <p className="mb-2">
+                Your BMI is <span className="font-bold">{bmiResult}</span>.
               </p>
               <p>
-                You are <span className="strong">{status}</span>.
+                You are <span className="font-bold">{status}</span>.
               </p>
             </div>
           )}
         </form>
+        <div className="mt-8 w-8/12">
+          <h3 className="text-xl font-bold text-gray-800 mb-4">BODY MASS INDEX</h3>
+          <div className="shadow-sm border rounded-lg overflow-x-auto">
+            <table className="w-full table-auto text-sm text-left">
+              <thead className="bg-gray-50 text-gray-600 font-medium border-b">
+                <tr>
+                  <th className="py-2 px-4 text-center">BMI</th>
+                  <th className="py-2 px-4 text-center">CLASSIFICATION</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-600 divide-y">
+                {tableItems.map((item, idx) => (
+                  <tr key={idx} className="divide-x">
+                    <td className="px-4 py-2 text-center">{item.name}</td>
+                    <td className="px-4 py-2 text-center">{item.email}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
   );

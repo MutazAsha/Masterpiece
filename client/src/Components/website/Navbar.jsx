@@ -84,47 +84,13 @@ const Navbar = () => {
                 placeholder="Search..."
               />
             </div>
-            {/* Cart favorites */}
-            <Link to="/favorites">
-      <button
-        type="button"
-        className="inline-flex mx-1 md:mx-3 items-center px-6 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-favorites"
-        aria-expanded={isMenuOpened}
-      >
-        <div className="relative">
-          <div
-            className={`${!user ? 'hidden' : 'block'} t-0 absolute left-3`}
-          >
-            {/* You can dynamically set the number of favorites here */}
-            <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">
-              0
-            </p>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className={`file: h-6 w-6 ${user ? 'mt-4' : 'mt-0'}`}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-            />
-          </svg>
-        </div>
-      </button>
-    </Link>
-
+           
             {/* search icon */}
             <button
               data-collapse-toggle="navbar-search"
               type="button"
               onClick={() => setIsMenuOpened(!isMenuOpened)}
-              className="inline-flex mx-1 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex mx-1 items-center p-2 w-10 h-10 justify-center  text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-search"
               aria-expanded={isMenuOpened}
             >
@@ -161,7 +127,7 @@ const Navbar = () => {
             >
               <img
                 className="rounded-full h-10 w-10 ml-3"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ9ka6C2Dg57POea71oMW0poPA8jtjGDWacddi1Eg&s"
+                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                 alt="Profile"
               />
             </Link>
@@ -233,6 +199,14 @@ const Navbar = () => {
     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
   >
     Trainers
+  </Link>
+</li>
+<li>
+  <Link
+    to="/OurClass"  // Change to "/trainers" in lowercase
+    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+  >
+   Our Class
   </Link>
 </li>
              

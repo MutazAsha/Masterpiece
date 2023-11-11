@@ -37,7 +37,7 @@ const Footer = () => {
               </Link>
             </p>
             <p className="mb-4">
-              <Link to="/products" className="text-neutral-600 dark:text-neutral-200">
+              <Link to="/Trainers" className="text-neutral-600 dark:text-neutral-200">
                 Trainers
               </Link>
             </p>
@@ -52,36 +52,17 @@ const Footer = () => {
                 Account
               </Link>
             </p>
-            <p className="mb-4">
-              <Link to="/wishlist" className="text-neutral-600 dark:text-neutral-200">
-                Wishlist
-              </Link>
-            </p>
-            <p className="mb-4">
-              <Link to="/cart" className="text-neutral-600 dark:text-neutral-200">
-                Cart
-              </Link>
-            </p>
-            <p className="mb-4">
-              <Link to="/orders" className="text-neutral-600 dark:text-neutral-200">
-                Orders
-              </Link>
-            </p>
+           
+
           </div>
           {/* Contact section */}
           <div>
             <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start text-grey-600">
               About Us
             </h6>
+           
             <p className="mb-4 flex items-center justify-center md:justify-start">
-              <Link to="/about" className="text-neutral-600 dark:text-neutral-200">
-                Our Story
-              </Link>
-            </p>
-            <p className="mb-4 flex items-center justify-center md:justify-start">
-            <Link to="/about" className="text-neutral-600 dark:text-neutral-200">
-                Team
-              </Link>
+            
             </p>
             <p className="mb-4 flex items-center justify-center md:justify-start">
               <Link to="/contact" className="text-neutral-600 dark:text-neutral-200">

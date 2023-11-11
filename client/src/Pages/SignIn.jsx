@@ -19,7 +19,7 @@ const SignIn = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post(' http://localhost:3000/Users', {
         email: email,
         password: password,
       });
@@ -45,9 +45,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className="p-20 bg-image bg-[50%] bg-cover h-full" style={{ backgroundImage: 'url(https://png.pngtree.com/background/20230607/original/pngtree-black-gym-room-that-boasts-exercise-equipment-picture-image_2902852.jpg)', }}>
+    <div className="p-20 bg-image bg-[50%] bg-cover h-full" style={{ backgroundImage: 'url()', }}>
       <div className="flex justify-center items-center h-screen">
-        <div className="bg-white px-20 py-5 rounded-lg shadow-xl backdrop-filter backdrop-blur-lg">
+        <div className="bg-gray-100 px-20 py-5 rounded-lg shadow-xl backdrop-filter backdrop-blur-lg">
           <h2 className="font-bold text-2xl mb-5 text-center">SignIn</h2>
           <div>
             <input

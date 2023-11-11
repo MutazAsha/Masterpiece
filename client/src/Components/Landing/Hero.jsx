@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Hero1 from "../../Images/Hero1.webp";
+// import Hero1 from "../../Images/Hero1.webp";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
 
+  
   const changeSlide = (slideNumber) => {
     setCurrentSlide(slideNumber);
   };
-  useEffect(() => {
+  useEffect(() => {  AOS.init();
     const slideTimer = setTimeout(() => {
       const nextSlide = currentSlide === 4 ? 1 : currentSlide + 1;
       setCurrentSlide(nextSlide);
@@ -15,8 +18,8 @@ const Hero = () => {
   }, [currentSlide]);
 
   return (
-    <header className="bg-white dark:bg-gray-800">
-      <div className="w-full flex flex-col md:flex-row md:items-center ">
+    <header className="bg-white dark:bg-gray-800 ">
+      <div data-aos="fade-up" className=" w-full flex flex-col md:flex-row md:items-center ">
         <div className="flex flex-col items-center w-full h-50">
           <div className="relative w-full md:order-2">
             {/* items */}
@@ -37,7 +40,7 @@ const Hero = () => {
             {currentSlide === 2 && (
               /* <!-- Item 2 --> */
               <div
-                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://wallpaperboat.com/wp-content/uploads/2019/06/workout-motivation-02.jpg')]"
+                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://e0.pxfuel.com/wallpapers/556/431/desktop-wallpaper-never-give-up-background-give-don-t-give-up.jpg')]"
                 data-carousel-item=""
               >
                 <div className="w-full h-full absolute top-0 bottom-0 right-0 left-0 bg-[#3f3f3f5c] flex flex-col justify-center items-center">
@@ -51,7 +54,7 @@ const Hero = () => {
             {currentSlide === 3 && (
               /* <!-- Item 3 --> */
               <div
-                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://png.pngtree.com/background/20230528/original/pngtree-black-gym-with-heavy-weights-picture-image_2773823.jpg')]"
+                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://getwallpapers.com/wallpaper/full/d/1/9/200249.jpg')]"
                 data-carousel-item=""
               >
                 <div className="w-full h-full absolute top-0 bottom-0 right-0 left-0 flex flex-col justify-center items-center md:items-end">
@@ -64,7 +67,7 @@ const Hero = () => {
             {currentSlide === 4 && (
               /* <!-- Item 4 --> */
               <div
-                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1469&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]"
+                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://wallpaper.dog/large/10697553.jpg')]"
                 data-carousel-item=""
               >
                 <div className="w-full h-full absolute top-0 bottom-0 right-0 left-0 bg-[#3f3f3f5c] flex flex-col justify-center items-center">

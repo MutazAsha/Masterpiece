@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 6;
+  const maxVisiblePages = 3;
 
-  useEffect(() => {
+  useEffect(() => { AOS.init();
     const fetchData = async () => {
       try {
         const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
@@ -24,12 +26,32 @@ const Blogs = () => {
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
+  const totalPages = Math.ceil(blogs.length / blogsPerPage);
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  const renderPageNumbers = () => {
+    const pageNumbers = Array.from({ length: Math.ceil(blogs.length / blogsPerPage) }, (_, index) => index + 1);
+    const visiblePageNumbers = pageNumbers.slice(Math.max(currentPage - 1, 0), currentPage - 1 + maxVisiblePages);
+
+    return visiblePageNumbers.map((number) => (
+      <button
+        key={number}
+        onClick={() => paginate(number)}
+        className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
+          currentPage === number ? "bg-gray-800" : ""
+        }`}
+        style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+      >
+        {number}
+      </button>
+    ));
+  };
+
   return (
-    <>
-      <h1 className="text-gray-800 text-4xl mb-6 font-bold text-center">Our Blogs</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-4 my-4">
+    <div data-aos="fade-up" className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-gray-800 text-4xl mb-6 font-bold">Our Blogs</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-4 my-4 w-10/12">
         {currentBlogs.map((blog) => (
           <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[25rem]">
             <Link to="#">
@@ -49,31 +71,34 @@ const Blogs = () => {
                 {blog.body}
               </p>
               <Link
-                to="#"
-                className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
-              >
-                Read More
-              </Link>
+  to={`/blog-details/${blog.id}`}
+  className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
+>
+  Read More
+</Link>
+
             </div>
           </div>
         ))}
-
-        <div className="col-span-full flex justify-center mt-4">
-          {Array.from({ length: Math.ceil(blogs.length / blogsPerPage) }, (_, index) => index + 1).map((number) => (
-            <button
-              key={number}
-              onClick={() => paginate(number)}
-              className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none ${
-                currentPage === number ? "bg-gray-800" : ""
-              }`}
-              style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-            >
-              {number}
-            </button>
-          ))}
-        </div>
       </div>
-    </>
+      <div className="col-span-full flex justify-center mt-4">
+        <button
+          className="mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full"
+          onClick={() => paginate(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+        {renderPageNumbers()}
+        <button
+          className="mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full"
+          onClick={() => paginate(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,74 @@
+{
+  "Card": [
+    {
+      "id": 1,
+      "title": "Day Services",
+      "image": "https://images.seattletimes.com/wp-content/uploads/2018/11/cleaning_1111.jpg?d=780x520",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.",
+      "price": "$ 300",
+      "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
+    },
+    {
+      "id": 1,
+      "title": "Day Services",
+      "image": "https://images.seattletimes.com/wp-content/uploads/2018/11/cleaning_1111.jpg?d=780x520",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.",
+      "price": "$ 300",
+      "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
+    },
+    {
+      "id": 1,
+      "title": "Day Services",
+      "image": "https://images.seattletimes.com/wp-content/uploads/2018/11/cleaning_1111.jpg?d=780x520",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.",
+      "price": "$ 300",
+      "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
+    },
+    {
+      "id": 1,
+      "title": "Day Services",
+      "image": "https://images.seattletimes.com/wp-content/uploads/2018/11/cleaning_1111.jpg?d=780x520",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto earum maiores at rem, facere dicta suscipit.",
+      "price": "$ 300",
+      "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
+    }
+    
+  ],
+  "Users": [
+    {
+      "id": 1
+    },
+    {
+      "email": "Mutaz.123@gmail.com",
+      "password": "1cBn@4wlerg",
+      "id": 2
+    },
+    {
+      "email": "Mutaz.123@gmail.com",
+      "password": "1cBn@4wlerg",
+      "id": 3
+    }
+  ],
+  "Regestart": [
+    {
+      "id": 1
+    },
+    {
+      "email": "Mutaz.123@gmail.com",
+      "first_name": "Mutaz",
+      "last_name": "Asha",
+      "password": "1cBn@4wlerg",
+      "phone": "234523543",
+      "id": 2
+    }
+  ]
+}  {
+      "id": 1
+      
+
+    }
+    
+]
+
+
+}

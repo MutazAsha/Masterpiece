@@ -27,13 +27,14 @@ const Trainers = () => {
   const currentTrainers = trainers.slice(indexOfFirstTrainer, indexOfLastTrainer);
 
   // Local filtering based on the selected category
-  const filteredTrainers = selectedCategory === 'All'
-    ? currentTrainers
-    : currentTrainers.filter(trainer => trainer.category.toLowerCase() === selectedCategory.toLowerCase());
+  const filteredTrainers =
+    selectedCategory === 'All'
+      ? currentTrainers
+      : currentTrainers.filter((trainer) => trainer.category.toLowerCase() === selectedCategory.toLowerCase());
 
   // Filter trainers based on search term
-  const searchedTrainers = filteredTrainers.filter(trainer =>
-    trainer.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const searchedTrainers = filteredTrainers.filter(
+    (trainer) => trainer.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const totalPages = Math.ceil(searchedTrainers.length / trainersPerPage);
@@ -42,13 +43,12 @@ const Trainers = () => {
     setCurrentPage(pageNumber);
   };
 
-  const categories = ['All', 'electronics', 'jewelery', 'men clothing', 'women clothing']; // Add your categories
+  const categories = ['All', 'electronics', 'jewelry', 'men clothing', 'women clothing'];
 
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div className="flex items-center justify-center flex-wrap mb-4 space-x-4">
-        {/* Category Dropdown */}
-        <div className="mb-4">
+    <div className="container mx-auto p-4">
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center space-x-4">
           <label htmlFor="category" className="text-gray-800 font-bold">
             Category:
           </label>
@@ -66,8 +66,7 @@ const Trainers = () => {
           </select>
         </div>
 
-        {/* Search Input */}
-        <div>
+        <div className="flex items-center space-x-4">
           <label htmlFor="search" className="text-gray-800 font-bold">
             Search:
           </label>
@@ -91,7 +90,7 @@ const Trainers = () => {
             <input
               type="search"
               id="search"
-              className="py-2 pl-10 text-sm text-white bg-gray-800 rounded-md focus:outline-none focus:bg-white focus:text-gray-900"
+              className="py-2 pl-10 text-sm text-white bg-gray-200 rounded-md focus:outline-none focus:bg-white focus:text-gray-900"
               placeholder="Search trainers..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -100,53 +99,50 @@ const Trainers = () => {
         </div>
       </div>
 
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {searchedTrainers.map((trainer) => (
-          <div key={trainer.id}>
+          <div key={trainer.id} className="overflow-hidden rounded shadow-lg hover:shadow-xl">
             <Link to={`/trainers/${trainer.id}`}>
-                
-              <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
-                <img
-                  className="object-cover w-full h-56 md:h-64 xl:h-80"
-                  src={trainer.image}
-                  alt="Person"
-                />
-                <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
-                  <p className="mb-1 text-lg font-bold text-gray-100">
-                    {trainer.title}
-                  </p>
-                  <p className="mb-4 text-xs text-gray-100">{trainer.category}</p>
-                  <p className="mb-4 text-xs tracking-wide text-gray-400">
-                    {trainer.description}
-                  </p>
-                </div>
+              <img
+                className="w-full h-56 md:h-64 xl:h-80 object-cover"
+                src={trainer.image}
+                alt={trainer.title}
+              />
+              <div className="p-4">
+                <p className="text-lg font-bold text-gray-800">{trainer.title}</p>
+                <p className="mt-1 text-sm text-gray-600">{trainer.category}</p>
+                <p className="mt-2 text-sm text-gray-700">{trainer.description}</p>
               </div>
-              
             </Link>
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-4">
+
+      <div className="flex justify-center mt-8">
         <button
-          className="mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none"
+          className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
+            currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
           Prev
         </button>
-        {[...Array(totalPages).keys()].map((number) => (
+        {[1, 2, 3].map((number) => (
           <button
-            key={number + 1}
-            onClick={() => handlePageChange(number + 1)}
-            className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none ${
-              currentPage === number + 1 ? 'bg-gray-800' : ''
+            key={number}
+            onClick={() => handlePageChange(number)}
+            className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
+              currentPage === number ? 'bg-gray-800' : ''
             }`}
           >
-            {number + 1}
+            {number}
           </button>
         ))}
         <button
-          className="mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none"
+          className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
+            currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >

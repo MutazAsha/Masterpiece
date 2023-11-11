@@ -3,23 +3,24 @@ import axios from "axios";
 import { useCookies } from 'react-cookie';
 
 const Profile = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
   const [headers, setHeaders] = useState();
-const [cookie, setCookie, removeCookie] = useCookies(["token"],{token:null});
+  const [cookie] = useCookies(["token"], { token: null });
   console.log(useCookies(["token"]));
+
   useEffect(() => {
     if (cookie.token !== undefined) {
       setUser(true);
-    }else{
+    } else {
       setUser(false);
     }
-  },[]);
+  }, [cookie.token]);
+
   useEffect(() => {
-    setHeaders({'token': cookie.token})
+    setHeaders({ 'token': cookie.token });
     axios
-      .get(`http://localhost:5000/user`
-      ,{
-        headers:headers
+      .get(`http://localhost:5000/user`, {
+        headers: headers
       })
       .then((response) => {
         setUser(response.data);
@@ -27,21 +28,18 @@ const [cookie, setCookie, removeCookie] = useCookies(["token"],{token:null});
       .catch((error) => {
         console.error("Error:", error);
       });
-  }, []);
+  }, [headers]);
 
   // handle image uploading
   const [photoName, setPhotoName] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
   const [imageFile, setImageFile] = useState(null);
-  // const [oldPassword, setOldPassword] = useState('');
-  // const [newPassword, setNewPassword] = useState('');
-  // const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState("");
   const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setImageFile(e.target.files[0]);
+    setImageFile(file);
     if (file) {
       setPhotoName(file.name);
 
@@ -64,44 +62,22 @@ const [cookie, setCookie, removeCookie] = useCookies(["token"],{token:null});
   // handle changes made
   const handleSaveChanges = async (e) => {
     e.preventDefault();
-    if(!error){
-      const updatedUser = {};
-      updatedUser.id = user.user_id;
-      if (user.first_name !== "") {
-        updatedUser.first_name = user.first_name;
-      }
+    if (!error) {
+      const updatedUser = {
+        id: user.user_id,
+        first_name: user.first_name || '',
+        last_name: user.last_name || '',
+        email: user.email || '',
+        phone: user.phone || '',
+        profile_image_name: imageFile
+      };
 
-      if (user.last_name !== "") {
-        updatedUser.last_name = user.last_name;
-      }
-
-      if (user.email !== "") {
-        updatedUser.email = user.email;
-      }
-
-      if (user.phone !== "") {
-        updatedUser.phone = user.phone;
-      }
-      // if(oldPassword !== '' && newPassword !== '' && confirmPassword !== ''){
-      //   if(oldPassword === user.password){
-      //     if(newPassword === confirmPassword){
-      //       updatedUser.password = newPassword;
-      //     }else{
-      //       setError("Password doesn't match");
-      //     }
-      //   }else{
-      //     setError("The password you've entered doesn't match the old password");
-      //   }
-      // }
-
-      updatedUser.profile_image_name = imageFile;
-      console.log(updatedUser);
       try {
         const response = await axios.put(
           `http://localhost:5000/updateuser`,
-          updatedUser,{
-            headers:headers
-          }
+          updatedUser, {
+          headers: headers
+        }
         );
         console.log(response.data);
       } catch (error) {
@@ -114,7 +90,7 @@ const [cookie, setCookie, removeCookie] = useCookies(["token"],{token:null});
     <div>
       <div className="flex justify-center items-center">
         <div className="w-2/3 bg-[#0d79635c] my-6 md:ml-24 px-10 py-5 rounded-lg">
-          <form action="post">
+          <form>
             <div className="flex flex-col md:flex-row flex-wrap justify-around">
               <div>
                 {/* image uploading section */}
@@ -153,39 +129,37 @@ const [cookie, setCookie, removeCookie] = useCookies(["token"],{token:null});
               </div>
               {/* end of image uploading section */}
               <div className="flex flex-col justify-around w-full xl:w-2/3">
-                <div></div>
-                <label for="first_name" className=" self-start p-2">
-                  First Name
-                </label>
-                <input
-                  className="w-full mb-3 p-2 border rounded-md"
-                  // value={user.first_name}
-                  onChange={(e) => (user.first_name = e.target.value)}
-                  placeholder={user.first_name}
-                  type="text"
-                  name="first_name"
-                />
-                <label for="last_name" className=" self-start p-2">
-                  Last Name
-                </label>
-                <input
-                  className="w-full mb-3 p-2 border rounded-md"
-                  // value={user.last_name}
-                  onChange={(e) => (user.last_name = e.target.value)}
-                  placeholder={user.last_name}
-                  type="text"
-                  name="last_name"
-                />
+                <div>
+                  <label htmlFor="first_name" className="self-start p-2">
+                    First Name
+                  </label>
+                  <input
+                    className="w-full mb-3 p-2 border rounded-md"
+                    onChange={(e) => setUser({ ...user, first_name: e.target.value })}
+                    placeholder={user.first_name}
+                    type="text"
+                    name="first_name"
+                  />
+                  <label htmlFor="last_name" className="self-start p-2">
+                    Last Name
+                  </label>
+                  <input
+                    className="w-full mb-3 p-2 border rounded-md"
+                    onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+                    placeholder={user.last_name}
+                    type="text"
+                    name="last_name"
+                  />
+                </div>
               </div>
             </div>
             <div className="flex flex-col justify-start mt-2">
-              <label for="first_name" className=" self-start p-2">
+              <label htmlFor="email" className="self-start p-2">
                 Email
               </label>
               <input
                 className="w-full p-2 border rounded-md"
-                // value={user.email}
-                onChange={(e) => (user.email = e.target.value)}
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
                 placeholder={user.email}
                 type="email"
                 name="email"
@@ -194,55 +168,29 @@ const [cookie, setCookie, removeCookie] = useCookies(["token"],{token:null});
 
             <div className="mb-3">
               <div className="flex flex-col justify-start mt-2">
-                <label for="first_name" className=" self-start p-2">
+                <label htmlFor="phone" className="self-start p-2">
                   Phone
                 </label>
                 <input
                   className="w-full p-2 border rounded-md"
-                  // value={user.phone}
-                  onChange={(e) => (user.phone = e.target.value)}
+                  onChange={(e) => setUser({ ...user, phone: e.target.value })}
                   type="tel"
                   id="phone"
                   name="phone"
-                  //   pattern="[0-9]{2}-[0-9]{3}-[0-9]{4}"
                   placeholder={user.phone}
-                  //   title="Phone number must be in the format 12-345-6789"
                 />
               </div>
-              {/* <div className="flex flex-col justify-start mt-2">
-                <label for="first_name" className=" self-start p-2">
-                  Change Password
-                </label>
-                <input
-                  className="w-full p-2 border rounded-md"
-                  onChange={(e) => setOldPassword(e.target.value)}
-                  placeholder="Old Password"
-                  type="password"
-                />
-                <input
-                  className="w-full p-2 border rounded-md mt-2"
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="New Password"
-                  type="password"
-                />
-                <input
-                  className="w-full p-2 border rounded-md mt-2"
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Confirm Password"
-                  type="password"
-                />
-              </div> */}
             </div>
             <div className="flex justify-end">
               <button
-                className="w-1/4 mr-3 p-2 bg-gray-50 text-black rounded-xl mt-2 "
+                className="w-1/4 mr-3 p-2 bg-gray-50 text-black rounded-xl mt-2"
                 type="clear"
                 // onClick={hendleSignUp}
               >
                 Cancel
               </button>
               <button
-                className="w-auto py-2 px-3 bg-teal-600 text-white rounded-xl mt-2 "
+                className="w-auto py-2 px-3 bg-grey-600 text-white rounded-xl mt-2"
                 onClick={handleSaveChanges}
               >
                 Save Changes

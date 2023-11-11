@@ -12,6 +12,8 @@ import Signup from "./Pages/Signup";
 
 import About from "./Pages/About";
 import ContactUs from "./Pages/ContactUs";
+import Blogs from "./Pages/Blogs";
+import BlogDetails from "./Pages/BlogDetails";
 
 // import ProductPage from "./Pages/ProductPage";
 import CategoryContent from "./Pages/CategoryContent";
@@ -20,6 +22,9 @@ import ProductSection from "./Pages/Detail";
 import Trainers from "./Pages/Trainers";
 import TrainerDetails from "./Pages/TrainerDetails";
 import Category from "./Components/Landing/Category";
+import Pricing from "./Pages/Pricing";
+import Payment from "./Pages/Payment";
+import OurClass from "./Pages/OurClass";
 
 
 
@@ -35,20 +40,21 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/signup" element={<Signup />} />
-          
+            <Route exact path="/blogs" element={<Blogs/>} />
+             <Route path="/blog-details/:id" element={<BlogDetails/>} />
             <Route path="/account" element={<Account />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/" exact element={<Category/>} />
         <Route path="/category/:title" element={<CategoryContent/>} />
-           
+        <Route path="/" exact element={<Pricing/>} />
+        <Route path="/payment" element={<Payment/>} />
             <Route path="/trainers/:id" element={<TrainerDetails/>} />
         <Route path="/trainers" element={<Trainers/>} />
-    
+        <Route path="/OurClass" element={<OurClass/>} />
             <Route path="/product/:id" element={<ProductSection />} />
  
-        
       
           </Routes>
         </div>

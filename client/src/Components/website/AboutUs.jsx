@@ -5,17 +5,15 @@ const AboutUs = () => {
     <div>
       <div className='flex flex-col-reverse gap-4 md:flex-row justify-center items-center'>
         <div className='w-1/2 p-8'>
-            <h1 className='py-5 text-teal-600 text-center text-2xl md:text-4xl'>About Us</h1>
-            <p className='text-start'>Craft Vine is a dedicated online platform offering a wide array of household appliances designed to simplify and enhance everyday living. Our site provides a convenient and comprehensive shopping experience for individuals seeking top-quality, innovative, and reliable home appliances.
+            <h1 className='py-5 text-gray-600 text-center text-2xl md:text-4xl'>About Us</h1>
+            <p className='text-start'>FitGrid is a website that offers a unique online sports learning experience. The website aims to provide high-quality educational courses in various fields of sports, enabling individuals to practice physical exercises and develop their sports skills at any time and from anywhere. FitGrid features a wide range of courses and professional trainers, which contribute to motivating and supporting participants to achieve their sports goals.
 
-With a focus on modern technology and user convenience, Craft Vine curates a diverse selection of products, ranging from kitchen gadgets to home electronics, aimed at fulfilling the needs of every household. Our collection includes a variety of appliances that are efficient, durable, and cater to various lifestyle requirements.
+Subscribers benefit from FitGrid content that gives them access to innovative exercises, advanced workshops, and useful nutrition tips. Direct interaction with coaches and other sports community makes it possible to stimulate the spirit and enjoy the stimulation of personal successes.
 
-At Craft Vine, we are committed to delivering an extensive range of appliances that combine functionality, design, and affordability. Our platform is designed to ensure a seamless shopping journey, empowering customers to find the perfect solutions for their homes.
-
-Explore our platform to discover an assortment of appliances that aim to transform the way you manage household tasks, bringing convenience and ease into your daily routines.</p>
+Take advantage of FitGrid and immerse yourself in a unique experience to enhance your fitness and achieve your sports goals at any time that suits you.</p>
         </div>
         <div className='w-1/2 p-5'>
-            <img className='object-cover' src="https://bl-i.thgim.com/public/todays-paper/tp-others/tp-variety/bhw23c/article66166927.ece/alternates/FREE_1200/Consumer-Affair%2BG4EAHRNS3.4.jpg.jpg" alt="About us" />
+            <img className='object-cover' src="https://img.freepik.com/premium-photo/young-bodybuilder-posing-gym-camera-sporty-athletic-man-training-his-biceps-gym_116317-11289.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699574400&semt=ais" alt="About us" />
         </div>
       </div>
     </div>
