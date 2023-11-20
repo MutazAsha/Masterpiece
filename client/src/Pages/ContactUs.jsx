@@ -28,13 +28,13 @@ const ContactUs = () => {
 
   return (
     <div>
-      <section className="body-font relative bg-gray-800 text-gray-300">
+      <section className="body-font relative bg-gray-300 text-gray-300">
         <div className="container mx-auto px-5 py-24">
           <div className="mb-12 flex w-full flex-col text-center">
-            <h1 className="title-font mb-4 text-2xl font-medium text-white sm:text-3xl">
+            <h1 className="title-font mb-4 text-2xl font-medium text-gray-600 sm:text-3xl">
               Contact Us
             </h1>
-            <p className="mx-auto text-base leading-relaxed lg:w-2/3">
+            <p className="mx-auto text-gray-600 leading-relaxed lg:w-2/3">
               Feel free to reach out to us! Whether you have a question, feedback, or
               a collaboration proposal, we'd love to hear from you.
             </p>
@@ -50,7 +50,7 @@ const ContactUs = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="peer w-full rounded border border-gray-600 bg-gray-700 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out focus:bg-gray-900 focus:ring-2 "
+                    className="peer w-full rounded border border-gray-250 bg-white bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out  "
                     placeholder="Name"
                   />
                   <label
@@ -69,7 +69,7 @@ const ContactUs = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="peer w-full rounded border border-gray-600 bg-gray-700 bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 "
+                    className="peer w-full rounded border border-gray-250 bg-white bg-opacity-40 py-1 px-3 text-base leading-8 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out  "
                     placeholder="Email"
                   />
                   <label
@@ -87,7 +87,7 @@ const ContactUs = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="peer h-32 w-full resize-none rounded border border-gray-600 bg-gray-700 bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out  focus:bg-gray-900 focus:ring-2 "
+                    className="peer h-32 w-full resize-none rounded border border-gray-250 bg-white bg-opacity-40 py-1 px-3 text-base leading-6 text-gray-100 placeholder-transparent outline-none transition-colors duration-200 ease-in-out   "
                     placeholder="Message"
                     defaultValue={""}
                   />
@@ -103,7 +103,7 @@ const ContactUs = () => {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-full p-2 bg-blue-600 text-white rounded-3xl mt-4 "
+                  className="w-full p-2 bg-gray-800 hover:bg-gray-600 text-white rounded-3xl mt-4 "
                 >
                   Submit
                 </button>

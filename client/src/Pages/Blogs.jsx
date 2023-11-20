@@ -12,7 +12,7 @@ const Blogs = () => {
   useEffect(() => { AOS.init();
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+        const response = await axios.get("http://localhost:3000/blog");
         setBlogs(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -50,13 +50,13 @@ const Blogs = () => {
 
   return (
     <div data-aos="fade-up" className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-gray-800 text-4xl mb-6 font-bold">Our Blogs</h1>
+      <h1 className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">Our Blogs</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-4 my-4 w-10/12">
         {currentBlogs.map((blog) => (
           <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[25rem]">
             <Link to="#">
-              <img
-                src="https://i.ytimg.com/vi/gey73xiS8F4/maxresdefault.jpg"
+            <img
+                src={blog.blog_img}
                 alt=""
                 className="w-[25rem] h-40 object-cover"
               />
@@ -64,11 +64,11 @@ const Blogs = () => {
             <div className="p-4 w-[25rem]">
               <Link to="#">
                 <h5 className="w-[25rem] mb-2 text-xl font-bold text-gray-900 dark:text-white">
-                  {blog.title}
+                  {blog.blog_title}
                 </h5>
               </Link>
               <p className="w-[25rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
-                {blog.body}
+                {blog.blog_subdescription}
               </p>
               <Link
   to={`/blog-details/${blog.id}`}

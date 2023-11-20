@@ -26,7 +26,7 @@ const Hero = () => {
             {currentSlide === 1 && (
               /* <!-- Item 1 --> */
               <div
-                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://wallpaperboat.com/wp-content/uploads/2019/06/workout-motivation-02.jpg')]"
+                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://getwallpapers.com/wallpaper/full/d/1/9/200249.jpg')]"
                 data-carousel-item=""
               >
                 <div className="w-full h-full absolute top-0 bottom-0 right-0 left-0 bg-[#3f3f3f5c] flex flex-col justify-center items-center">
@@ -40,7 +40,7 @@ const Hero = () => {
             {currentSlide === 2 && (
               /* <!-- Item 2 --> */
               <div
-                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://e0.pxfuel.com/wallpapers/556/431/desktop-wallpaper-never-give-up-background-give-don-t-give-up.jpg')]"
+                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://wallpaperboat.com/wp-content/uploads/2019/06/workout-motivation-02.jpg')]"
                 data-carousel-item=""
               >
                 <div className="w-full h-full absolute top-0 bottom-0 right-0 left-0 bg-[#3f3f3f5c] flex flex-col justify-center items-center">
@@ -54,7 +54,7 @@ const Hero = () => {
             {currentSlide === 3 && (
               /* <!-- Item 3 --> */
               <div
-                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://getwallpapers.com/wallpaper/full/d/1/9/200249.jpg')]"
+                className="w-full h-[500px] bg-cover bg-[50%] bg-[url('https://e0.pxfuel.com/wallpapers/556/431/desktop-wallpaper-never-give-up-background-give-don-t-give-up.jpg')]"
                 data-carousel-item=""
               >
                 <div className="w-full h-full absolute top-0 bottom-0 right-0 left-0 flex flex-col justify-center items-center md:items-end">

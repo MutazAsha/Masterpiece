@@ -4,38 +4,32 @@ import { useCookies } from 'react-cookie';
 
 const Profile = () => {
   const [user, setUser] = useState({});
-  const [headers, setHeaders] = useState();
-  const [cookie] = useCookies(["token"], { token: null });
-  console.log(useCookies(["token"]));
-
-  useEffect(() => {
-    if (cookie.token !== undefined) {
-      setUser(true);
-    } else {
-      setUser(false);
-    }
-  }, [cookie.token]);
-
-  useEffect(() => {
-    setHeaders({ 'token': cookie.token });
-    axios
-      .get(`http://localhost:5000/user`, {
-        headers: headers
-      })
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, [headers]);
-
-  // handle image uploading
+  const [formValues, setFormValues] = useState({});
+  const [cookie] = useCookies(["token"]);
   const [photoName, setPhotoName] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
   const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    if (cookie.token !== undefined) {
+      setUser(true);
+      axios.get(`http://localhost:5000/user`, {
+        headers: { 'token': cookie.token }
+      })
+        .then((response) => {
+          setUser(response.data);
+          setFormValues(response.data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } else {
+      setUser(false);
+    }
+  }, [cookie.token]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -52,35 +46,40 @@ const Profile = () => {
   };
 
   const handleSelectPhoto = () => {
-    // Trigger file input click using useRef
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
   };
-  // end handle image uploading
 
-  // handle changes made
+  const handleInputChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
   const handleSaveChanges = async (e) => {
     e.preventDefault();
     if (!error) {
       const updatedUser = {
         id: user.user_id,
-        first_name: user.first_name || '',
-        last_name: user.last_name || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        profile_image_name: imageFile
+        first_name: formValues.first_name || '',
+        last_name: formValues.last_name || '',
+        email: formValues.email || '',
+        phone: formValues.phone || '',
+        profile_image_name: imageFile ? imageFile.name : null,
       };
 
       try {
         const response = await axios.put(
           `http://localhost:5000/updateuser`,
-          updatedUser, {
-          headers: headers
-        }
+          updatedUser,
+          {
+            headers: { 'token': cookie.token },
+          }
         );
         console.log(response.data);
+        setSuccessMessage("Profile updated successfully!");
       } catch (error) {
+        console.error("Error updating Information", error);
+        setSuccessMessage("");
         alert("Error updating Information");
       }
     }
@@ -89,11 +88,10 @@ const Profile = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <div className="w-2/3 bg-[#0d79635c] my-6 md:ml-24 px-10 py-5 rounded-lg">
+        <div className="w-2/3 bg-gray-300 my-6 md:ml-24 px-10 py-5 rounded-lg">
           <form>
             <div className="flex flex-col md:flex-row flex-wrap justify-around">
               <div>
-                {/* image uploading section */}
                 <div className="col-span-6 ml-2 sm:col-span-4 md:mr-3">
                   <input
                     type="file"
@@ -112,7 +110,7 @@ const Profile = () => {
                           backgroundImage: `url('${
                             photoPreview !== null
                               ? photoPreview
-                              : "https://i.pinimg.com/originals/c0/c2/16/c0c216b3743c6cb9fd67ab7df6b2c330.jpg"
+                              : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                           }')`,
                         }}
                       />
@@ -127,7 +125,6 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              {/* end of image uploading section */}
               <div className="flex flex-col justify-around w-full xl:w-2/3">
                 <div>
                   <label htmlFor="first_name" className="self-start p-2">
@@ -135,7 +132,7 @@ const Profile = () => {
                   </label>
                   <input
                     className="w-full mb-3 p-2 border rounded-md"
-                    onChange={(e) => setUser({ ...user, first_name: e.target.value })}
+                    onChange={handleInputChange}
                     placeholder={user.first_name}
                     type="text"
                     name="first_name"
@@ -145,7 +142,7 @@ const Profile = () => {
                   </label>
                   <input
                     className="w-full mb-3 p-2 border rounded-md"
-                    onChange={(e) => setUser({ ...user, last_name: e.target.value })}
+                    onChange={handleInputChange}
                     placeholder={user.last_name}
                     type="text"
                     name="last_name"
@@ -159,7 +156,7 @@ const Profile = () => {
               </label>
               <input
                 className="w-full p-2 border rounded-md"
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                onChange={handleInputChange}
                 placeholder={user.email}
                 type="email"
                 name="email"
@@ -173,7 +170,7 @@ const Profile = () => {
                 </label>
                 <input
                   className="w-full p-2 border rounded-md"
-                  onChange={(e) => setUser({ ...user, phone: e.target.value })}
+                  onChange={handleInputChange}
                   type="tel"
                   id="phone"
                   name="phone"
@@ -183,9 +180,8 @@ const Profile = () => {
             </div>
             <div className="flex justify-end">
               <button
-                className="w-1/4 mr-3 p-2 bg-gray-50 text-black rounded-xl mt-2"
+                className="w-1/4 mr-3 p-2 bg-gray-800 hover:bg-gray-600 text-white rounded-xl mt-2"
                 type="clear"
-                // onClick={hendleSignUp}
               >
                 Cancel
               </button>
@@ -197,6 +193,9 @@ const Profile = () => {
               </button>
             </div>
 
+            {successMessage && (
+              <p className="text-green-600 mt-2">{successMessage}</p>
+            )}
             {error && (
               <p className="text-red-600 mt-2">{error}</p>
             )}

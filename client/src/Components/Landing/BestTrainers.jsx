@@ -9,7 +9,7 @@ const BestTrainers = () => {
   useEffect(() => {
     const fetchTrainers = async () => {AOS.init();
       try {
-        const response = await axios.get('https://fakestoreapi.com/products');
+        const response = await axios.get('http://localhost:3000/Card');
         setTrainers(response.data);
       } catch (error) {
         console.error('Error fetching trainers: ', error);

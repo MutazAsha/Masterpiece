@@ -31,7 +31,7 @@ const Category = () => {
   // Fetch products from the API
   useEffect(() => {AOS.init();
     axios
-      .get("https://fakestoreapi.com/products/categories")
+      .get("http://localhost:3000/Card")
       .then((response) => {
         // Set the product data
       })
