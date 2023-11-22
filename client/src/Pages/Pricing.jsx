@@ -36,7 +36,7 @@ const Pricing = () => {
           </div>
           <div className="w-full">
           <Link to="/payment">
-                    <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600  px-10 py-2 transition-colors w-full">
+                    <button className="font-bold bg-gray-800 text-white rounded-3xl mt-4 hover:bg-[#89B9AD]  px-10 py-2 transition-colors w-full">
                       Buy Now
                     </button>
                   </Link>

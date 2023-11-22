@@ -91,15 +91,16 @@ const BlogDetails = () => {
                   {relatedPost.blog_description}
                 </p>
                 <Link
-                  to={`/blog-details/${relatedPost.id}`}
-                  className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
-                >
-                  Read More
-                </Link>
+  to={`/blog-details/${blog.id}`}
+  className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600"
+>
+  Read More
+</Link>
               </div>
             </div>
           ))}
         </div>
+        
       </div>
       <br/>
       <br/>

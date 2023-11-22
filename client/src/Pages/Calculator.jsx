@@ -52,7 +52,7 @@ const Calculator = () => {
   return (
     <section data-aos="fade-up" className="calculator-section flex items-center justify-center min-h-screen bg-white">
       <div className="container w-10/12 mx-auto p-8 bg-gray-40 shadow-lg rounded-lg flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">BMI CALCULATOR</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-[#27374D]">BMI CALCULATOR</h1>
         <form className="bg-gray-200 p-6 rounded-md w-10/12">
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <div className="mb-4">
@@ -83,7 +83,7 @@ const Calculator = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="p-2 bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600 "
+              className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600 "
               type="button"
               onClick={calculateBMI}
             >
@@ -102,7 +102,7 @@ const Calculator = () => {
           )}
         </form>
         <div className="mt-8 w-8/12">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">BODY MASS INDEX</h3>
+          <h3 className="text-xl font-bold text-[#27374D] mb-4">BODY MASS INDEX</h3>
           <div className="shadow-sm border rounded-lg overflow-x-auto">
             <table className="w-full table-auto text-sm text-left">
               <thead className="bg-gray-50 text-gray-600 font-medium border-b">

@@ -127,34 +127,44 @@
       "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
     }
   ],
+  "contactus": [
+    {
+      "id": 2,
+      "email": "Mohammad@gmail.com",
+      "message": "Good",
+      "name": "Mohammad"
+    },
+    {
+      "id": 3,
+      "email": "Asha@gmail.com ",
+      "message": "vary Good",
+      "name": "Asha"
+    }
+  ],
   "Users": [
     {
-      "id": 1
+      "email": "Mutaz.123@gmail.com",
+      "password": "1cBn@4wlerg",
+      "id": 3,
+      "name": "aaasasaa"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 2
-    },
-    {
-      "email": "Mutaz.123@gmail.com",
-      "password": "1cBn@4wlerg",
-      "id": 3
-    },
-    {
-      "email": "Mutaz.123@gmail.com",
-      "password": "1cBn@4wlerg",
-      "id": 4
+      "id": 4,
+      "name": "DFerwav"
     },
     {
       "email": "rgebt",
       "password": "heaheah",
-      "id": 5
+      "id": 5,
+      "name": "bbbbb"
     },
     {
       "email": "hind@gmai.com",
       "password": "Hind123$",
-      "id": 6
+      "id": 6,
+      "name": "11111"
     },
     {
       "email": "Mutaz.123@gmail.com",
@@ -164,26 +174,21 @@
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 8
+      "id": 8,
+      "name": "ewrw"
+    },
+    {
+      "email": "Mutaz.123@gmail.com",
+      "password": "1cBn@4wlerg",
+      "id": 9
+    },
+    {
+      "email": "Mutaz.123@gmail.com",
+      "password": "1cBn@4wlerg",
+      "id": 10
     }
   ],
   "blog": [
-    {
-      "id": 2,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 3,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
     {
       "id": 4,
       "blog_auter": "mutaz",
@@ -215,6 +220,54 @@
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
       "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 1,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 1,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 1,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 1,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 1,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "blog_autor": "",
+      "blog_img": "",
+      "blog_title": "",
+      "blog_subdescription": "",
+      "blog_description": "ي",
+      "id": 7
     }
   ],
   "Regestart": [
@@ -236,6 +289,156 @@
       "password": "Hind123$",
       "phone": "11222222",
       "id": 3
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Video 1",
+      "thumbnailUrl": "https://example.com/thumbnail1.jpg",
+      "description": "Description for Video 1"
+    },
+    {
+      "id": 2,
+      "title": "Video 2",
+      "thumbnailUrl": "https://example.com/thumbnail2.jpg",
+      "description": "Description for Video 2"
+    },
+    {
+      "id": 3,
+      "title": "Video 3",
+      "thumbnailUrl": "https://example.com/thumbnail3.jpg",
+      "description": "Description for Video 3"
+    }
+  ],
+  "Corse": [
+    {
+      "id": 1,
+      "Course_Name": "Mutaz",
+      "Course_Category": "Day Services",
+      "Course_Duration": "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM1OTAwNDIyMzUwMzQx/main2-trainer2.jpg",
+      "Pricing": "Fitness",
+      "Course_description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 2
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 3
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 4
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 3
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 4
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 3
+    },
+    {
+      "Course_Name": "rgef",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "333",
+      "Pricing": "32",
+      "Course_description": "rf",
+      "id": 4
+    },
+    {
+      "Course_Name": "xdgvbfxdb",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "122",
+      "Pricing": "222",
+      "Course_description": "sdgfxdgb",
+      "id": 5
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 6
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 7
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 8
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 9
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 10
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 11
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Grossfit",
+      "Course_Duration": "1111",
+      "Pricing": "111",
+      "Course_description": "11",
+      "id": 12
     }
   ]
 }

@@ -23,11 +23,11 @@ const Blog = () => {
     fetchData();
   }, []);
 
-  const indexOfLastBlog = currentPage * 4;
-  const indexOfFirstBlog = indexOfLastBlog - 4;
+  const indexOfLastBlog = currentPage * 6;
+  const indexOfFirstBlog = indexOfLastBlog - 6;
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
-  const totalPages = Math.ceil(blogs.length / 4);
+  const totalPages = Math.ceil(blogs.length / 6);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -143,21 +143,21 @@ const Blog = () => {
 
         {/* Popup */}
         {showPopup && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-4 rounded-md shadow-lg">
-              {/* Display the content of BlogForm in Popup */}
-              <BlogForm onClose={() => setShowPopup(false)} />
+  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+    <div className="bg-white p-8 rounded-md shadow-lg w-96">
+      {/* Display the content of BlogForm in Popup */}
+      <BlogForm onClose={() => setShowPopup(false)} />
 
-              {/* Add a close button */}
-              <button
-                className="mt-4 p-2 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none"
-                onClick={() => setShowPopup(false)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        )}
+      {/* Add a close button */}
+      <button
+        className=" p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mb-10"
+        onClick={() => setShowPopup(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
       </div>
     </div>
   );

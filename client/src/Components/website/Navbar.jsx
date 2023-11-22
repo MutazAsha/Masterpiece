@@ -38,7 +38,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpened(!isMenuOpened)}
               aria-controls="navbar-search"
               aria-expanded={isMenuOpened}
-              className="md:hidden mx-1 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
+              className="md:hidden mx-1 text-gray-500 dark:text-gray-400 hover:bg-[#89B9AD] dark:hover:bg-[#89B9AD] focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mr-1"
             >
               <svg
                 className="w-5 h-5"
@@ -90,7 +90,7 @@ const Navbar = () => {
               data-collapse-toggle="navbar-search"
               type="button"
               onClick={() => setIsMenuOpened(!isMenuOpened)}
-              className="inline-flex mx-1 items-center p-2 w-10 h-10 justify-center  text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex mx-1 items-center p-2 w-10 h-10 justify-center  text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-[#89B9AD] dark:focus:ring-gray-600"
               aria-controls="navbar-search"
               aria-expanded={isMenuOpened}
             >
@@ -116,7 +116,7 @@ const Navbar = () => {
               to="/login"
               className={`${!user && "md:block"} hidden`}
             >
-              <button className="bg-gray-800 hover:bg-gray-600 rounded-full text-white h-10 px-4">
+              <button className="bg-gray-800 hover:bg-[#89B9AD] rounded-full text-white h-10 px-4">
                 Signin | Signup
               </button>
             </Link>
@@ -188,7 +188,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/about"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-600 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#89B9AD] md:p-0 md:dark:hover:text-[#89B9AD] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   About
                 </Link>

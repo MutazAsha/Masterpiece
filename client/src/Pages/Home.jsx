@@ -7,6 +7,7 @@ import Pricing from './Pricing'
 import Blogs from './Blogs'
 import Calculator from './Calculator'
 import BestTrainers from '../Components/Landing/BestTrainers'
+import Faqs from '../Components/Landing/Faqs'
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
       <Category />
          <Calculator/>
       <Blogs/>
- 
+ <Faqs/>
 
     </div>
   )

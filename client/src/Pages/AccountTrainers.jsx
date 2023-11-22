@@ -4,6 +4,7 @@ import Profile from "../Components/users/Profile";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import Blog from "../Components/users/Blog";
+import Course from "../Components/users/Course";
 
 
 const Account = () => {
@@ -204,6 +205,9 @@ useEffect(() => {
         <Profile />
       </div>
      
+      <div className={`${page == "Course" ? "block" : "hidden"} w-full`}>
+     <Course/>
+      </div>
       <div className={`${page == "Blog" ? "block" : "hidden"} w-full`}>
       <Blog/>
       </div>

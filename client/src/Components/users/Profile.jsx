@@ -88,7 +88,7 @@ const Profile = () => {
   return (
     <div>
       <div className="flex justify-center items-center">
-        <div className="w-2/3 bg-gray-300 my-6 md:ml-24 px-10 py-5 rounded-lg">
+        <div className="w-2/3 bg-[#9DB2BF] my-6 md:ml-24 px-10 py-5 rounded-lg">
           <form>
             <div className="flex flex-col md:flex-row flex-wrap justify-around">
               <div>
@@ -117,7 +117,7 @@ const Profile = () => {
                     </div>
                     <button
                       type="button"
-                      className="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover-text-gray-500 focus-outline-none focus-border-blue-400 focus-shadow-outline-blue active-text-gray-800 active-bg-gray-50 transition ease-in-out duration-150 mt-2 ml-3"
+                      className="inline-flex items-center px-4 py-2 bg-[#526D82] border border-[#526D82] rounded-md font-semibold text-xs text-white uppercase tracking-widest shadow-sm hover-text-gray-500 focus-outline-none focus-border-blue-400 focus-shadow-outline-blue active-text-gray-800 active-bg-gray-50 transition ease-in-out duration-150 mt-2 ml-3"
                       onClick={handleSelectPhoto}
                     >
                       Select New Photo
@@ -125,23 +125,23 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col justify-around w-full xl:w-2/3">
+              <div className="flex flex-col justify-around w-full xl:w-2/3 ">
                 <div>
-                  <label htmlFor="first_name" className="self-start p-2">
+                  <label htmlFor="first_name" className="self-start p-2 text-white ">
                     First Name
                   </label>
                   <input
-                    className="w-full mb-3 p-2 border rounded-md"
+                    className="w-full mb-3 p-2 border rounded-md bg-[#DDE6ED]"
                     onChange={handleInputChange}
                     placeholder={user.first_name}
                     type="text"
                     name="first_name"
                   />
-                  <label htmlFor="last_name" className="self-start p-2">
+                  <label htmlFor="last_name" className="self-start p-2 text-white">
                     Last Name
                   </label>
                   <input
-                    className="w-full mb-3 p-2 border rounded-md"
+                    className="w-full mb-3 p-2 border rounded-md bg-[#DDE6ED]"
                     onChange={handleInputChange}
                     placeholder={user.last_name}
                     type="text"
@@ -151,11 +151,11 @@ const Profile = () => {
               </div>
             </div>
             <div className="flex flex-col justify-start mt-2">
-              <label htmlFor="email" className="self-start p-2">
+              <label htmlFor="email" className="self-start p-2 text-white">
                 Email
               </label>
               <input
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border rounded-md bg-[#DDE6ED]"
                 onChange={handleInputChange}
                 placeholder={user.email}
                 type="email"
@@ -164,12 +164,12 @@ const Profile = () => {
             </div>
 
             <div className="mb-3">
-              <div className="flex flex-col justify-start mt-2">
-                <label htmlFor="phone" className="self-start p-2">
+              <div className="flex flex-col justify-start mt-2 ">
+                <label htmlFor="phone" className="self-start p-2 text-white">
                   Phone
                 </label>
                 <input
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md bg-[#DDE6ED]"
                   onChange={handleInputChange}
                   type="tel"
                   id="phone"
@@ -180,7 +180,7 @@ const Profile = () => {
             </div>
             <div className="flex justify-end">
               <button
-                className="w-1/4 mr-3 p-2 bg-gray-800 hover:bg-gray-600 text-white rounded-xl mt-2"
+                className="w-1/4 mr-3 p-2 bg-[#526D82] hover:bg-[#27374D] text-white rounded-xl mt-2"
                 type="clear"
               >
                 Cancel
@@ -197,7 +197,7 @@ const Profile = () => {
               <p className="text-green-600 mt-2">{successMessage}</p>
             )}
             {error && (
-              <p className="text-red-600 mt-2">{error}</p>
+              <p className="text-gray-600 mt-2">{error}</p>
             )}
           </form>
         </div>

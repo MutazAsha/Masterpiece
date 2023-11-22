@@ -50,7 +50,7 @@ const Blogs = () => {
 
   return (
     <div data-aos="fade-up" className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">Our Blogs</h1>
+      <h1 className="text-[#27374D] text-4xl mb-6 font-bold item-center justify-center text-center">Our Blogs</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-4 my-4 w-10/12">
         {currentBlogs.map((blog) => (
           <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[25rem]">
@@ -72,7 +72,7 @@ const Blogs = () => {
               </p>
               <Link
   to={`/blog-details/${blog.id}`}
-  className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
+  className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600"
 >
   Read More
 </Link>

@@ -43,7 +43,7 @@ const Category = () => {
 
   return (
     <div data-aos="fade-up" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <h1 data-aos="fade-up" className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">Category</h1>
+      <h1 data-aos="fade-up" className="text-[#27374D] text-4xl mb-6 font-bold item-center justify-center text-center">Category</h1>
       <div data-aos="fade-up" className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2  w-full">
         {staticTitles.slice(0, visibleItems).map((title, index) => (
           <Link to={`/category/${title}`} key={index}>
@@ -66,7 +66,7 @@ const Category = () => {
       </div>
       <button
        
-        className="p-2 bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600"
+        className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600"
       >
         Show More
       </button>

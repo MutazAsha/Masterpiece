@@ -24,7 +24,7 @@ const BestTrainers = () => {
 
   return (
     <div data-aos="fade-up" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <h1 className="text-gray-800 text-4xl mb-6 font-bold item-center justify-center text-center">Best Trainers</h1>
+      <h1 className="text-[#27374D] text-4xl mb-6 font-bold item-center justify-center text-center">Best Trainers</h1>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {firstFourTrainers.map((trainer) => (
           <div key={trainer.id}>
@@ -35,12 +35,12 @@ const BestTrainers = () => {
                   src={trainer.image}
                   alt="Person"
                 />
-                <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-[#9DB2BF] bg-opacity-75 opacity-0 hover:opacity-100">
                   <p className="mb-1 text-lg font-bold text-gray-100">
                     {trainer.title}
                   </p>
                   <p className="mb-4 text-xs text-gray-100">{trainer.category}</p>
-                  <p className="mb-4 text-xs tracking-wide text-gray-400">
+                  <p className="mb-4 text-xs tracking-wide text-gray-100">
                     {trainer.description}
                   </p>
                 </div>
