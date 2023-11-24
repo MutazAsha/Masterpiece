@@ -34,9 +34,8 @@ const Trainers = () => {
 
   // Filter trainers based on search term
   const searchedTrainers = filteredTrainers.filter(
-    (trainer) => trainer.title.toLowerCase().includes(searchTerm.toLowerCase())
+    (trainer) => trainer.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
   const totalPages = Math.ceil(searchedTrainers.length / trainersPerPage);
 
   const handlePageChange = (pageNumber) => {
@@ -46,7 +45,7 @@ const Trainers = () => {
   const categories = ['All', 'electronics', 'jewelry', 'men clothing', 'women clothing'];
 
   return (
-    <div className="container mx-auto p-4">
+    <div className=" mx-28 my-28">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center space-x-4">
           <label htmlFor="category" className="text-gray-800 font-bold">
@@ -109,7 +108,7 @@ const Trainers = () => {
                 alt={trainer.title}
               />
               <div className="p-4">
-                <p className="text-lg font-bold text-gray-800">{trainer.title}</p>
+                <p className="text-lg font-bold text-gray-800">{trainer.name}</p>
                 <p className="mt-1 text-sm text-gray-600">{trainer.category}</p>
                 <p className="mt-2 text-sm text-gray-700">{trainer.description}</p>
               </div>

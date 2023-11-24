@@ -3,9 +3,8 @@ import axios from "axios";
 import Profile from "../Components/users/Profile";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import Blog from "../Components/users/Blog";
-import Course from "../Components/users/Course";
 
+import PlanUserProfaile from "../Components/users/PlanUserProfaile";
 
 const Account = () => {
   const [user, setUser] = useState([]);
@@ -15,18 +14,17 @@ const Account = () => {
   const history = useNavigate();
 
   // fetch products
-useEffect(() => {
-  axios
-    .get("http://localhost:5000/user")
-    .then((response) => {
-      setUser(response.data);
-      setPhotoPreview(response.data.profile_image_name);
-    })
-    .catch((error) => {
-      console.error("Error fetching user data:", error);
-    });
-}, []);
-
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/all_users")
+      .then((response) => {
+        setUser(response.data);
+        setPhotoPreview(response.data.profile_image_name);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   function logout() {
     removeCookie('token');
@@ -48,7 +46,7 @@ useEffect(() => {
   // to open and close sidebar //end
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mt-24">
       {/* sidebar */}
       <div className="relative w-[260px] h-full">
         <div
@@ -158,22 +156,12 @@ useEffect(() => {
                   </button>
                   <button
                     className="w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    onClick={() => setPage("Course")}
+                    onClick={() => setPage("PlanUserProfaile")}
                   >
-                    <span className="mx-2 text-sm font-medium">Course</span>
-                  </button>
-
-                  <button
-                    className="w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    onClick={() => setPage("Blog")}
-                  >
-                    <span className="mx-2 text-sm font-medium">Blogs</span>
+                    <span className="mx-2 text-sm font-medium">Training plan</span>
                   </button>
                 </div>
-            
                   
-                 
-
                 <div className="space-y-3 ">
                   <button
                     className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -205,13 +193,9 @@ useEffect(() => {
         <Profile />
       </div>
      
-      <div className={`${page == "Course" ? "block" : "hidden"} w-full`}>
-     <Course/>
+      <div className={`${page == "PlanUserProfaile" ? "block" : "hidden"} w-full`}>
+       <PlanUserProfaile/>
       </div>
-      <div className={`${page == "Blog" ? "block" : "hidden"} w-full`}>
-      <Blog/>
-      </div>
-
     </div>
   );
 };

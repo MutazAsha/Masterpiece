@@ -18,7 +18,7 @@ const Hero = () => {
   }, [currentSlide]);
 
   return (
-    <header className="bg-white dark:bg-gray-800 ">
+    <header className="bg-white dark:bg-gray-800 mt-24">
       <div data-aos="fade-up" className=" w-full flex flex-col md:flex-row md:items-center ">
         <div className="flex flex-col items-center w-full h-50">
           <div className="relative w-full md:order-2">

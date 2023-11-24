@@ -1,4 +1,5 @@
 // TrainerDetails.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
@@ -6,6 +7,7 @@ import Pricing from './Pricing';
 
 const TrainerDetails = () => {
   const [trainer, setTrainer] = useState({});
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
@@ -13,37 +15,49 @@ const TrainerDetails = () => {
       try {
         const response = await axios.get(`http://localhost:3000/Card/${id}`);
         setTrainer(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching trainer details: ', error);
+        setLoading(false);
       }
     };
 
     fetchTrainerDetails();
   }, [id]);
 
-  return (
-    <div className="container mx-auto p-8">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
-        <div className="md:w-2/3">
-          <img className="w-auto h-64 object-cover" src={trainer.image} alt={trainer.title} />
-        </div>
-        <div className="md:w-auto md:ml-8 mt-4 md:mt-0">
-          <h2 className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start">Coach : {trainer.name}</h2>
-          <p className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start">Category : {trainer.category}</p>
-          <h2 className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start">Title : {trainer.title}</h2>
-          <p className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start"> {trainer.description}</p>
+  if (loading) {
+    return <p>Loading...</p>; // You can replace this with a loading spinner or component
+  }
 
+  return (
+    <div className="w-full mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-6xl my-24 mt-32">
+      <div className="md:flex items-center">
+        <div className="md:shrink-0 ml-28">
+          <img
+            className="h-64 w-full object-cover md:h-full md:w-64 rounded-md"
+            src={trainer.image}
+            alt={`Image of ${trainer.name}`}
+          />
+        </div>
+        <div className="p-8">
          
+          <h2 className="block mt-4 text-3xl leading-tight font-bold text-black hover:underline w-10/12 text-start">
+           Name : {trainer.name}
+          </h2>
+          <div className="uppercase tracking-wide text-sm text-gray-500 font-semibold w-10/12 text-start">
+           Category : {trainer.category}
+          </div>
+          <p className="mt-2 text-gray-700 text-lg w-10/12 text-start">
+          Description : {trainer.description}
+          </p>
         </div>
       </div>
       <Pricing />
-      <>
-      <Link
-            to="/trainers"
-            className="inline-block text-sm px-4 py-2 leading-none border rounded-md text-gray-800 border-gray-800 hover:border-transparent hover:text-white hover:bg-gray-800"
-          >
-            &larr; Back to Trainers
-          </Link></>
+      <div className="bg-gray-800 text-white text-center py-2">
+        <Link to="/trainers" className="text-sm font-medium hover:underline">
+          &larr; Back to Trainers
+        </Link>
+      </div>
     </div>
   );
 };

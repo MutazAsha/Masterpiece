@@ -2,7 +2,7 @@
   "Card": [
     {
       "id": 1,
-      "name": "Mutaz",
+      "name": "amer",
       "title": "Day Services",
       "image": "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM1OTAwNDIyMzUwMzQx/main2-trainer2.jpg",
       "category": "Fitness",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "Mutaz",
+      "name": "Karam",
       "title": "Day Services",
       "image": "https://i.pinimg.com/564x/6e/a4/1f/6ea41fa6e6d92270460fc625034a0593.jpg",
       "category": "Fitness",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "name": "Mutaz",
+      "name": "yazan",
       "title": "Day Services",
       "image": "https://ifbb-academy.com/wp-content/uploads/2020/05/master.jpg",
       "category": "Fitness",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "name": "Mutaz",
+      "name": "Laith",
       "title": "Day Services",
       "image": "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM1OTAwNDIyMzUwMzQx/main2-trainer2.jpg",
       "category": "Fitness",
@@ -42,7 +42,7 @@
     },
     {
       "id": 6,
-      "name": "Mutaz",
+      "name": "hithem",
       "title": "Day Services",
       "image": "https://i.pinimg.com/564x/6e/a4/1f/6ea41fa6e6d92270460fc625034a0593.jpg",
       "category": "Fitness",
@@ -127,18 +127,172 @@
       "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
     }
   ],
+  "Payment": [
+    {
+      "userId": 123,  
+      "name": "John Doe",  
+      "email": "john.doe@example.com",  
+      "cardNumber": "0000111122223333",  
+      "expirationDate": "12/23",  
+      "securityCode": "123",  
+      "paymentDetails": 10  
+    }
+  ],
+
+  "Exercises": [
+    {
+      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
+      "name":"111111",
+      "category":"Fitness"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
+      "name":"222222",
+      "category":"body bulding"
+ 
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
+      "name":"333333",
+      "category":"CROSSFIT"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
+      "name":"444444",
+      "category":"CARDIO"
+      
+    },
+    {
+      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
+      "name":"555555",
+      "category":"Fitness"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
+      "name":"666666",
+      "category":"CROSSFIT"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
+      "name":"777777",
+      "category":"CARDIO"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
+      "name":"888888",
+      "category":"Fitness"
+      
+    },
+    {
+      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
+      "name":"111111",
+      "category":"Fitness"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
+      "name":"222222",
+      "category":"body bulding"
+ 
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
+      "name":"333333",
+      "category":"CROSSFIT"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
+      "name":"444444",
+      "category":"CARDIO"
+      
+    },
+    {
+      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
+      "name":"555555",
+      "category":"Fitness"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
+      "name":"666666",
+      "category":"CROSSFIT"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
+      "name":"777777",
+      "category":"CARDIO"
+      
+    },
+    {
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
+      "name":"888888",
+      "category":"Fitness"
+      
+    }
+  ],
+
+
+  "CourseDetails": [
+    {
+      "title": "PERSONAL",
+      "price": "$5/mo",
+      "features": [
+        "Lorem ipsum",
+        "Dolor sit amet"
+      ]
+    }
+  ],
+  "Pricing": [
+    {
+      "title": "PERSONAL",
+      "price": "$5/mo",
+      "features": [
+        "Lorem ipsum",
+        "Dolor sit amet"
+      ]
+    },
+    {
+      "title": "TEAM",
+      "price": "$15/mo",
+      "features": [
+        "Lorem ipsum",
+        "Dolor sit amet",
+        "Consectetur",
+        "Adipisicing",
+        "Elit repellat"
+      ]
+    },
+    {
+      "title": "PRO",
+      "price": "$35/mo",
+      "features": [
+        "Lorem ipsum",
+        "Dolor sit amet",
+        "Consectetur",
+        "Adipisicing",
+        "Much more..."
+      ]
+    }
+  ],
   "contactus": [
     {
       "id": 2,
       "email": "Mohammad@gmail.com",
-      "message": "Good",
-      "name": "Mohammad"
+      "message": "Goodp,.",
+      "name": "Mohdgdfammad"
     },
     {
       "id": 3,
       "email": "Asha@gmail.com ",
-      "message": "vary Good",
-      "name": "Asha"
+      "message": "iunpoi;m Good",
+      "name": "Ashanilpo"
     }
   ],
   "Users": [
@@ -169,7 +323,8 @@
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 7
+      "id": 7,
+      "name": "hjkuiol"
     },
     {
       "email": "Mutaz.123@gmail.com",
@@ -186,9 +341,98 @@
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
       "id": 10
+    },
+    {
+      "email": "Mutaz.123@gmail.com",
+      "password": "1cBn@4wlerg",
+      "id": 11
+    },
+    {
+      "email": "abdulah@gmail.com",
+      "password": "A123#aa",
+      "id": 12
     }
   ],
+
+  "faqData": [
+    {
+      "question": "How can I get started?",
+      "answer": "Getting started is easy! Sign up for an account, and you'll have access to our platform's features. No credit card required for the initial signup."
+    },
+    {
+      "question": "What is the pricing structure?",
+      "answer":
+        "Our pricing structure is flexible. We offer both free and paid plans. You can choose the one that suits your needs and budget.,"
+    },
+    {
+      "question": "What kind of support do you provide?",
+      "answer":
+        "We offer comprehensive customer support. You can reach out to our support team through various channels, including email, chat, and a knowledge base."
+    },
+    {
+      "question":" Can I cancel my subscription anytime?",
+      "answer":
+       " Yes, you can cancel your subscription at any time without any hidden fees. We believe in providing a hassle-free experience for our users."
+    }
+  ],
+
+  "statestic":
+  [
+    { "value": "75K+", "description": "Expert Chat & Call Minutes" },
+    { "value": "4.9", "description": "Average Expert Rating" },
+    { "value": "8900+", "description": "Sessions Completed" },
+    { "value": "1.5M+", "description": "App Downloads" }
+  ],
+  
+  "category": [
+    {
+     "image":" https://cdn.create.vista.com/api/media/small/219769518/stock-photo-handsome-athletic-sportsman-doing-push-ups-medicine-ball-dark-gym",
+     "category":"fitness"
+    },
+    {
+      "image":"https://i.pinimg.com/736x/54/cb/3e/54cb3edb4c34fd9e4df0f27531a86f69.jpg",
+      "category":"CROSSFIT"
+     },
+     {
+      "image":"https://crazybulk.com/cdn/shop/articles/b62be625668d55e643b0402c362cbf6c.png?v=1697628104",
+      "category":"CARDIO"
+     },
+     {
+      "image":"https://miro.medium.com/v2/resize:fit:1071/1*WNr4o3XKVcb556Al3beWAQ.jpeg",
+      "category":"BODY BUILDING"
+     },
+     {
+      "image":"https://i.insider.com/5c5ae009342cca01c71cf984?width=1136&format=jpeg",
+      "category":"kickboxing"
+     }
+  ],
+
+
   "blog": [
+    {
+      "id": 1,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "mutaz",
+      "blog_subdescription": "DZRGSER",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 2,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
+    {
+      "id": 3,
+      "blog_auter": "mutaz",
+      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
+      "blog_title": "Lorem ipsum dolor sit amet consectetur",
+      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+    },
     {
       "id": 4,
       "blog_auter": "mutaz",
@@ -212,62 +456,6 @@
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
       "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "Lorem ipsum dolor sit amet consectetur",
-      "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "blog_autor": "",
-      "blog_img": "",
-      "blog_title": "",
-      "blog_subdescription": "",
-      "blog_description": "ي",
-      "id": 7
     }
   ],
   "Regestart": [
@@ -291,58 +479,14 @@
       "id": 3
     }
   ],
-  "videos": [
-    {
-      "id": 1,
-      "title": "Video 1",
-      "thumbnailUrl": "https://example.com/thumbnail1.jpg",
-      "description": "Description for Video 1"
-    },
-    {
-      "id": 2,
-      "title": "Video 2",
-      "thumbnailUrl": "https://example.com/thumbnail2.jpg",
-      "description": "Description for Video 2"
-    },
-    {
-      "id": 3,
-      "title": "Video 3",
-      "thumbnailUrl": "https://example.com/thumbnail3.jpg",
-      "description": "Description for Video 3"
-    }
-  ],
   "Corse": [
     {
-      "id": 1,
-      "Course_Name": "Mutaz",
-      "Course_Category": "Day Services",
-      "Course_Duration": "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM1OTAwNDIyMzUwMzQx/main2-trainer2.jpg",
-      "Pricing": "Fitness",
-      "Course_description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
-    },
-    {
-      "Course_Name": "rgef",
+      "Course_Name": "sxecee",
       "Course_Category": "Grossfit",
       "Course_Duration": "333",
       "Pricing": "32",
-      "Course_description": "rf",
-      "id": 2
-    },
-    {
-      "Course_Name": "rgef",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "333",
-      "Pricing": "32",
-      "Course_description": "rf",
+      "Course_description": "ce",
       "id": 3
-    },
-    {
-      "Course_Name": "rgef",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "333",
-      "Pricing": "32",
-      "Course_description": "rf",
-      "id": 4
     },
     {
       "Course_Name": "rgef",
@@ -439,6 +583,22 @@
       "Pricing": "111",
       "Course_description": "11",
       "id": 12
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Cardio",
+      "Course_Duration": "22222",
+      "Pricing": "4444",
+      "Course_description": "231e",
+      "id": 13
+    },
+    {
+      "Course_Name": "11111",
+      "Course_Category": "Cardio",
+      "Course_Duration": "22222",
+      "Pricing": "4444",
+      "Course_description": "231e",
+      "id": 14
     }
   ]
 }

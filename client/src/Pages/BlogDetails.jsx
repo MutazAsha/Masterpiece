@@ -35,82 +35,48 @@ const BlogDetails = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-     <div className="px-4 md:px-10 py-6 mx-auto flex flex-col md:flex-row ml-20">
-  <div className="md:w-auto md:pr-8">
-    <img
-      src={blog.blog_img}
-      alt=""
-      className="h-80 object-cover mb-4 md:mb-0 rounded-md shadow-lg"
-    />
-   
-  </div>
-  <div className="md:w-1/2">
-
-
-
-    <div className="w-full bg-white rounded-md overflow-hidden shadow-lg p-8">
-    <h1 className="text-1xl md:text-2xl lg:text-1xl font-bold text-gray-800 mb-4 text-start">
-    Auther : {blog.blog_auther}
-      </h1>
-  
-      <h1 className="text-1xl md:text-2xl lg:text-1xl font-bold text-gray-800 mb-4 text-start">
-      Title :  {blog.blog_title}
-      </h1>
-      <div className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start">
-        <p className="mt-2 leading-relaxed">{blog.blog_description}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <div className="px-4 md:px-10 mt-8 ">
-        <h2 className="text-2xl md:text-3xl text-gray-800 font-bold text-center mb-4">
-          Related Posts
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 w-full">
-          {relatedPosts.map((relatedPost) => (
-            <div
-              key={relatedPost.id}
-              className="bg-white rounded-md overflow-hidden shadow-lg "
-            >
-              <Link to={`/blog-details/${relatedPost.id}`}>
-                <img
-                  src={relatedPost.blog_img}
-                  alt=""
-                  className="w-full h-40 object-cover rounded-t-md "
-                />
-              </Link>
-              <div className="p-4">
-                <Link to={`/blog-details/${relatedPost.id}`}>
-                  <h5 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">
-                    {relatedPost.blog_title}
-                  </h5>
-                </Link>
-                <p className="mb-3 text-sm text-gray-700 dark:text-gray-400">
-                  {relatedPost.blog_description}
-                </p>
-                <Link
-  to={`/blog-details/${blog.id}`}
-  className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600"
->
-  Read More
-</Link>
-              </div>
+    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
+      <div
+        className="bg-cover bg-center text-center overflow-hidden"
+        style={{
+          minHeight: 500,
+          backgroundImage: `url("${blog.blog_img}")`,
+        }}
+        title={blog.blog_title}
+      ></div>
+      <div className="max-w-3xl mx-auto">
+        <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
+          <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
+            <h1 className="text-gray-900 font-bold text-3xl mb-2">{blog.blog_title}</h1>
+            <p className="text-gray-700 text-xs mt-2">
+              Author:{" "}
+              <a
+                href="#"
+                className="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out"
+              >
+                {blog.blog_auther}
+              </a>
+            </p>
+            <div className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start">
+              <p className="mt-2 leading-relaxed">{blog.blog_description}</p>
             </div>
-          ))}
+          </div>
         </div>
-        
       </div>
-      <br/>
-      <br/>
-      <><Link
-            to="/blogs"
-            className="inline-block text-sm px-4 py-2 leading-none border rounded-md text-gray-800 border-gray-800 hover:border-transparent hover:text-white hover:bg-gray-800"
-          >
-            &larr; Back to blogs
-          </Link></><br/>
-      <br/>
+
+      
+      <br />
+      <br />
+      <>
+        <Link
+          to="/blogs"
+          className="inline-block text-sm px-4 py-2 leading-none border rounded-md text-gray-800 border-gray-800 hover:border-transparent hover:text-white hover:bg-gray-800"
+        >
+          &larr; Back to blogs
+        </Link>
+      </>
+      <br />
+      <br />
     </div>
   );
 };

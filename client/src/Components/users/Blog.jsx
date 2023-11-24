@@ -1,6 +1,9 @@
+// Blog.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
+import UpdateBlog from "../UpdateBlog";
 import BlogForm from "../BlogForm";
 
 const Blog = () => {
@@ -8,6 +11,7 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showPopup, setShowPopup] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState("");
+  const [updateBlogData, setUpdateBlogData] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,14 +36,16 @@ const Blog = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleUpdate = (blogId) => {
-    navigate(`/update-blog/${blogId}`);
+    const blogToUpdate = blogs.find((blog) => blog.id === blogId);
+    setUpdateBlogData(blogToUpdate);
+    setShowPopup(true);
   };
 
   const handleDelete = async (blogId) => {
     try {
       await axios.delete(`http://localhost:3000/blog/${blogId}`);
       setDeleteMessage("Blog deleted successfully.");
-  
+
       // Refetch the data after successful deletion
       const response = await axios.get("http://localhost:3000/blog");
       setBlogs(response.data);
@@ -56,6 +62,7 @@ const Blog = () => {
   };
 
   const handleAdd = () => {
+    setUpdateBlogData(null);
     setShowPopup(true);
   };
 
@@ -143,21 +150,28 @@ const Blog = () => {
 
         {/* Popup */}
         {showPopup && (
-  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
-    <div className="bg-white p-8 rounded-md shadow-lg w-96">
-      {/* Display the content of BlogForm in Popup */}
-      <BlogForm onClose={() => setShowPopup(false)} />
+          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+            <div className="bg-white p-8 rounded-md shadow-lg w-96">
+              {/* Display the content of BlogForm or UpdateBlogForm based on updateBlogData */}
+              {updateBlogData ? (
+                <UpdateBlog
+                  onClose={() => setShowPopup(false)}
+                  blogData={updateBlogData}
+                />
+              ) : (
+                <BlogForm onClose={() => setShowPopup(false)} />
+              )}
 
-      {/* Add a close button */}
-      <button
-        className=" p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mb-10"
-        onClick={() => setShowPopup(false)}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
+              {/* Add a close button */}
+              <button
+                className=" p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mb-10"
+                onClick={() => setShowPopup(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

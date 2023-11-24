@@ -30,11 +30,13 @@ const CategoryContent = () => {
   const filteredTrainers =
     selectedCategory === 'All'
       ? currentTrainers
-      : currentTrainers.filter((trainer) => trainer.category.toLowerCase() === selectedCategory.toLowerCase());
+      : currentTrainers.filter(
+          (trainer) => trainer.category && trainer.category.toLowerCase() === selectedCategory.toLowerCase()
+        );
 
   // Filter trainers based on search term
   const searchedTrainers = filteredTrainers.filter(
-    (trainer) => trainer.title.toLowerCase().includes(searchTerm.toLowerCase())
+    (trainer) => trainer.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const totalPages = Math.ceil(searchedTrainers.length / trainersPerPage);
@@ -48,7 +50,6 @@ const CategoryContent = () => {
       <div className="flex items-center justify-center flex-wrap mb-4 space-x-4">
         {/* Search Input */}
         <div>
-         
           <div className="relative text-gray-600 focus-within:text-gray-400">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
               <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
@@ -78,7 +79,7 @@ const CategoryContent = () => {
         </div>
       </div>
 
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mx-28 my-28">
         {searchedTrainers.map((trainer) => (
           <div key={trainer.id} className="bg-white overflow-hidden rounded-lg shadow-md">
             <Link to={`/trainers/${trainer.id}`}>
@@ -89,7 +90,7 @@ const CategoryContent = () => {
               />
             </Link>
             <div className="p-4">
-              <p className="text-lg font-bold text-gray-800">{trainer.title}</p>
+              <p className="text-lg font-bold text-gray-800">{trainer.name}</p>
               <p className="mt-1 text-sm text-gray-600">{trainer.category}</p>
               <p className="mt-2 text-sm text-gray-700">{trainer.description}</p>
             </div>

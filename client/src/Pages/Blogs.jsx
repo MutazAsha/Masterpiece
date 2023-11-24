@@ -1,15 +1,53 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
+const BlogCard = ({ blog }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className={`max-w-sm rounded overflow-hidden shadow-lg transition-transform duration-300 transform ${
+        isHovered ? "scale-105" : ""
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Link to={`/blog-details/${blog.id}`}>
+        <img
+          className="w-full h-40 object-cover"
+          src={blog.blog_img}
+          alt={blog.blog_title}
+        />
+      </Link>
+      <div className="px-6 py-4">
+        <Link to={`/blog-details/${blog.id}`}>
+          <div className="font-bold text-xl mb-2 text-gray-900 dark:text-white">
+            {blog.blog_title}
+          </div>
+        </Link>
+        <p className="text-sm text-gray-700 dark:text-gray-400">
+          {blog.blog_subdescription}
+        </p>
+      </div>
+      <div className="px-6 py-4">
+        <Link
+          to={`/blog-details/${blog.id}`}
+          className="inline-block bg-gradient-to-r from-[#F28767] to-[#FDB079] text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 hover:from-yellow-500 hover:to-orange-600"
+        >
+          Read More
+        </Link>
+      </div>
+    </div>
+  );
+};
+
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 6;
-  const maxVisiblePages = 3;
 
-  useEffect(() => { AOS.init();
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:3000/blog");
@@ -20,7 +58,7 @@ const Blogs = () => {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
@@ -30,55 +68,14 @@ const Blogs = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const renderPageNumbers = () => {
-    const pageNumbers = Array.from({ length: Math.ceil(blogs.length / blogsPerPage) }, (_, index) => index + 1);
-    const visiblePageNumbers = pageNumbers.slice(Math.max(currentPage - 1, 0), currentPage - 1 + maxVisiblePages);
-
-    return visiblePageNumbers.map((number) => (
-      <button
-        key={number}
-        onClick={() => paginate(number)}
-        className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
-          currentPage === number ? "bg-gray-800" : ""
-        }`}
-        style={{ width: "40px", height: "40px", borderRadius: "50%" }}
-      >
-        {number}
-      </button>
-    ));
-  };
-
   return (
-    <div data-aos="fade-up" className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-[#27374D] text-4xl mb-6 font-bold item-center justify-center text-center">Our Blogs</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen mt-24">
+      <h1 className="text-[#27374D] text-4xl mb-6 font-bold item-center justify-center text-center">
+        Our Blogs
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-4 my-4 w-10/12">
         {currentBlogs.map((blog) => (
-          <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[25rem]">
-            <Link to="#">
-            <img
-                src={blog.blog_img}
-                alt=""
-                className="w-[25rem] h-40 object-cover"
-              />
-            </Link>
-            <div className="p-4 w-[25rem]">
-              <Link to="#">
-                <h5 className="w-[25rem] mb-2 text-xl font-bold text-gray-900 dark:text-white">
-                  {blog.blog_title}
-                </h5>
-              </Link>
-              <p className="w-[25rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
-                {blog.blog_subdescription}
-              </p>
-              <Link
-  to={`/blog-details/${blog.id}`}
-  className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600"
->
-  Read More
-</Link>
-
-            </div>
-          </div>
+          <BlogCard key={blog.id} blog={blog} />
         ))}
       </div>
       <div className="col-span-full flex justify-center mt-4">
@@ -89,7 +86,22 @@ const Blogs = () => {
         >
           Prev
         </button>
-        {renderPageNumbers()}
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => paginate(index + 1)}
+            className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
+              currentPage === index + 1 ? "bg-gray-800" : ""
+            }`}
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "50%",
+            }}
+          >
+            {index + 1}
+          </button>
+        ))}
         <button
           className="mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full"
           onClick={() => paginate(currentPage + 1)}

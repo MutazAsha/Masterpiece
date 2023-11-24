@@ -8,11 +8,13 @@ import Blogs from './Blogs'
 import Calculator from './Calculator'
 import BestTrainers from '../Components/Landing/BestTrainers'
 import Faqs from '../Components/Landing/Faqs'
+import Statestic from '../Components/Landing/Statestic'
 
 const Home = () => {
   return (
     <div>
       <Hero /> 
+      <Statestic/>
      <BestTrainers/>
       <Category />
          <Calculator/>

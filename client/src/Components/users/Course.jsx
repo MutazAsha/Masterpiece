@@ -1,13 +1,17 @@
+// Course.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import AddTrainingCoursePage from "../AddCourse";
+
+import UpdatePlan from "../UpdatePlan";
 
 const Course = () => {
   const [courses, setCourses] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [showPopup, setShowPopup] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState("");
+  const [updateCourseId, setUpdateCourseId] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,12 +36,13 @@ const Course = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleUpdate = (courseId) => {
-    navigate(`/update-course/${courseId}`);
+    setUpdateCourseId(courseId);
+    setShowPopup(true);
   };
 
   const handleDelete = async (courseId) => {
     try {
-      await axios.delete(`http://localhost:3000/courses/${courseId}`);
+      await axios.delete(`http://localhost:3000/Corse/${courseId}`);
       setDeleteMessage("Course deleted successfully.");
 
       // Refetch the data after successful deletion
@@ -57,6 +62,7 @@ const Course = () => {
 
   const handleAdd = () => {
     setShowPopup(true);
+    setUpdateCourseId(null); // Reset the updateCourseId when adding a new course
   };
 
   return (
@@ -142,7 +148,11 @@ const Course = () => {
         {showPopup && (
           <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-4 rounded-md shadow-lg">
-              <AddTrainingCoursePage onClose={() => setShowPopup(false)} />
+              {updateCourseId ? (
+                <UpdatePlan courseId={updateCourseId} onClose={() => setShowPopup(false)} />
+              ) : (
+                <AddTrainingCoursePage onClose={() => setShowPopup(false)} />
+              )}
               <button
                 className="mt-4 p-2 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none"
                 onClick={() => setShowPopup(false)}

@@ -7,7 +7,7 @@ import Blog from "../Components/users/Blog";
 import Course from "../Components/users/Course";
 
 
-const Account = () => {
+const AccountTrainers = () => {
   const [user, setUser] = useState([]);
   const [page, setPage] = useState("profile");
   const [photoPreview, setPhotoPreview] = useState(null);
@@ -48,7 +48,7 @@ useEffect(() => {
   // to open and close sidebar //end
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mt-24">
       {/* sidebar */}
       <div className="relative w-[260px] h-full">
         <div
@@ -160,7 +160,7 @@ useEffect(() => {
                     className="w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
                     onClick={() => setPage("Course")}
                   >
-                    <span className="mx-2 text-sm font-medium">Course</span>
+                    <span className="mx-2 text-sm font-medium">Training plan</span>
                   </button>
 
                   <button
@@ -216,4 +216,4 @@ useEffect(() => {
   );
 };
 
-export default Account;
+export default AccountTrainers;

@@ -6,27 +6,27 @@ import Cookies from 'js-cookie';
 
 const SignIn = () => {
   const history = useNavigate();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSignIn = async () => {
-    if (!email || !password) {
-      setError('Email and password are required.');
+    if (!username || !password) {
+      setError('Username and password are required.');
       return;
     }
 
     try {
       setLoading(true);
-      const response = await axios.post(' http://localhost:3000/Users', {
-        email: email,
+      const response = await axios.post('http://localhost:8080/login', {
+        username: username,
         password: password,
       });
 
-      const token = response.data.token;
-      const user_id = response.data.user_id;
-
+      const token = response.accessToken;
+      const user_id = response.Id;
+      console.log("1111111",token);
       Cookies.set('token', token);
       Cookies.set('user_id', user_id);
 
@@ -37,7 +37,7 @@ const SignIn = () => {
     } catch (error) {
       setTimeout(() => {
         console.error('Sign-in error:', error);
-        setError('Sign-in failed. Email or password is invalid');
+        setError('Sign-in failed. Username or password is invalid');
       }, 300);
     } finally {
       setLoading(false);
@@ -52,11 +52,11 @@ const SignIn = () => {
           <div>
             <input
               className="w-full p-2 border rounded-md mt-4"
-              placeholder="Email"
-              type="email"
+              placeholder="Username"
+              type="text"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <input
               className="w-full p-2 border rounded-md mt-4"

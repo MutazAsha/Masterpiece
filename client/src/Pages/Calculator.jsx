@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AOS from "aos";
-import "aos/dist/aos.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Calculator = () => {
   const [height, setHeight] = useState('');
@@ -15,10 +15,10 @@ const Calculator = () => {
   }, []);
 
   const tableItems = [
-    { name: "18-25", email: "Normal Weight" },
-    { name: "25-30", email: "Overweight" },
-    { name: "30-40", email: "Obesity" },
-    { name: "40-above", email: "Morbid Obesity" },
+    { name: '18-25', email: 'Normal Weight' },
+    { name: '25-30', email: 'Overweight' },
+    { name: '30-40', email: 'Obesity' },
+    { name: '40-above', email: 'Morbid Obesity' },
   ];
 
   const calculateBMI = () => {
@@ -51,7 +51,7 @@ const Calculator = () => {
 
   return (
     <section data-aos="fade-up" className="calculator-section flex items-center justify-center min-h-screen bg-white">
-      <div className="container w-10/12 mx-auto p-8 bg-gray-40 shadow-lg rounded-lg flex flex-col items-center justify-center">
+      <div className="container w-10/12 mx-auto p-8 bg-gray-100 shadow-lg rounded-lg flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-6 text-center text-[#27374D]">BMI CALCULATOR</h1>
         <form className="bg-gray-200 p-6 rounded-md w-10/12">
           {error && <p className="text-red-500 mb-4">{error}</p>}
@@ -60,7 +60,7 @@ const Calculator = () => {
               Height (cm)
             </label>
             <input
-              className="input-field w-10/12"
+              className="input-field w-full"
               id="height"
               type="number"
               placeholder="e.g., 169"
@@ -73,7 +73,7 @@ const Calculator = () => {
               Weight (kg)
             </label>
             <input
-              className="input-field w-10/12"
+              className="input-field w-full"
               id="weight"
               type="number"
               placeholder="e.g., 68"
@@ -83,7 +83,7 @@ const Calculator = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="p-2 bg-gray-800 text-white rounded-xl mt-2  hover:bg-gray-600 "
+              className="p-3 bg-gradient-to-r from-[#F28767] to-[#FDB079] rounded-xl mt-2 hover:bg-[#1a2d3f] transition-all duration-300"
               type="button"
               onClick={calculateBMI}
             >
@@ -105,13 +105,13 @@ const Calculator = () => {
           <h3 className="text-xl font-bold text-[#27374D] mb-4">BODY MASS INDEX</h3>
           <div className="shadow-sm border rounded-lg overflow-x-auto">
             <table className="w-full table-auto text-sm text-left">
-              <thead className="bg-gray-50 text-gray-600 font-medium border-b">
+              <thead className="bg-[#27374D] text-white font-medium border-b">
                 <tr>
                   <th className="py-2 px-4 text-center">BMI</th>
                   <th className="py-2 px-4 text-center">CLASSIFICATION</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-600 divide-y">
+              <tbody className="text-[#27374D] divide-y">
                 {tableItems.map((item, idx) => (
                   <tr key={idx} className="divide-x">
                     <td className="px-4 py-2 text-center">{item.name}</td>
