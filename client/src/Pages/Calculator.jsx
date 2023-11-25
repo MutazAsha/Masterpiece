@@ -83,7 +83,7 @@ const Calculator = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="p-3 bg-gradient-to-r from-[#F28767] to-[#FDB079] rounded-xl mt-2 hover:bg-[#1a2d3f] transition-all duration-300"
+              className="p-3 bg-gradient-to-r from-[#F28767] to-[#FDB079] rounded-xl mt-2 hover:bg-gradient-to-r from-[#1A202C] to-[#2D3748] transition-all duration-300 text-white"
               type="button"
               onClick={calculateBMI}
             >

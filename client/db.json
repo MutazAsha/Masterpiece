@@ -129,116 +129,97 @@
   ],
   "Payment": [
     {
-      "userId": 123,  
-      "name": "John Doe",  
-      "email": "john.doe@example.com",  
-      "cardNumber": "0000111122223333",  
-      "expirationDate": "12/23",  
-      "securityCode": "123",  
-      "paymentDetails": 10  
+      "userId": 123,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "cardNumber": "0000111122223333",
+      "expirationDate": "12/23",
+      "securityCode": "123",
+      "paymentDetails": 10
     }
   ],
-
   "Exercises": [
     {
-      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
-      "name":"111111",
-      "category":"Fitness"
-      
+      "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
+      "name": "111111",
+      "category": "Fitness"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
-      "name":"222222",
-      "category":"body bulding"
- 
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
+      "name": "222222",
+      "category": "body bulding"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
-      "name":"333333",
-      "category":"CROSSFIT"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
+      "name": "333333",
+      "category": "CROSSFIT"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
-      "name":"444444",
-      "category":"CARDIO"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
+      "name": "444444",
+      "category": "CARDIO"
     },
     {
-      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
-      "name":"555555",
-      "category":"Fitness"
-      
+      "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
+      "name": "555555",
+      "category": "Fitness"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
-      "name":"666666",
-      "category":"CROSSFIT"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
+      "name": "666666",
+      "category": "CROSSFIT"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
-      "name":"777777",
-      "category":"CARDIO"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
+      "name": "777777",
+      "category": "CARDIO"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
-      "name":"888888",
-      "category":"Fitness"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
+      "name": "888888",
+      "category": "Fitness"
     },
     {
-      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
-      "name":"111111",
-      "category":"Fitness"
-      
+      "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
+      "name": "111111",
+      "category": "Fitness"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
-      "name":"222222",
-      "category":"body bulding"
- 
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
+      "name": "222222",
+      "category": "body bulding"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
-      "name":"333333",
-      "category":"CROSSFIT"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
+      "name": "333333",
+      "category": "CROSSFIT"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
-      "name":"444444",
-      "category":"CARDIO"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
+      "name": "444444",
+      "category": "CARDIO"
     },
     {
-      "image":"https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
-      "name":"555555",
-      "category":"Fitness"
-      
+      "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
+      "name": "555555",
+      "category": "Fitness"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
-      "name":"666666",
-      "category":"CROSSFIT"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
+      "name": "666666",
+      "category": "CROSSFIT"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
-      "name":"777777",
-      "category":"CARDIO"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
+      "name": "777777",
+      "category": "CARDIO"
     },
     {
-      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
-      "name":"888888",
-      "category":"Fitness"
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
+      "name": "888888",
+      "category": "Fitness"
     }
   ],
-
-
   "CourseDetails": [
     {
       "title": "PERSONAL",
@@ -351,9 +332,18 @@
       "email": "abdulah@gmail.com",
       "password": "A123#aa",
       "id": 12
+    },
+    {
+      "username": "aaasasaa",
+      "password": "1cBn@4wlerg",
+      "id": 13
+    },
+    {
+      "username": "aaasasaa",
+      "password": "1cBn@4wlerg",
+      "id": 14
     }
   ],
-
   "faqData": [
     {
       "question": "How can I get started?",
@@ -361,53 +351,57 @@
     },
     {
       "question": "What is the pricing structure?",
-      "answer":
-        "Our pricing structure is flexible. We offer both free and paid plans. You can choose the one that suits your needs and budget.,"
+      "answer": "Our pricing structure is flexible. We offer both free and paid plans. You can choose the one that suits your needs and budget.,"
     },
     {
       "question": "What kind of support do you provide?",
-      "answer":
-        "We offer comprehensive customer support. You can reach out to our support team through various channels, including email, chat, and a knowledge base."
+      "answer": "We offer comprehensive customer support. You can reach out to our support team through various channels, including email, chat, and a knowledge base."
     },
     {
-      "question":" Can I cancel my subscription anytime?",
-      "answer":
-       " Yes, you can cancel your subscription at any time without any hidden fees. We believe in providing a hassle-free experience for our users."
+      "question": " Can I cancel my subscription anytime?",
+      "answer": " Yes, you can cancel your subscription at any time without any hidden fees. We believe in providing a hassle-free experience for our users."
     }
   ],
-
-  "statestic":
-  [
-    { "value": "75K+", "description": "Expert Chat & Call Minutes" },
-    { "value": "4.9", "description": "Average Expert Rating" },
-    { "value": "8900+", "description": "Sessions Completed" },
-    { "value": "1.5M+", "description": "App Downloads" }
-  ],
-  
-  "category": [
+  "statestic": [
     {
-     "image":" https://cdn.create.vista.com/api/media/small/219769518/stock-photo-handsome-athletic-sportsman-doing-push-ups-medicine-ball-dark-gym",
-     "category":"fitness"
+      "value": "75K+",
+      "description": "Expert Chat & Call Minutes"
     },
     {
-      "image":"https://i.pinimg.com/736x/54/cb/3e/54cb3edb4c34fd9e4df0f27531a86f69.jpg",
-      "category":"CROSSFIT"
-     },
-     {
-      "image":"https://crazybulk.com/cdn/shop/articles/b62be625668d55e643b0402c362cbf6c.png?v=1697628104",
-      "category":"CARDIO"
-     },
-     {
-      "image":"https://miro.medium.com/v2/resize:fit:1071/1*WNr4o3XKVcb556Al3beWAQ.jpeg",
-      "category":"BODY BUILDING"
-     },
-     {
-      "image":"https://i.insider.com/5c5ae009342cca01c71cf984?width=1136&format=jpeg",
-      "category":"kickboxing"
-     }
+      "value": "4.9",
+      "description": "Average Expert Rating"
+    },
+    {
+      "value": "8900+",
+      "description": "Sessions Completed"
+    },
+    {
+      "value": "1.5M+",
+      "description": "App Downloads"
+    }
   ],
-
-
+  "category": [
+    {
+      "image": " https://cdn.create.vista.com/api/media/small/219769518/stock-photo-handsome-athletic-sportsman-doing-push-ups-medicine-ball-dark-gym",
+      "category": "fitness"
+    },
+    {
+      "image": "https://i.pinimg.com/736x/54/cb/3e/54cb3edb4c34fd9e4df0f27531a86f69.jpg",
+      "category": "CROSSFIT"
+    },
+    {
+      "image": "https://crazybulk.com/cdn/shop/articles/b62be625668d55e643b0402c362cbf6c.png?v=1697628104",
+      "category": "CARDIO"
+    },
+    {
+      "image": "https://miro.medium.com/v2/resize:fit:1071/1*WNr4o3XKVcb556Al3beWAQ.jpeg",
+      "category": "BODY BUILDING"
+    },
+    {
+      "image": "https://i.insider.com/5c5ae009342cca01c71cf984?width=1136&format=jpeg",
+      "category": "kickboxing"
+    }
+  ],
   "blog": [
     {
       "id": 1,
@@ -466,7 +460,7 @@
       "email": "Mutaz.123@gmail.com",
       "first_name": "Mutaz",
       "last_name": "Asha",
-      "password": "1cBn@4wlerg",
+      "password": "c",
       "phone": "234523543",
       "id": 2
     },
@@ -481,14 +475,7 @@
   ],
   "Corse": [
     {
-      "Course_Name": "sxecee",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "333",
-      "Pricing": "32",
-      "Course_description": "ce",
-      "id": 3
-    },
-    {
+      "course_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvs4kONChp4lOSA-K4Js2kqYpHuqhytsYTTQpBnki4DeG42wH-iIfUhuM82_XMN0CLldE&usqp=CAU",
       "Course_Name": "rgef",
       "Course_Category": "Grossfit",
       "Course_Duration": "333",
@@ -497,6 +484,7 @@
       "id": 3
     },
     {
+      "course_img": "https://infinitefitnesspro.com/wp-content/uploads/2021/07/Skinny-Fat-Workout-Plan.jpg",
       "Course_Name": "rgef",
       "Course_Category": "Grossfit",
       "Course_Duration": "333",
@@ -505,6 +493,7 @@
       "id": 4
     },
     {
+      "course_img": "https://i.ytimg.com/vi/04rFyiDjgVQ/mqdefault.jpg",
       "Course_Name": "rgef",
       "Course_Category": "Grossfit",
       "Course_Duration": "333",
@@ -513,6 +502,7 @@
       "id": 3
     },
     {
+      "course_img": "https://i.ytimg.com/vi/JMeAhQmntmE/maxresdefault.jpg",
       "Course_Name": "rgef",
       "Course_Category": "Grossfit",
       "Course_Duration": "333",
@@ -521,6 +511,7 @@
       "id": 4
     },
     {
+      "course_img": "https://i.ytimg.com/vi/GcCQHW5SqRw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBiXF-yIEAav4285doTgdTAARHmXg",
       "Course_Name": "xdgvbfxdb",
       "Course_Category": "Grossfit",
       "Course_Duration": "122",
@@ -529,6 +520,7 @@
       "id": 5
     },
     {
+      "course_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVUrFH_dSMKzLfonCn7yRyGEgkVXqACdLFg&usqp=CAU",
       "Course_Name": "11111",
       "Course_Category": "Grossfit",
       "Course_Duration": "1111",
@@ -537,6 +529,7 @@
       "id": 6
     },
     {
+      "course_img": "https://i.ytimg.com/vi/GcCQHW5SqRw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBiXF-yIEAav4285doTgdTAARHmXg",
       "Course_Name": "11111",
       "Course_Category": "Grossfit",
       "Course_Duration": "1111",
@@ -545,6 +538,7 @@
       "id": 7
     },
     {
+      "course_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVUrFH_dSMKzLfonCn7yRyGEgkVXqACdLFg&usqp=CAU",
       "Course_Name": "11111",
       "Course_Category": "Grossfit",
       "Course_Duration": "1111",
@@ -553,52 +547,155 @@
       "id": 8
     },
     {
+      "course_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVUrFH_dSMKzLfonCn7yRyGEgkVXqACdLFg&usqp=CAU",
       "Course_Name": "11111",
       "Course_Category": "Grossfit",
       "Course_Duration": "1111",
       "Pricing": "111",
       "Course_description": "11",
       "id": 9
+    }
+  ],
+  "Nutrition": [
+    {
+      "id": 1,
+      "nutrient": "Serving Size",
+      "amount": "1 cup (240g)",
+      "dailyValue": "20%"
     },
     {
-      "Course_Name": "11111",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "1111",
-      "Pricing": "111",
-      "Course_description": "11",
-      "id": 10
+      "id": 2,
+      "nutrient": "Amount Per Serving",
+      "amount": "",
+      "dailyValue": ""
     },
     {
-      "Course_Name": "11111",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "1111",
-      "Pricing": "111",
-      "Course_description": "11",
-      "id": 11
+      "id": 3,
+      "nutrient": "Calories",
+      "amount": "200",
+      "dailyValue": ""
     },
     {
-      "Course_Name": "11111",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "1111",
-      "Pricing": "111",
-      "Course_description": "11",
-      "id": 12
+      "id": 4,
+      "nutrient": "Total Fat",
+      "amount": "10g",
+      "dailyValue": ""
     },
     {
-      "Course_Name": "11111",
-      "Course_Category": "Cardio",
-      "Course_Duration": "22222",
-      "Pricing": "4444",
-      "Course_description": "231e",
-      "id": 13
+      "id": 5,
+      "nutrient": "Saturated Fat",
+      "amount": "2g",
+      "dailyValue": ""
     },
     {
-      "Course_Name": "11111",
-      "Course_Category": "Cardio",
-      "Course_Duration": "22222",
-      "Pricing": "4444",
-      "Course_description": "231e",
-      "id": 14
+      "id": 6,
+      "nutrient": "Trans Fat",
+      "amount": "0g",
+      "dailyValue": ""
+    },
+    {
+      "id": 7,
+      "nutrient": "Cholesterol",
+      "amount": "20mg",
+      "dailyValue": ""
+    },
+    {
+      "id": 8,
+      "nutrient": "Sodium",
+      "amount": "300mg",
+      "dailyValue": ""
+    },
+    {
+      "id": 9,
+      "nutrient": "Total Carbohydrates",
+      "amount": "20g",
+      "dailyValue": ""
+    },
+    {
+      "id": 10,
+      "nutrient": "Dietary Fiber",
+      "amount": "2g",
+      "dailyValue": ""
+    },
+    {
+      "id": 11,
+      "nutrient": "Sugars",
+      "amount": "4g",
+      "dailyValue": ""
+    },
+    {
+      "id": 12,
+      "nutrient": "Protein",
+      "amount": "10g",
+      "dailyValue": ""
+    },
+    {
+      "id": 13,
+      "nutrient": "Vitamin A",
+      "amount": "8%",
+      "dailyValue": "30%"
+    },
+    {
+      "id": 14,
+      "nutrient": "Vitamin C",
+      "amount": "2%",
+      "dailyValue": ""
+    },
+    {
+      "id": 15,
+      "nutrient": "Calcium",
+      "amount": "6%",
+      "dailyValue": ""
+    },
+    {
+      "id": 16,
+      "nutrient": "Iron",
+      "amount": "4%",
+      "dailyValue": ""
+    }
+  ],
+  "Workout": [
+    {
+      "id": 2,
+      "name": "Squats",
+      "repetitions": 12,
+      "rest": "1.5 minutes"
+    },
+    {
+      "id": 3,
+      "name": "Squats",
+      "repetitions": 12,
+      "rest": "1.5 minutes"
+    },
+    {
+      "id": 4,
+      "name": "Squats",
+      "repetitions": 12,
+      "rest": "1.5 minutes"
+    },
+    {
+      "id": 5,
+      "name": "Squats",
+      "repetitions": 12,
+      "rest": "1.5 minutes"
+    },
+    {
+      "id": 6,
+      "name": "Squats",
+      "repetitions": 12,
+      "rest": "1.5 minutes"
+    },
+    {
+      "name": "raeg",
+      "repetitions": "WGER",
+      "rest": "AHGE",
+      "id": 7
+    },
+    {
+      "name": "SDFs",
+      "repetitions": "123",
+      "rest": "12312",
+      "id": 8
     }
   ]
 }

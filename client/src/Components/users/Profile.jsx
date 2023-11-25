@@ -15,7 +15,6 @@ const Profile = () => {
 
   useEffect(() => {
     if (cookie.token !== undefined) {
-      setUser(true);
       axios.get(`http://localhost:5000/user`, {
         headers: { 'token': cookie.token }
       })
@@ -60,11 +59,11 @@ const Profile = () => {
     if (!error) {
       const updatedUser = {
         id: user.user_id,
-        first_name: formValues.first_name || '',
-        last_name: formValues.last_name || '',
-        email: formValues.email || '',
-        phone: formValues.phone || '',
-        profile_image_name: imageFile ? imageFile.name : null,
+        first_name: formValues.first_name || user.first_name,
+        last_name: formValues.last_name || user.last_name,
+        email: formValues.email || user.email,
+        phone: formValues.phone || user.phone,
+        profile_image_name: imageFile ? imageFile.name : user.profile_image_name,
       };
 
       try {
@@ -80,127 +79,125 @@ const Profile = () => {
       } catch (error) {
         console.error("Error updating Information", error);
         setSuccessMessage("");
-        alert("Error updating Information");
+        setError("Error updating information. Please try again.");
       }
     }
   };
 
   return (
-    <div>
-      <div className="flex justify-center items-center">
-        <div className="w-2/3 bg-[#9DB2BF] my-6 md:ml-24 px-10 py-5 rounded-lg">
-          <form>
-            <div className="flex flex-col md:flex-row flex-wrap justify-around">
-              <div>
-                <div className="col-span-6 ml-2 sm:col-span-4 md:mr-3">
-                  <input
-                    type="file"
-                    className="hidden"
-                    ref={fileInputRef}
-                    onChange={handleFileChange}
-                  />
-                  <div className="text-center">
-                    <div className="mt-2">
-                      <span
-                        className="block w-40 h-40 rounded-full m-auto shadow"
-                        style={{
-                          backgroundSize: "cover",
-                          backgroundRepeat: "no-repeat",
-                          backgroundPosition: "center center",
-                          backgroundImage: `url('${
-                            photoPreview !== null
-                              ? photoPreview
-                              : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                          }')`,
-                        }}
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      className="inline-flex items-center px-4 py-2 bg-[#526D82] border border-[#526D82] rounded-md font-semibold text-xs text-white uppercase tracking-widest shadow-sm hover-text-gray-500 focus-outline-none focus-border-blue-400 focus-shadow-outline-blue active-text-gray-800 active-bg-gray-50 transition ease-in-out duration-150 mt-2 ml-3"
-                      onClick={handleSelectPhoto}
-                    >
-                      Select New Photo
-                    </button>
+    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+      <div className="w-2/3 bg-white my-6 md:ml-24 px-10 py-8 rounded-lg shadow-md">
+        <form>
+          <div className="flex flex-col md:flex-row flex-wrap justify-around items-center">
+            <div>
+              <div className="col-span-6 ml-2 sm:col-span-4 md:mr-3">
+                <input
+                  type="file"
+                  className="hidden"
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                />
+                <div className="text-center">
+                  <div className="mt-2">
+                    <span
+                      className="block w-40 h-40 rounded-full m-auto shadow"
+                      style={{
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center center",
+                        backgroundImage: `url('${
+                          photoPreview !== null
+                            ? photoPreview
+                            : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                        }')`,
+                      }}
+                    />
                   </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-around w-full xl:w-2/3 ">
-                <div>
-                  <label htmlFor="first_name" className="self-start p-2 text-white ">
-                    First Name
-                  </label>
-                  <input
-                    className="w-full mb-3 p-2 border rounded-md bg-[#DDE6ED]"
-                    onChange={handleInputChange}
-                    placeholder={user.first_name}
-                    type="text"
-                    name="first_name"
-                  />
-                  <label htmlFor="last_name" className="self-start p-2 text-white">
-                    Last Name
-                  </label>
-                  <input
-                    className="w-full mb-3 p-2 border rounded-md bg-[#DDE6ED]"
-                    onChange={handleInputChange}
-                    placeholder={user.last_name}
-                    type="text"
-                    name="last_name"
-                  />
+                  <button
+                    type="button"
+                    className="inline-flex items-center px-4 py-2 bg-indigo-500 border border-indigo-500 rounded-md font-semibold text-xs text-white uppercase tracking-widest shadow-sm hover:bg-indigo-600 focus-outline-none focus-border-indigo-400 focus-shadow-outline-indigo active-text-gray-800 active-bg-gray-50 transition ease-in-out duration-150 mt-2 ml-3"
+                    onClick={handleSelectPhoto}
+                  >
+                    Select New Photo
+                  </button>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-start mt-2">
-              <label htmlFor="email" className="self-start p-2 text-white">
-                Email
-              </label>
-              <input
-                className="w-full p-2 border rounded-md bg-[#DDE6ED]"
-                onChange={handleInputChange}
-                placeholder={user.email}
-                type="email"
-                name="email"
-              />
-            </div>
-
-            <div className="mb-3">
-              <div className="flex flex-col justify-start mt-2 ">
-                <label htmlFor="phone" className="self-start p-2 text-white">
-                  Phone
+            <div className="flex flex-col justify-around w-full xl:w-2/3 ">
+              <div>
+                <label htmlFor="first_name" className="self-start p-2 text-gray-800 ">
+                  First Name
                 </label>
                 <input
-                  className="w-full p-2 border rounded-md bg-[#DDE6ED]"
+                  className="w-full mb-3 p-2 border rounded-md bg-gray-200"
                   onChange={handleInputChange}
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder={user.phone}
+                  placeholder={user.first_name}
+                  type="text"
+                  name="first_name"
+                />
+                <label htmlFor="last_name" className="self-start p-2 text-gray-800">
+                  Last Name
+                </label>
+                <input
+                  className="w-full mb-3 p-2 border rounded-md bg-gray-200"
+                  onChange={handleInputChange}
+                  placeholder={user.last_name}
+                  type="text"
+                  name="last_name"
                 />
               </div>
             </div>
-            <div className="flex justify-end">
-              <button
-                className="w-1/4 mr-3 p-2 bg-[#526D82] hover:bg-[#27374D] text-white rounded-xl mt-2"
-                type="clear"
-              >
-                Cancel
-              </button>
-              <button
-                className="w-auto py-2 px-3 bg-grey-600 text-white rounded-xl mt-2"
-                onClick={handleSaveChanges}
-              >
-                Save Changes
-              </button>
-            </div>
+          </div>
+          <div className="flex flex-col justify-start mt-4">
+            <label htmlFor="email" className="self-start p-2 text-gray-800">
+              Email
+            </label>
+            <input
+              className="w-full p-2 border rounded-md bg-gray-200"
+              onChange={handleInputChange}
+              placeholder={user.email}
+              type="email"
+              name="email"
+            />
+          </div>
 
-            {successMessage && (
-              <p className="text-green-600 mt-2">{successMessage}</p>
-            )}
-            {error && (
-              <p className="text-gray-600 mt-2">{error}</p>
-            )}
-          </form>
-        </div>
+          <div className="mb-4">
+            <div className="flex flex-col justify-start mt-4">
+              <label htmlFor="phone" className="self-start p-2 text-gray-800">
+                Phone
+              </label>
+              <input
+                className="w-full p-2 border rounded-md bg-gray-200"
+                onChange={handleInputChange}
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder={user.phone}
+              />
+            </div>
+          </div>
+          <div className="flex justify-end">
+            <button
+              className="w-1/4 mr-3 p-2 bg-red-500 hover:bg-red-600 text-white rounded-xl"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              className="w-auto py-2 px-3 bg-indigo-700 text-white rounded-xl"
+              onClick={handleSaveChanges}
+            >
+              Save Changes
+            </button>
+          </div>
+
+          {successMessage && (
+            <p className="text-green-600 mt-2">{successMessage}</p>
+          )}
+          {error && (
+            <p className="text-red-600 mt-2">{error}</p>
+          )}
+        </form>
       </div>
     </div>
   );

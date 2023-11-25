@@ -13,7 +13,6 @@ const Account = () => {
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const history = useNavigate();
 
-  // fetch products
   useEffect(() => {
     axios
       .get("http://localhost:8080/all_users")
@@ -31,7 +30,6 @@ const Account = () => {
     history("/");
   }
 
-  // to open and close sidebar
   const [isSideOpen, setIsSideOpen] = useState(true);
   const [position, setPosition] = useState("left-0");
 
@@ -43,11 +41,9 @@ const Account = () => {
     }
     setIsSideOpen(!isSideOpen);
   }
-  // to open and close sidebar //end
 
   return (
     <div className="flex flex-wrap mt-24">
-      {/* sidebar */}
       <div className="relative w-[260px] h-full">
         <div
           className={`peer absolute top-0 border ${position} lg:left-0 h-full w-full object-cover transition-all delay-100 duration-1000`}
@@ -188,13 +184,11 @@ const Account = () => {
           </aside>
         </div>
       </div>
-      {/* content */}
-      <div className={`${page == "profile" ? "block" : "hidden"} w-full`}>
+      <div className={`${page === "profile" ? "block" : "hidden"} w-full`}>
         <Profile />
       </div>
-     
-      <div className={`${page == "PlanUserProfaile" ? "block" : "hidden"} w-full`}>
-       <PlanUserProfaile/>
+      <div className={`${page === "PlanUserProfaile" ? "block" : "hidden"} w-full`}>
+        <PlanUserProfaile />
       </div>
     </div>
   );

@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const PlanUserProfaile = () => {
+const Course = () => {
   const [courses, setCourses] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const CoursePerPage = 6; 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,17 +21,11 @@ const PlanUserProfaile = () => {
     fetchData();
   }, []);
 
-  const indexOfLastCourse = currentPage * 6;
-  const indexOfFirstCourse = indexOfLastCourse - 6;
+  const indexOfLastCourse = currentPage * CoursePerPage;
+  const indexOfFirstCourse = indexOfLastCourse - CoursePerPage;
   const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
-
-  const totalPages = Math.ceil(courses.length / 6);
-
+  const totalPages = Math.ceil(courses.length / CoursePerPage);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const handleAdd = () => {
-    // Handle the logic for adding a new course
-  };
 
   return (
     <div className="ml-44 my-16">
@@ -89,11 +84,9 @@ const PlanUserProfaile = () => {
             Next
           </button>
         </div>
-
-      
       </div>
     </div>
   );
 };
 
-export default PlanUserProfaile;
+export default Course;

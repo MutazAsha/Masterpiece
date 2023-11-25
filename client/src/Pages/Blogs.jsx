@@ -33,7 +33,7 @@ const BlogCard = ({ blog }) => {
       <div className="px-6 py-4">
         <Link
           to={`/blog-details/${blog.id}`}
-          className="inline-block bg-gradient-to-r from-[#F28767] to-[#FDB079] text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 hover:from-yellow-500 hover:to-orange-600"
+          className="inline-block bg-gradient-to-r bg-gray-800 text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 hover:from-yellow-500 hover:to-orange-600"
         >
           Read More
         </Link>

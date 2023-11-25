@@ -33,7 +33,7 @@ const Pricing = () => {
               "\n@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);\n"
           }}
         />
-        <div className="min-w-screen min-h-screen bg-white px-5 py-5">
+        <div className="min-w-screen min-h-screen bg-gray-200 px-5 py-5">
           <div className="w-full mx-auto bg-grey-100  px-5 py-10 text-gray-600 mb-10">
             <div className="text-center max-w-xl mx-auto">
               <h1 className="text-gray-800 text-6xl mb-6 font-bold item-center justify-center text-center">Pricing</h1>

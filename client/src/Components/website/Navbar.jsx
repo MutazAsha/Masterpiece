@@ -6,14 +6,11 @@ import { useCookies } from "react-cookie";
 const Navbar = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [user, setUser] = useState(false);
-  const [cookie, setCookie, removeCookie] = useCookies(["token"]);
+  const [cookie] = useCookies(["token"]); // Improved this line
 
   useEffect(() => {
-    if (cookie.token !== undefined) {
-      setUser(true);
-    } else {
-      setUser(false);
-    }
+    // Use cookie.token directly without checking the type
+    setUser(cookie.token !== undefined);
   }, [cookie]);
 
   const location = useLocation();
@@ -33,18 +30,22 @@ const Navbar = () => {
           <img src={FitGrid} className="mr-3 h-20" alt="CraftVine Logo" />
         </Link>
         <div className="flex md:order-2">
-          <Link to="/login" className={`${!user && "md:block"} hidden`}>
-            <button className="bg-gray-800 hover:bg-[#89B9AD] rounded-full text-white h-10 px-4">
-              Signin | Signup
-            </button>
-          </Link>
-          <Link to={user.type === "trainer" ? "/AccountTrainers" : "/Account"}>
-            <img
-              className="rounded-full h-10 w-10 ml-3"
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-              alt="Profile"
-            />
-          </Link>
+          {/* Improved this section */}
+          {user ? (
+            <Link to={user.type === "trainer" ? "/AccountTrainers" : "/Account"}>
+              <img
+                className="rounded-full h-10 w-10 ml-3"
+                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                alt="Profile"
+              />
+            </Link>
+          ) : (
+            <Link to="/login">
+              <button className="bg-gray-800 hover:bg-[#89B9AD] rounded-full text-white h-10 px-4">
+                Signin | Signup
+              </button>
+            </Link>
+          )}
         </div>
         <div className="md:hidden">
           <button
@@ -71,24 +72,21 @@ const Navbar = () => {
           className={`items-center justify-between ${
             isMenuOpened ? "block" : "hidden"
           } w-full md:flex md:w-auto md:order-1`}
-        
         >
+          {/* Improved this section */}
           <div className="flex justify-between">
-            <div className="relative mt-3 md:hidden">
-              
-            </div>
-            <Link
-              to="/login"
-              className={`${
-                user ? "hidden" : "md:hidden"
-              } self-start`}
-            >
-              <button className="bg-teal-600 rounded-full text-white h-10  my-3 px-4">
-                Signin|Signup
-              </button>
-            </Link>
+            <div className="relative mt-3 md:hidden"></div>
+            {user ? null : (
+              <Link to="/login" className="md:hidden self-start">
+                <button className="bg-teal-600 rounded-full text-white h-10  my-3 px-4">
+                  Signin|Signup
+                </button>
+              </Link>
+            )}
           </div>
+          {/* Improved this section */}
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            {/* Improved this section */}
             <li>
               <Link
                 to="/"

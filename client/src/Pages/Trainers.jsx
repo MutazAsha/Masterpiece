@@ -42,7 +42,7 @@ const Trainers = () => {
     setCurrentPage(pageNumber);
   };
 
-  const categories = ['All', 'electronics', 'jewelry', 'men clothing', 'women clothing'];
+  const categories = ['All', 'Fitness', 'CROSSFIT', 'CROSSFIT', 'body bulding'];
 
   return (
     <div className=" mx-28 my-28">

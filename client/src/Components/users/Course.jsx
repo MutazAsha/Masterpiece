@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import AddTrainingCoursePage from "../AddCourse";
-
 import UpdatePlan from "../UpdatePlan";
 
 const Course = () => {
@@ -67,7 +66,7 @@ const Course = () => {
 
   return (
     <div className="ml-44 my-16">
-      <div className="flex flex-col items-center justify-center min-h-screen ">
+      <div className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="text-[#27374D] text-4xl mb-6 font-bold text-center">My Courses</h1>
         {deleteMessage && <p className="text-green-500">{deleteMessage}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 my-4 items-end justify-end">
@@ -86,7 +85,7 @@ const Course = () => {
                   {course.Course_description}
                 </p>
                 <Link
-                  to={`/course-details/${course.id}`}
+                  to={`/Tcourse-details/${course.id}`}
                   className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
                 >
                   Read More

@@ -29,6 +29,7 @@ import Exercises from "./Pages/Exercises";
 import Blog from "./Components/users/Blog";
 import CourseDetails from "./Pages/CourseDetails";
 import CategoryItems from "./Components/Landing/CategoryItems";
+import TCourseDetails from "./Pages/TCourseDetails";
 
 
 function App() {
@@ -62,6 +63,10 @@ function App() {
             <Route
               path="/course-details/:courseId"
               element={<CourseDetails />}
+            />
+            <Route
+              path="/Tcourse-details/:courseId"
+              element={<TCourseDetails/>}
             />
           </Routes>
         </div>

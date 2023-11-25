@@ -30,13 +30,13 @@ const BestTrainers = () => {
         {firstFourTrainers.map((trainer) => (
           <div key={trainer.id} className="group">
             <Link to={`/trainers/${trainer.id}`}>
-              <div className="relative overflow-hidden rounded-lg shadow-xl border-2 border-[#E5E7EB] transition duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+              <div className="relative overflow-hidden rounded-lg shadow-xl border-2 border-[#1A202C] transition duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
                 <img
                   className="object-cover w-full h-56 md:h-64 xl:h-80 rounded-t-lg"
                   src={trainer.image}
                   alt="Person"
                 />
-                <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-[#FDB079] bg-opacity-90 opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-[#2D3748] bg-opacity-90 opacity-0 group-hover:opacity-100">
                   <p className="mb-1 text-lg font-bold text-[#27374D] group-hover:text-white">
                     {trainer.title}
                   </p>
