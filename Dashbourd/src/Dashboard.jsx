@@ -4,6 +4,8 @@ import Blogs from './Blogs';
 import Courses from './Courses';
 import ContactUs from './Contactus';
 import Statistics from './Statistics';
+import Category from './Category';
+import WorkoutPage from './Workout';
 
 const Dashboard = () => {
   return (
@@ -18,6 +20,10 @@ const Dashboard = () => {
         <Courses />
         <hr className="my-8" />
         <ContactUs />
+        <hr className="my-8" />
+        <Category/>
+        <hr className="my-8" />
+        <WorkoutPage/>
       </div>
     </div>
   );

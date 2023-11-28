@@ -7,6 +7,8 @@ import Courses from "./Courses";  // Corrected import
 import Blogs from "./Blogs";
 import Users from "./Users";
 import Dashboard from "./Dashboard";
+import Category from "./Category";
+import WorkoutPage from "./Workout";
 
 const Admain = () => {
   const [user, setUser] = useState([]);
@@ -109,7 +111,7 @@ const Admain = () => {
                   } hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
                   onClick={() => setPage("Courses")}
                 >
-                  <span className="mx-2 text-sm font-medium">Courses</span>
+                  <span className="mx-2 text-sm font-medium">Plan</span>
                 </button>
 
                 <button
@@ -119,6 +121,24 @@ const Admain = () => {
                   onClick={() => setPage("Contactus")}
                 >
                   <span className="mx-2 text-sm font-medium">Contactus</span>
+                </button>
+
+                  <button
+                  className={`w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 ${
+                    page === "Category" && "bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-gray-700"
+                  } hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+                  onClick={() => setPage("Category")}
+                >
+                  <span className="mx-2 text-sm font-medium">Category</span>
+                </button>
+
+                <button
+                  className={`w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 ${
+                    page === "WorkoutPage" && "bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-gray-700"
+                  } hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+                  onClick={() => setPage("WorkoutPage")}
+                >
+                  <span className="mx-2 text-sm font-medium">Workout</span>
                 </button>
               </div>
 
@@ -168,6 +188,13 @@ const Admain = () => {
 
         <div className={`${page === "Contactus" ? "block" : "hidden"} w-full`}>
           <Contactus />
+        </div>
+
+        <div className={`${page === "Category" ? "block" : "hidden"} w-full`}>
+        <Category/>
+        </div>
+        <div className={`${page === "WorkoutPage" ? "block" : "hidden"} w-full`}>
+          <WorkoutPage/>
         </div>
       </div>
     </div>

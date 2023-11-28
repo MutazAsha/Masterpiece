@@ -1,5 +1,3 @@
-// AddTrainingCoursePage.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -34,9 +32,11 @@ const AddTrainingCoursePage = () => {
   };
 
   return (
-    <div className="container mx-auto my-8">
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-gray-100 p-8 rounded shadow-md">
-        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_Name">Course Name:</label>
+    <div className="bg-white p-8 rounded-lg max-w-md mx-auto mt-10">
+      <form onSubmit={handleSubmit} className="bg-gray-100 p-8 rounded shadow-md">
+        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_Name">
+          Course Name:
+        </label>
         <input
           type="text"
           id="Course_Name"
@@ -47,7 +47,9 @@ const AddTrainingCoursePage = () => {
           className="w-full p-2 border rounded-md"
         />
 
-        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_Category">Course Category:</label>
+        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_Category">
+          Course Category:
+        </label>
         <select
           id="Course_Category"
           name="Course_Category"
@@ -62,7 +64,9 @@ const AddTrainingCoursePage = () => {
           ))}
         </select>
 
-        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_Duration">Course Duration (in days):</label>
+        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_Duration">
+          Course Duration (in days):
+        </label>
         <input
           type="number"
           id="Course_Duration"
@@ -73,7 +77,9 @@ const AddTrainingCoursePage = () => {
           className="w-full p-2 border rounded-md"
         />
 
-        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Pricing">Pricing:</label>
+        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Pricing">
+          Pricing:
+        </label>
         <input
           type="number"
           id="Pricing"
@@ -84,7 +90,9 @@ const AddTrainingCoursePage = () => {
           className="w-full p-2 border rounded-md"
         />
 
-        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_description">Course Description:</label>
+        <label className="block mb-2 text-sm font-bold text-gray-600" htmlFor="Course_description">
+          Course Description:
+        </label>
         <textarea
           id="Course_description"
           name="Course_description"
@@ -94,7 +102,10 @@ const AddTrainingCoursePage = () => {
           className="w-full p-2 border rounded-md"
         />
 
-        <button type="submit" className="bg-gray-800 text-white hover:bg-gray-600 p-2 rounded-md mt-4 cursor-pointer mx-auto block">
+        <button
+          type="submit"
+          className="bg-gray-800 text-white hover:bg-gray-600 p-2 rounded-md mt-4 cursor-pointer mx-auto block"
+        >
           Add Training Course
         </button>
       </form>

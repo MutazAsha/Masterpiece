@@ -10,7 +10,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/blog/${id}`);
+        const response = await axios.get(`http://localhost:8080/getArticleById/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -23,7 +23,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const fetchRelatedPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/blog");
+        const response = await axios.get("http://localhost:8080/getAllArticles");
         const filteredRelatedPosts = response.data.slice(-3);
         setRelatedPosts(filteredRelatedPosts);
       } catch (error) {
@@ -40,25 +40,25 @@ const BlogDetails = () => {
         className="bg-cover bg-center text-center overflow-hidden"
         style={{
           minHeight: 500,
-          backgroundImage: `url("${blog.blog_img}")`,
+          backgroundImage: `url("${blog.articles_image}")`,
         }}
         title={blog.blog_title}
       ></div>
       <div className="max-w-3xl mx-auto">
         <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
           <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
-            <h1 className="text-gray-900 font-bold text-3xl mb-2">{blog.blog_title}</h1>
+            <h1 className="text-gray-900 font-bold text-3xl mb-2">{blog.title}</h1>
             <p className="text-gray-700 text-xs mt-2">
               Author:{" "}
               <a
                 href="#"
                 className="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out"
               >
-                {blog.blog_auther}
+                {blog.username}
               </a>
             </p>
             <div className="max-w-4xl mx-auto text-lg text-gray-700 mt-4 rounded text-start">
-              <p className="mt-2 leading-relaxed">{blog.blog_description}</p>
+              <p className="mt-2 leading-relaxed">{blog.content}</p>
             </div>
           </div>
         </div>

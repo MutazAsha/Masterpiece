@@ -6,24 +6,24 @@ import Cookies from 'js-cookie';
 
 const SignIn = () => {
   const history = useNavigate();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState(''); // Change email to username
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSignIn = async () => {
-    if (!email || !password) {
-      setError('Email and password are required.');
+    if (!username || !password) { // Change email to username
+      setError('Username and password are required.'); // Change email to username
       return;
     }
 
     try {
       setLoading(true);
-      const response = await axios.post(' http://localhost:3000/Users', {
-        email: email,
+      const url = 'http://localhost:8080/login'; // Ensure this is the correct endpoint
+      const response = await axios.post(url, {
+        username: username,
         password: password,
       });
-
       const token = response.data.token;
       const user_id = response.data.user_id;
 
@@ -37,7 +37,7 @@ const SignIn = () => {
     } catch (error) {
       setTimeout(() => {
         console.error('Sign-in error:', error);
-        setError('Sign-in failed. Email or password is invalid');
+        setError('Sign-in failed. Username or password is invalid'); // Change email to username
       }, 300);
     } finally {
       setLoading(false);
@@ -52,11 +52,11 @@ const SignIn = () => {
           <div>
             <input
               className="w-full p-2 border rounded-md mt-4"
-              placeholder="Email"
-              type="email"
+              placeholder="Username" // Change email to username
+              type="text" // Change email to username
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username} // Change email to username
+              onChange={(e) => setUsername(e.target.value)} // Change email to username
             />
             <input
               className="w-full p-2 border rounded-md mt-4"

@@ -30,18 +30,19 @@ function BlogForm() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-white">
-      <div className="BlogForm bg-gray-100 p-8 rounded-lg shadow-md w-full h-5/6">
-        <h2 className="text-3xl font-semibold mb-6">Create a New Blog</h2>
+    
+      <div className="BlogForm bg-white p-8 rounded-lg ">
+        <h2 className="text-3xl font-semibold mb-6 text-gray-800">Create a New Blog</h2>
 
-        {isSuccess && ( // Render success notification if isSuccess is true
+        {isSuccess && ( 
           <div className="mb-4 p-2 bg-green-200 text-green-800 rounded-md">
             Blog created successfully!
           </div>
         )}
 
-        <form className="bf" onSubmit={handleSubmit}>
-          <div className="mb-4">
+        <form className="flex flex-wrap " onSubmit={handleSubmit}>
+          <div className="mb-4 w-full ">
+            
             <label htmlFor="blog_title" className="block text-sm font-medium text-gray-600">
               Blog Title:
             </label>
@@ -52,10 +53,10 @@ function BlogForm() {
               value={formData.blog_title}
               onChange={handleChange}
               required
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="blog_img" className="block text-sm font-medium text-gray-600">
               Image URL:
             </label>
@@ -66,10 +67,10 @@ function BlogForm() {
               value={formData.blog_img}
               onChange={handleChange}
               required
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 w-full">
             <label htmlFor="blog_autor" className="block text-sm font-medium text-gray-600">
               Blog Author:
             </label>
@@ -80,10 +81,10 @@ function BlogForm() {
               value={formData.blog_autor}
               onChange={handleChange}
               required
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4 w-full">
             <label htmlFor="blog_subdescription" className="block text-sm font-medium text-gray-600">
               Blog Subdescription:
             </label>
@@ -93,10 +94,10 @@ function BlogForm() {
               value={formData.blog_subdescription}
               onChange={handleChange}
               required
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
-          </div>
-          <div className="mb-4">
+          </div> */}
+          <div className="mb-4 w-full">
             <label htmlFor="blog_description" className="block text-sm font-medium text-gray-600">
               Blog Description:
             </label>
@@ -106,19 +107,19 @@ function BlogForm() {
               value={formData.blog_description}
               onChange={handleChange}
               required
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
           </div>
           <button
             type="button"
             onClick={handleSubmit}
-            className="p-2 bg-gray-800 text-white rounded-3xl mt-4 hover:bg-gray-600"
+            className="p-2 bg-gray-800 text-white rounded-md hover:bg-gray-600 focus:outline-none flex"
           >
             Create Blog
           </button>
         </form>
       </div>
-    </div>
+
   );
 }
 

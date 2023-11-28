@@ -19,8 +19,8 @@ const SignIn = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:3000/Users', {
-        username: username,
+      const response = await axios.post('http://localhost:8080/login', {
+        usernameOrEmail: username,
         password: password,
       });
 

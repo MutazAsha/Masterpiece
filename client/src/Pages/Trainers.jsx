@@ -12,8 +12,8 @@ const Trainers = () => {
   useEffect(() => {
     const fetchTrainers = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/Card');
-        setTrainers(response.data);
+        const response = await axios.get('http://localhost:8080/getAllTrainers');
+        setTrainers(response.data.trainers);
       } catch (error) {
         console.error('Error fetching trainers: ', error);
       }
@@ -30,11 +30,13 @@ const Trainers = () => {
   const filteredTrainers =
     selectedCategory === 'All'
       ? currentTrainers
-      : currentTrainers.filter((trainer) => trainer.category.toLowerCase() === selectedCategory.toLowerCase());
+      : currentTrainers.filter(
+          (trainer) => trainer.category?.toLowerCase() === selectedCategory.toLowerCase()
+        );
 
   // Filter trainers based on search term
   const searchedTrainers = filteredTrainers.filter(
-    (trainer) => trainer.name.toLowerCase().includes(searchTerm.toLowerCase())
+    (trainer) => trainer.username.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const totalPages = Math.ceil(searchedTrainers.length / trainersPerPage);
 
@@ -42,7 +44,7 @@ const Trainers = () => {
     setCurrentPage(pageNumber);
   };
 
-  const categories = ['All', 'Fitness', 'CROSSFIT', 'CROSSFIT', 'body bulding'];
+  const categories = ['All', 'Fitness', 'CROSSFIT', 'CROSSFIT', 'body building'];
 
   return (
     <div className=" mx-28 my-28">
@@ -101,16 +103,25 @@ const Trainers = () => {
       <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {searchedTrainers.map((trainer) => (
           <div key={trainer.id} className="overflow-hidden rounded shadow-lg hover:shadow-xl">
-            <Link to={`/trainers/${trainer.id}`}>
+            <Link to={`/trainers/${trainer.user_id}`}>
               <img
                 className="w-full h-56 md:h-64 xl:h-80 object-cover"
                 src={trainer.image}
-                alt={trainer.title}
+                alt={trainer.username}
               />
               <div className="p-4">
-                <p className="text-lg font-bold text-gray-800">{trainer.name}</p>
-                <p className="mt-1 text-sm text-gray-600">{trainer.category}</p>
-                <p className="mt-2 text-sm text-gray-700">{trainer.description}</p>
+                <p className="mb-1 text-lg font-bold text-[#27374D] group-hover:text-white">
+                  {trainer.username}
+                </p>
+                <p className="mb-1 text-xs text-[#6B7280] group-hover:text-white">
+                  Certification: {trainer.certification}
+                </p>
+                <p className="mb-1 text-xs text-[#6B7280] group-hover:text-white">
+                  Experience: {trainer.experience} years
+                </p>
+                {/* <p className="mb-4 text-xs text-[#6B7280] group-hover:text-white">
+                    Rating: {trainer.rating}
+                  </p> */}
               </div>
             </Link>
           </div>

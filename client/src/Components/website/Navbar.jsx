@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="flex md:order-2">
           {/* Improved this section */}
           {user ? (
-            <Link to={user.type === "trainer" ? "/AccountTrainers" : "/Account"}>
+            <Link to={user.type === "ccdtrainer" ? "/AccountTrainers" : "/Account"}>
               <img
                 className="rounded-full h-10 w-10 ml-3"
                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"

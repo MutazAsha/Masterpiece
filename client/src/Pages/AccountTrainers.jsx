@@ -5,6 +5,7 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import Blog from "../Components/users/Blog";
 import Course from "../Components/users/Course";
+import PlanPricing from "../Components/users/PlanPricing";
 
 
 const AccountTrainers = () => {
@@ -169,6 +170,12 @@ useEffect(() => {
                   >
                     <span className="mx-2 text-sm font-medium">Blogs</span>
                   </button>
+                  <button
+                    className="w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                    onClick={() => setPage("PlanPricing")}
+                  >
+                    <span className="mx-2 text-sm font-medium">PlanPricing</span>
+                  </button>
                 </div>
             
                   
@@ -210,6 +217,9 @@ useEffect(() => {
       </div>
       <div className={`${page == "Blog" ? "block" : "hidden"} w-full`}>
       <Blog/>
+      </div>
+      <div className={`${page == "PlanPricing" ? "block" : "hidden"} w-full`}>
+      <PlanPricing/>
       </div>
 
     </div>

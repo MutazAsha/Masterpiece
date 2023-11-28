@@ -41,25 +41,43 @@ const Blog = () => {
     setShowPopup(true);
   };
 
+  // const handleDelete = async (blogId) => {
+  //   try {
+  //     await axios.delete(`http://localhost:3000/blog/${blogId}`);
+  //     setDeleteMessage("Blog deleted successfully.");
+
+  //     // Refetch the data after successful deletion
+  //     const response = await axios.get("http://localhost:3000/blog");
+  //     setBlogs(response.data);
+  //   } catch (error) {
+  //     console.error("Error deleting blog: ", error);
+  //     setDeleteMessage("Error deleting blog. Please try again.");
+  //   } finally {
+  //     // Close the confirmation popup after a delay or based on user interaction
+  //     setTimeout(() => {
+  //       setShowPopup(false);
+  //       setDeleteMessage("");
+  //     }, 3000);
+  //   }
+  // };
+
+
+
   const handleDelete = async (blogId) => {
     try {
-      await axios.delete(`http://localhost:3000/blog/${blogId}`);
-      setDeleteMessage("Blog deleted successfully.");
-
-      // Refetch the data after successful deletion
+      // Send a PATCH request to update the status for soft delete
+      await axios.patch(`http://localhost:3000/blog/${blogId}`,{isdeleted:'true'});
       const response = await axios.get("http://localhost:3000/blog");
-      setBlogs(response.data);
+          setBlogs(response.data);
+          console.log(response.data,"hhhhhhh")
+      // Refresh the data or handle the removal of the soft-deleted user from your local state
+      // fetchData();
+  
     } catch (error) {
-      console.error("Error deleting blog: ", error);
-      setDeleteMessage("Error deleting blog. Please try again.");
-    } finally {
-      // Close the confirmation popup after a delay or based on user interaction
-      setTimeout(() => {
-        setShowPopup(false);
-        setDeleteMessage("");
-      }, 3000);
+      console.error('Error soft deleting user:', error);
     }
   };
+
 
   const handleAdd = () => {
     setUpdateBlogData(null);
@@ -72,8 +90,10 @@ const Blog = () => {
         <h1 className="text-gray-800 text-4xl mb-6 font-bold text-center">My Blog</h1>
         {/* Display delete confirmation message */}
         {deleteMessage && <p className="text-green-500">{deleteMessage}</p>}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 my-4 items-end justify-end">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 my-4 items-end justify-end ">
           {currentBlogs.map((blog) => (
+            blog.isdeleted !== 'true' && (
+
             <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[20rem]">
               <Link to="#">
                 <img src={blog.blog_img} alt="" className="w-full h-40 object-cover" />
@@ -109,7 +129,7 @@ const Blog = () => {
                 </button>
               </div>
             </div>
-          ))}
+         ) ))}
         </div>
         <div className="col-span-full flex justify-center mt-4">
           <button
@@ -148,30 +168,33 @@ const Blog = () => {
           Add Blog
         </button>
 
-        {/* Popup */}
-        {showPopup && (
-          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
-            <div className="bg-white p-8 rounded-md shadow-lg w-96">
-              {/* Display the content of BlogForm or UpdateBlogForm based on updateBlogData */}
-              {updateBlogData ? (
-                <UpdateBlog
-                  onClose={() => setShowPopup(false)}
-                  blogData={updateBlogData}
-                />
-              ) : (
-                <BlogForm onClose={() => setShowPopup(false)} />
-              )}
+       {/* Popup */}
+{showPopup && (
+  <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <div className="bg-white p-8 rounded-md shadow-lg">
+      {/* Display the content of BlogForm or UpdateBlogForm based on updateBlogData */}
+      {updateBlogData ? (
+        <UpdateBlog
+          onClose={() => setShowPopup(false)}
+          blogData={updateBlogData}
+        />
+      ) : (
+        <BlogForm onClose={() => setShowPopup(false)} />
+      )}
 
-              {/* Add a close button */}
-              <button
-                className=" p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mb-10"
-                onClick={() => setShowPopup(false)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        )}
+      {/* Add a close button */}
+      <button
+        className="p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mt-4"
+        onClick={() => setShowPopup(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
+
+
       </div>
     </div>
   );

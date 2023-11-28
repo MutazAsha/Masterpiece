@@ -232,7 +232,7 @@
   ],
   "Pricing": [
     {
-      "title": "PERSONAL",
+      "name": "PERSONAL",
       "price": "$5/mo",
       "features": [
         "Lorem ipsum",
@@ -240,7 +240,7 @@
       ]
     },
     {
-      "title": "TEAM",
+      "name": "TEAM",
       "price": "$15/mo",
       "features": [
         "Lorem ipsum",
@@ -342,6 +342,16 @@
       "username": "aaasasaa",
       "password": "1cBn@4wlerg",
       "id": 14
+    },
+    {
+      "username": "aaasasaa",
+      "password": "1cBn@4wlerg",
+      "id": 15
+    },
+    {
+      "username": "aaasasaa",
+      "password": "1cBn@4wlerg",
+      "id": 16
     }
   ],
   "faqData": [
@@ -404,52 +414,49 @@
   ],
   "blog": [
     {
-      "id": 1,
-      "blog_auter": "mutaz",
-      "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
-      "blog_title": "mutaz",
-      "blog_subdescription": "DZRGSER",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
-    },
-    {
-      "id": 2,
+      "id": 8,
       "blog_auter": "mutaz",
       "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam.",
+      "isdeleted": "false"
     },
     {
-      "id": 3,
+      "id": 9,
       "blog_auter": "mutaz",
       "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam.",
+      "isdeleted": "false"
     },
     {
-      "id": 4,
+      "id": 10,
       "blog_auter": "mutaz",
       "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam.",
+      "isdeleted": "false"
     },
     {
-      "id": 5,
+      "id": 11,
       "blog_auter": "mutaz",
       "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam.",
+      "isdeleted": "false"
     },
     {
-      "id": 6,
+      "id": 12,
       "blog_auter": "mutaz",
       "blog_img": "https://media.istockphoto.com/id/675179390/photo/muscular-trainer-writing-on-clipboard.jpg?s=612x612&w=0&k=20&c=9NKx1AwVMpPY0YBlk5H-hxx2vJSCu1Wc78BKRM9wFq0=",
       "blog_title": "Lorem ipsum dolor sit amet consectetur",
       "blog_subdescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur molestiae commodi cumque doloribus, labore consequuntur voluptas? ",
-      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam."
+      "blog_description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis eveniet impedit laudantium magni ut explicabo eum, obcaecati vero illum commodi facilis pariatur fugit perferendis suscipit omnis rerum ad esse quisquam.",
+      "isdeleted": "false"
     }
   ],
   "Regestart": [
@@ -481,7 +488,8 @@
       "Course_Duration": "333",
       "Pricing": "32",
       "Course_description": "rf",
-      "id": 3
+      "id": 3,
+      "isDeleted": true
     },
     {
       "course_img": "https://infinitefitnesspro.com/wp-content/uploads/2021/07/Skinny-Fat-Workout-Plan.jpg",
@@ -490,7 +498,8 @@
       "Course_Duration": "333",
       "Pricing": "32",
       "Course_description": "rf",
-      "id": 4
+      "id": 4,
+      "isDeleted": true
     },
     {
       "course_img": "https://i.ytimg.com/vi/04rFyiDjgVQ/mqdefault.jpg",
@@ -511,22 +520,14 @@
       "id": 4
     },
     {
-      "course_img": "https://i.ytimg.com/vi/GcCQHW5SqRw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBiXF-yIEAav4285doTgdTAARHmXg",
-      "Course_Name": "xdgvbfxdb",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "122",
-      "Pricing": "222",
-      "Course_description": "sdgfxdgb",
-      "id": 5
-    },
-    {
       "course_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVUrFH_dSMKzLfonCn7yRyGEgkVXqACdLFg&usqp=CAU",
       "Course_Name": "11111",
       "Course_Category": "Grossfit",
       "Course_Duration": "1111",
       "Pricing": "111",
       "Course_description": "11",
-      "id": 6
+      "id": 6,
+      "isDeleted": true
     },
     {
       "course_img": "https://i.ytimg.com/vi/GcCQHW5SqRw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBiXF-yIEAav4285doTgdTAARHmXg",
@@ -544,7 +545,8 @@
       "Course_Duration": "1111",
       "Pricing": "111",
       "Course_description": "11",
-      "id": 8
+      "id": 8,
+      "isDeleted": true
     },
     {
       "course_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtVUrFH_dSMKzLfonCn7yRyGEgkVXqACdLFg&usqp=CAU",
@@ -553,21 +555,16 @@
       "Course_Duration": "1111",
       "Pricing": "111",
       "Course_description": "11",
-      "id": 9
+      "id": 9,
+      "isDeleted": true
     }
   ],
   "Nutrition": [
     {
-      "id": 1,
-      "nutrient": "Serving Size",
-      "amount": "1 cup (240g)",
-      "dailyValue": "20%"
-    },
-    {
       "id": 2,
       "nutrient": "Amount Per Serving",
-      "amount": "",
-      "dailyValue": ""
+      "amount": "fxj",
+      "dailyValue": "20%"
     },
     {
       "id": 3,
@@ -687,7 +684,7 @@
     },
     {
       "name": "raeg",
-      "repetitions": "WGER",
+      "repetitions": "tt7h7h",
       "rest": "AHGE",
       "id": 7
     },

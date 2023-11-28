@@ -11,8 +11,9 @@ const TrainerDetails = () => {
   useEffect(() => {
     const fetchTrainerDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/Card/${id}`);
+        const response = await axios.get(`http://localhost:8080/getTrainerById/${id}`);
         setTrainer(response.data);
+        const res = response.data;
         setLoading(false);
       } catch (error) {
         console.error('Error fetching trainer details: ', error);
@@ -33,19 +34,19 @@ const TrainerDetails = () => {
         <div className="md:shrink-0 ml-8">
           <img
             className="h-64 w-full object-cover md:h-full md:w-64 rounded-md"
-            src={trainer.image}
-            alt={`Image of ${trainer.name}`}
+            src={trainer.profileimage}
+            alt={`Image of ${trainer.username}`}
           />
         </div>
         <div className="p-8">
           <h2 className="block mt-4 text-3xl leading-tight font-bold text-white hover:underline w-10/12 text-start">
-            Name: {trainer.name}
+            Name: {trainer.username}
           </h2>
           <div className="uppercase tracking-wide text-sm text-gray-300 font-semibold w-10/12 text-start">
-            Category: {trainer.category}
+             {trainer.certification}
           </div>
           <p className="mt-2 text-gray-200 text-lg w-10/12 text-start">
-            Description: {trainer.description}
+             {trainer.experience}
           </p>
         </div>
       </div>

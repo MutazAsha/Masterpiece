@@ -42,7 +42,9 @@ const CategoryContent = () => {
   const totalPages = Math.ceil(searchedTrainers.length / trainersPerPage);
 
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    // Ensure the page number is within a valid range
+    const newPage = Math.max(1, Math.min(pageNumber, totalPages));
+    setCurrentPage(newPage);
   };
 
   return (
@@ -108,15 +110,15 @@ const CategoryContent = () => {
         >
           Prev
         </button>
-        {[1, 2, 3].map((number) => (
+        {Array.from({ length: totalPages }).map((_, index) => (
           <button
-            key={number}
-            onClick={() => handlePageChange(number)}
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
             className={`mx-2 p-2 bg-gray-800 text-white hover:bg-gray-700 focus:outline-none rounded-full ${
-              currentPage === number ? 'bg-gray-800' : ''
+              currentPage === index + 1 ? 'bg-gray-800' : ''
             }`}
           >
-            {number}
+            {index + 1}
           </button>
         ))}
         <button

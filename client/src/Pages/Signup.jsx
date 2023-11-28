@@ -13,13 +13,11 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const validateField = (value, validationFunction, errorMessage) => {
+  const validateField = (value, validationFunction, errorMessage, errorArray) => {
     if (!validationFunction(value)) {
-      setError(errorMessage);
-      setLoading(false);
+      errorArray.push(errorMessage);
       return false;
     } else {
-      setError('');
       return true;
     }
   };
@@ -29,25 +27,29 @@ function Register() {
     setLoading(true);
 
     // Validation
-    const isEmailValid = validateField(email, validateEmail, 'Please enter a valid email.');
+    const validationErrors = [];
+    
+    const isEmailValid = validateField(email, validateEmail, 'Please enter a valid email.', validationErrors);
     const isPasswordValid = validateField(
       password,
       validatePassword,
       `Password must contain at least one lowercase letter, one uppercase letter, 
-      one digit, one special character (@#$%^&!), and be between 6 and 30 characters in length.`
+      one digit, one special character (@#$%^&!), and be between 6 and 30 characters in length.`,
+      validationErrors
     );
     const isUsernameValid = validateField(
       username,
       validateUsername,
-      'Username must be between 3 and 20 characters in length.'
+      'Username must be between 3 and 20 characters in length.',
+      validationErrors
     );
 
-    if (!(isEmailValid && isPasswordValid && isUsernameValid)) {
-      return;
+    if (password !== confirmPassword) {
+      validationErrors.push("Passwords don't match.");
     }
 
-    if (password !== confirmPassword) {
-      setError("Passwords don't match.");
+    if (validationErrors.length > 0) {
+      setError(validationErrors.join(' '));
       setLoading(false);
       return;
     }

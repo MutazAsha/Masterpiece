@@ -3,6 +3,11 @@ import axios from 'axios';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const [newUser, setNewUser] = useState({
+    name: '',
+    email: '',
+    role: 'user',
+  });
 
   useEffect(() => {
     // Fetch data from your API using Axios
@@ -69,44 +74,67 @@ const Users = () => {
     );
   };
 
+  const handleAdd = () => {
+    // Send a request to add the new user to the server
+    axios.post('http://localhost:3000/Users', newUser)
+      .then(response => {
+        // Handle success, e.g., show a success message
+        console.log('New user added successfully:', response.data);
+
+        // Update the local state with the new data
+        setUsers(prevUsers => [...prevUsers, response.data]);
+
+        // Clear the form fields after successful submission
+        setNewUser({
+          name: '',
+          email: '',
+          role: 'user',
+        });
+      })
+      .catch(error => {
+        // Handle error, e.g., show an error message
+        console.error('Error adding new user:', error);
+      });
+  };
+
   return (
-    <div className="text-gray-900 bg-white">
-     <div className="p-4 flex">
-     
+    <div className="text-gray-900 bg-white w-full md:w-11/12 lg:w-3/4 xl:w-2/3 flex justify-end  ml-40">
+      <div className="p-4 flex justify-center">
+        {/* <h1 className="text-3xl font-bold mb-4">User Management</h1> */}
       </div>
-      <div className="px-3 py-4 flex justify-center">
-        <table className="w-8/12 text-md bg-[#9DB2BF] shadow-md rounded mb-4 ml-64">
-          <thead>
-            <tr className="border-b">
-              <th className="text-left p-3 px-5">Name</th>
-              <th className="text-left p-3 px-5">Email</th>
-              <th className="text-left p-3 px-5">Role</th>
-              <th />
+      <div className="px-3 py-4 flex justify-end">
+        <table className="w-full text-md bg-white shadow-md rounded mb-4">
+          <thead className="bg-[#9DB2BF] text-white">
+            <tr>
+              <th className="py-2 px-4">Name</th>
+              <th className="py-2 px-4">Email</th>
+              <th className="py-2 px-4">Role</th>
+              <th className="py-2 px-4">Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user, index) => (
               <tr
                 key={index}
-                className={`border-b hover:bg-orange-100 ${index % 2 === 0 ? 'bg-[#DDE6ED]' : ''}`}
+                className={`border-b hover:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-50' : ''}`}
               >
-                <td className="p-3 px-5">
+                <td className="py-2 px-4">
                   <input
                     type="text"
                     value={user.name}
-                    className="bg-transparent"
+                    className="w-full bg-transparent"
                     onChange={(e) => handleInputChange(user.id, 'name', e.target.value)}
                   />
                 </td>
-                <td className="p-3 px-5">
+                <td className="py-2 px-4">
                   <input
                     type="text"
                     value={user.email}
-                    className="bg-transparent"
+                    className="w-full bg-transparent"
                     onChange={(e) => handleInputChange(user.id, 'email', e.target.value)}
                   />
                 </td>
-                <td className="p-3 px-5">
+                <td className="py-2 px-4">
                   <select
                     value={user.role}
                     className="bg-transparent"
@@ -116,10 +144,10 @@ const Users = () => {
                     <option value="admin">admin</option>
                   </select>
                 </td>
-                <td className="p-3 px-5 flex justify-end">
+                <td className="py-2 px-4 flex justify-end space-x-2">
                   <button
                     type="button"
-                    className="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                    className="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
                     onClick={() => handleSave(user)}
                   >
                     Save
@@ -134,6 +162,45 @@ const Users = () => {
                 </td>
               </tr>
             ))}
+            <tr>
+              <td className="py-2 px-4">
+                <input
+                  type="text"
+                  value={newUser.name}
+                  className="w-full bg-transparent"
+                  placeholder="New Name"
+                  onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+                />
+              </td>
+              <td className="py-2 px-4">
+                <input
+                  type="text"
+                  value={newUser.email}
+                  className="w-full bg-transparent"
+                  placeholder="New Email"
+                  onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+                />
+              </td>
+              <td className="py-2 px-4">
+                <select
+                  value={newUser.role}
+                  className="bg-transparent"
+                  onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
+                >
+                  <option value="user">user</option>
+                  <option value="admin">admin</option>
+                </select>
+              </td>
+              <td className="py-2 px-4 flex justify-end">
+                <button
+                  type="button"
+                  className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                  onClick={handleAdd}
+                >
+                  Add
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
