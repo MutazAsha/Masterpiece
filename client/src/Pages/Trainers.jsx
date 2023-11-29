@@ -106,7 +106,7 @@ const Trainers = () => {
             <Link to={`/trainers/${trainer.user_id}`}>
               <img
                 className="w-full h-56 md:h-64 xl:h-80 object-cover"
-                src={trainer.image}
+                src={trainer.profileimage}
                 alt={trainer.username}
               />
               <div className="p-4">

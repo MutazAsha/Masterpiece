@@ -27,6 +27,8 @@ const Account = () => {
 
   function logout() {
     removeCookie('token');
+    removeCookie('user_id');
+    removeCookie('role_id');
     history("/");
   }
 

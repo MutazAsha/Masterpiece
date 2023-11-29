@@ -10,9 +10,10 @@ const WorkoutPage = () => {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:8080/getAllExerciseImages')
+    axios.get('http://localhost:3000/Exercises')
       .then(response => {
-        setExercises(response.data);
+        setExercises(response.data
+          );
       })
       .catch(error => {
         console.error('Error fetching workout data:', error);
@@ -20,7 +21,7 @@ const WorkoutPage = () => {
   }, []);
 
   const handleSave = (exerciseData) => {
-    axios.put(`http://localhost:8080/updateExerciseImage/${exerciseData.id}`, exerciseData)
+    axios.put(`http://localhost:3000/Exercises/${exerciseData.id}`, exerciseData)
       .then(response => {
         console.log('Exercise data updated successfully:', response.data);
         setExercises(prevExercises =>
@@ -34,17 +35,16 @@ const WorkoutPage = () => {
       });
   };
 
-  const handleDelete = (exerciseId) => {
-    setExercises(prevExercises => prevExercises.filter(exercise => exercise.id !== exerciseId));
-
-    axios.delete(`http://localhost:8080/deleteExerciseImage/${exerciseId}`)
+  const handleDelete = (id) => {
+    setExercises(prevExercises => prevExercises.filter(exercise => exercise.id !== id));
+    axios.delete(`http://localhost:3000/Exercises/${id}`)
       .then(response => {
         console.log('Exercise deleted successfully:', response.data);
       })
       .catch(error => {
         console.error('Error deleting exercise:', error);
 
-        axios.get('http://localhost:8080/getAllExerciseImages')
+        axios.get('http://localhost:3000/Exercises')
           .then(response => {
             setExercises(response.data);
           })
@@ -63,7 +63,7 @@ const WorkoutPage = () => {
   };
 
   const handleAdd = () => {
-    axios.post('http://localhost:8080/createExerciseImage', newExercise)
+    axios.post('http://localhost:3000/Exercises', newExercise)
       .then(response => {
         console.log('New exercise added successfully:', response.data);
         setExercises(prevExercises => [...prevExercises, response.data]);

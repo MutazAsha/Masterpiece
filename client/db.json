@@ -125,6 +125,11 @@
       "image": "https://ifbb-academy.com/wp-content/uploads/2020/05/master.jpg",
       "category": "Fitness",
       "description": "Awesome site. on the top advertising a business online includes assembling Having the most keep."
+    },
+    {
+      "usernameOrEmail": "hjkuiol",
+      "password": "1cBn@4wlerg",
+      "id": 17
     }
   ],
   "Payment": [
@@ -281,57 +286,62 @@
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
       "id": 3,
-      "name": "aaasasaa"
+      "username": "aaasasaa",
+      "role": "trainer"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
       "id": 4,
-      "name": "DFerwav"
+      "username": "DFerwav"
     },
     {
       "email": "rgebt",
       "password": "heaheah",
       "id": 5,
-      "name": "bbbbb"
+      "username": "bbbbb"
     },
     {
       "email": "hind@gmai.com",
       "password": "Hind123$",
       "id": 6,
-      "name": "11111"
+      "username": "11111"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
       "id": 7,
-      "name": "hjkuiol"
+      "username": "hjkuiol"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
       "id": 8,
-      "name": "ewrw"
+      "username": "ewrw"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 9
+      "id": 9,
+      "username": "ewrw"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 10
+      "id": 10,
+      "username": "ewrw"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 11
+      "id": 11,
+      "username": "ewrw"
     },
     {
       "email": "abdulah@gmail.com",
       "password": "A123#aa",
-      "id": 12
+      "id": 12,
+      "username": "ewrw"
     },
     {
       "username": "aaasasaa",
@@ -352,6 +362,11 @@
       "username": "aaasasaa",
       "password": "1cBn@4wlerg",
       "id": 16
+    },
+    {
+      "usernameOrEmail": "aaasasaa",
+      "password": "1cBn@4wlerg",
+      "id": 17
     }
   ],
   "faqData": [

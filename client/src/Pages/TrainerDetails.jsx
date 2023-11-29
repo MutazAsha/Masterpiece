@@ -13,7 +13,6 @@ const TrainerDetails = () => {
       try {
         const response = await axios.get(`http://localhost:8080/getTrainerById/${id}`);
         setTrainer(response.data);
-        const res = response.data;
         setLoading(false);
       } catch (error) {
         console.error('Error fetching trainer details: ', error);
@@ -25,34 +24,37 @@ const TrainerDetails = () => {
   }, [id]);
 
   if (loading) {
-    return <p>Loading...</p>; // يمكنك استبدال هذا برمز تحميل أو مكون آخر
+    return <p className="text-center text-gray-500 text-xl mt-4">Loading...</p>;
   }
 
   return (
-    <div className="w-full mx-auto bg-gradient-to-r from-gray-400 via-gray-500 to-gray-500 rounded-xl shadow-md overflow-hidden md:max-w-6xl my-24 mt-32 text-white">
-      <div className="md:flex items-center">
+    <div className="container mx-auto my-24 p-4 md:p-8 bg-gray-800 text-white rounded-md shadow-md">
+      <div className="md:flex items-center justify-center mb-9">
         <div className="md:shrink-0 ml-8">
           <img
-            className="h-64 w-full object-cover md:h-full md:w-64 rounded-md"
+            className="h-64 w-full object-cover md:h-full md:w-64 rounded-md border-4 border-gray-500"
             src={trainer.profileimage}
             alt={`Image of ${trainer.username}`}
           />
         </div>
-        <div className="p-8">
-          <h2 className="block mt-4 text-3xl leading-tight font-bold text-white hover:underline w-10/12 text-start">
+        <div className="md:ml-8 mt-4 md:mt-0">
+          <h2 className="text-4xl font-extrabold hover:underline text-gray-500">
             Name: {trainer.username}
           </h2>
-          <div className="uppercase tracking-wide text-sm text-gray-300 font-semibold w-10/12 text-start">
-             {trainer.certification}
+          <div className="uppercase tracking-wide text-lg font-semibold mt-2">
+            Certification: {trainer.certification}
           </div>
-          <p className="mt-2 text-gray-200 text-lg w-10/12 text-start">
-             {trainer.experience}
+          <p className="mt-2 text-gray-300 text-lg">
+            Experience: {trainer.experience}
           </p>
         </div>
       </div>
       <Pricing />
-      <div className="bg-gray-800 text-white text-center py-2">
-        <Link to="/trainers" className="text-sm font-medium hover:underline">
+      <div className="text-center py-2 mt-8">
+        <Link
+          to="/trainers"
+          className="text-lg font-medium text-gray-500 hover:underline"
+        >
           &larr; Back to Trainers
         </Link>
       </div>

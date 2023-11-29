@@ -12,7 +12,7 @@ import Statestic from '../Components/Landing/Statestic'
 
 const Home = () => {
   return (
-    <div>
+    <div> 
       <Hero /> 
       <Statestic/>
      <BestTrainers/>

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Profile from "../Components/users/Profile";
+
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import Blog from "../Components/users/Blog";
 import Course from "../Components/users/Course";
-import PlanPricing from "../Components/users/PlanPricing";
+
+import TProfile from "../Components/users/TProfile";
 
 
 const AccountTrainers = () => {
   const [user, setUser] = useState([]);
-  const [page, setPage] = useState("profile");
+  const [page, setPage] = useState("TProfile");
   const [photoPreview, setPhotoPreview] = useState(null);
   const [cookies, setCookie, removeCookie] = useCookies(['token']);
   const history = useNavigate();
@@ -29,10 +30,12 @@ useEffect(() => {
 }, []);
 
 
-  function logout() {
-    removeCookie('token');
-    history("/");
-  }
+function logout() {
+  removeCookie('token');
+  removeCookie('user_id');
+  removeCookie('role_id');
+  history("/");
+}
 
   // to open and close sidebar
   const [isSideOpen, setIsSideOpen] = useState(true);
@@ -153,7 +156,7 @@ useEffect(() => {
 
                   <button
                     className="w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    onClick={() => setPage("profile")}
+                    onClick={() => setPage("TProfile")}
                   >
                     <span className="mx-2 text-sm font-medium">Profile</span>
                   </button>
@@ -170,12 +173,7 @@ useEffect(() => {
                   >
                     <span className="mx-2 text-sm font-medium">Blogs</span>
                   </button>
-                  <button
-                    className="w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    onClick={() => setPage("PlanPricing")}
-                  >
-                    <span className="mx-2 text-sm font-medium">PlanPricing</span>
-                  </button>
+                  
                 </div>
             
                   
@@ -208,8 +206,8 @@ useEffect(() => {
         </div>
       </div>
       {/* content */}
-      <div className={`${page == "profile" ? "block" : "hidden"} w-full`}>
-        <Profile />
+      <div className={`${page == "TProfile" ? "block" : "hidden"} w-full`}>
+        <TProfile/>
       </div>
      
       <div className={`${page == "Course" ? "block" : "hidden"} w-full`}>
@@ -218,9 +216,7 @@ useEffect(() => {
       <div className={`${page == "Blog" ? "block" : "hidden"} w-full`}>
       <Blog/>
       </div>
-      <div className={`${page == "PlanPricing" ? "block" : "hidden"} w-full`}>
-      <PlanPricing/>
-      </div>
+     
 
     </div>
   );

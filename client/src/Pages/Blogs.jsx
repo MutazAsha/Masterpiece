@@ -191,7 +191,7 @@ const Blogs = () => {
       <h1 className="text-[#27374D] text-4xl mb-6 font-bold item-center justify-center text-center">
         Our Blogs
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mx-4 my-4 w-10/12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 my-4 w-10/12">
         {currentBlogs.map((blog) => (
           <BlogCard key={blog.id} blog={blog} />
         ))}

@@ -9,7 +9,7 @@ const CategoryItems = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/category")
+      .get("http://localhost:8080/plans/getAllCategories")
       .then((response) => {
         setData(response.data);
       })
@@ -32,7 +32,7 @@ const CategoryItems = () => {
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 my-20">
-      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 w-full">
+      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 w-full">
         {currentItems.map((item, index) => (
           <Link to={`/category/${item.title}`} key={index}>
             <div className="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl h-[20rem]">

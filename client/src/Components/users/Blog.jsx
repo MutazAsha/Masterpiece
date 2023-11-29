@@ -1,4 +1,3 @@
-// Blog.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +16,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/blog");
+        const response = await axios.get("http://localhost:8080/getArticleById/");
         setBlogs(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -41,43 +40,16 @@ const Blog = () => {
     setShowPopup(true);
   };
 
-  // const handleDelete = async (blogId) => {
-  //   try {
-  //     await axios.delete(`http://localhost:3000/blog/${blogId}`);
-  //     setDeleteMessage("Blog deleted successfully.");
-
-  //     // Refetch the data after successful deletion
-  //     const response = await axios.get("http://localhost:3000/blog");
-  //     setBlogs(response.data);
-  //   } catch (error) {
-  //     console.error("Error deleting blog: ", error);
-  //     setDeleteMessage("Error deleting blog. Please try again.");
-  //   } finally {
-  //     // Close the confirmation popup after a delay or based on user interaction
-  //     setTimeout(() => {
-  //       setShowPopup(false);
-  //       setDeleteMessage("");
-  //     }, 3000);
-  //   }
-  // };
-
-
-
   const handleDelete = async (blogId) => {
     try {
       // Send a PATCH request to update the status for soft delete
-      await axios.patch(`http://localhost:3000/blog/${blogId}`,{isdeleted:'true'});
-      const response = await axios.get("http://localhost:3000/blog");
-          setBlogs(response.data);
-          console.log(response.data,"hhhhhhh")
-      // Refresh the data or handle the removal of the soft-deleted user from your local state
-      // fetchData();
-  
+      await axios.put(`http://localhost:8080/getArticleById/${blogId}`, { isdeleted: 'true' });
+      const response = await axios.get("http://localhost:8080/getArticleById/");
+      setBlogs(response.data);
     } catch (error) {
-      console.error('Error soft deleting user:', error);
+      console.error('Error soft deleting blog:', error);
     }
   };
-
 
   const handleAdd = () => {
     setUpdateBlogData(null);
@@ -93,43 +65,49 @@ const Blog = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 my-4 items-end justify-end ">
           {currentBlogs.map((blog) => (
             blog.isdeleted !== 'true' && (
-
-            <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[20rem]">
-              <Link to="#">
-                <img src={blog.blog_img} alt="" className="w-full h-40 object-cover" />
-              </Link>
-              <div className="p-4 w-[20rem]">
+              <div key={blog.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[20rem]">
                 <Link to="#">
-                  <h5 className="w-[20rem] mb-2 text-xl font-bold text-gray-900 dark:text-white">
-                    {blog.blog_title}
-                  </h5>
+                  <img src={blog.articles_image} alt="" className="w-full h-40 object-cover" />
                 </Link>
-                <p className="w-[20rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
-                  {blog.blog_subdescription}
-                </p>
-                <Link
-                  to={`/blog-details/${blog.id}`}
-                  className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
-                >
-                  Read More
-                </Link>
+                <div className="p-4 w-[20rem]">
+                  <Link to="#">
+                    <h5 className="w-[20rem] mb-2 text-xl font-bold text-gray-900 dark:text-white">
+                      {blog.title}
+                    </h5>
+                  </Link>
+                  <p className="w-[20rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
+                    {blog.content}
+                  </p>
+                  <p className="w-[20rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
+                    Published by: {blog.username}
+                  </p>
+                  <p className="w-[20rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
+                    Published at: {blog.published_at}
+                  </p>
+                  <Link
+                    to={`/blog-details/${blog.id}`}
+                    className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
+                  >
+                    Read More
+                  </Link>
 
-                <button
-                  onClick={() => handleUpdate(blog.id)}
-                  className="inline-block px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none ml-2"
-                >
-                  Update
-                </button>
+                  <button
+                    onClick={() => handleUpdate(blog.id)}
+                    className="inline-block px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none ml-2"
+                  >
+                    Update
+                  </button>
 
-                <button
-                  onClick={() => handleDelete(blog.id)}
-                  className="inline-block px-4 py-2 text-sm font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none ml-2"
-                >
-                  Delete
-                </button>
+                  <button
+                    onClick={() => handleDelete(blog.id)}
+                    className="inline-block px-4 py-2 text-sm font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none ml-2"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-         ) ))}
+            )
+          ))}
         </div>
         <div className="col-span-full flex justify-center mt-4">
           <button
@@ -168,33 +146,30 @@ const Blog = () => {
           Add Blog
         </button>
 
-       {/* Popup */}
-{showPopup && (
-  <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-    <div className="bg-white p-8 rounded-md shadow-lg">
-      {/* Display the content of BlogForm or UpdateBlogForm based on updateBlogData */}
-      {updateBlogData ? (
-        <UpdateBlog
-          onClose={() => setShowPopup(false)}
-          blogData={updateBlogData}
-        />
-      ) : (
-        <BlogForm onClose={() => setShowPopup(false)} />
-      )}
+        {/* Popup */}
+        {showPopup && (
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="bg-white p-8 rounded-md shadow-lg">
+              {/* Display the content of BlogForm or UpdateBlogForm based on updateBlogData */}
+              {updateBlogData ? (
+                <UpdateBlog
+                  onClose={() => setShowPopup(false)}
+                  blogData={updateBlogData}
+                />
+              ) : (
+                <BlogForm onClose={() => setShowPopup(false)} />
+              )}
 
-      {/* Add a close button */}
-      <button
-        className="p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mt-4"
-        onClick={() => setShowPopup(false)}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
-
-
-
+              {/* Add a close button */}
+              <button
+                className="p-3 bg-red-500 text-white rounded-full hover:bg-red-700 focus:outline-none mt-4"
+                onClick={() => setShowPopup(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

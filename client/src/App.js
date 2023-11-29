@@ -32,6 +32,12 @@ import CategoryItems from "./Components/Landing/CategoryItems";
 import TCourseDetails from "./Pages/TCourseDetails";
 
 
+import axios from 'axios';
+import Cookies from 'js-cookie';
+// Set the Authorization header globally
+axios.defaults.headers.common['Authorization'] = `${Cookies.get('token')}`;
+
+
 function App() {
   return (
     <div className="App">

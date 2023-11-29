@@ -29,10 +29,13 @@ const SignIn = () => {
 
       const token = response.data.accessToken; // Make sure to access the correct property
       const user_id = response.data.Id; // Make sure to access the correct property
+      const role_id = response.data.userRole; 
       console.log('Token:', token);
 
       Cookies.set('token', token);
       Cookies.set('user_id', user_id);
+      Cookies.set('role_id', role_id);
+
 
       setError('Sign-in successful');
       history('/');

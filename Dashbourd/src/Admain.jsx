@@ -9,6 +9,7 @@ import Users from "./Users";
 import Dashboard from "./Dashboard";
 import Category from "./Category";
 import WorkoutPage from "./Workout";
+import FAQ from "./FAQ";
 
 const Admain = () => {
   const [user, setUser] = useState([]);
@@ -140,6 +141,14 @@ const Admain = () => {
                 >
                   <span className="mx-2 text-sm font-medium">Workout</span>
                 </button>
+                <button
+                  className={`w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 ${
+                    page === "FAQ" && "bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-gray-700"
+                  } hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+                  onClick={() => setPage("FAQ")}
+                >
+                  <span className="mx-2 text-sm font-medium">FAQ</span>
+                </button>
               </div>
 
               <div className="space-y-3">
@@ -195,6 +204,9 @@ const Admain = () => {
         </div>
         <div className={`${page === "WorkoutPage" ? "block" : "hidden"} w-full`}>
           <WorkoutPage/>
+        </div>
+        <div className={`${page === "FAQ" ? "block" : "hidden"} w-full`}>
+          <FAQ/>
         </div>
       </div>
     </div>

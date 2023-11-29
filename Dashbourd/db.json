@@ -140,84 +140,107 @@
   ],
   "Exercises": [
     {
-      "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
-      "name": "111111",
-      "category": "Fitness"
+      "id": 1,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
+      "name": "333333",
+      "category": "CROSSFIT",
+      "title": "ص3"
     },
     {
+      "id": 2,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
       "name": "222222",
       "category": "body bulding"
     },
     {
+      "id": 3,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
       "name": "333333",
       "category": "CROSSFIT"
     },
     {
+      "id": 4,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
       "name": "444444",
       "category": "CARDIO"
     },
     {
+      "id": 5,
       "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
       "name": "555555",
       "category": "Fitness"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
       "name": "666666",
       "category": "CROSSFIT"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
       "name": "777777",
       "category": "CARDIO"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
       "name": "888888",
       "category": "Fitness"
     },
     {
+      "id": 1,
       "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/23681301-Split-Squats_Thighs_360.gif",
       "name": "111111",
       "category": "Fitness"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUYs_Dt77jTUs37EVbiZCSe7_rMvManliuQgUKahH4fBNvAyyA4CmzIP_DeH3L-LK7R_0&usqp=CAU",
       "name": "222222",
       "category": "body bulding"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtqwJB7ZZrLOkhGDRkrqf8g6s-XB7VoypNr6dXriq-sJFXEASbb9EZKxokgWNOngJReSw&usqp=CAU",
       "name": "333333",
       "category": "CROSSFIT"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnGgEUnKqC2fa0DN8RpB4B6YDif0xQXnl5_mDiCUNJy-o2KsR3RJhkwbHKJFqCQPfJks&usqp=CAU",
       "name": "444444",
       "category": "CARDIO"
     },
     {
+      "id": 1,
       "image": "https://www.nickhallbodytransformations.com/wp-content/uploads/2019/01/14561301-Barbell-Standing-Close-Grip-Military-Press_Shoulders_360.gif",
       "name": "555555",
       "category": "Fitness"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAl3biUm7BLdj4Hfvs0M_tk49-wMDlnlgFfheelyDRHj4R8bVX1jW-_7DFBej4XpI8P3k&usqp=CAU",
       "name": "666666",
       "category": "CROSSFIT"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz96OlfLrWk2x3Te_jzt-pyR8yaxsKRUmlMXuLjYGYdMPtMOtAmFLDkQQMIEu1jD9AWMk&usqp=CAU",
       "name": "777777",
       "category": "CARDIO"
     },
     {
+      "id": 1,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4X6zQwmvhTFcwVWWCzYtYq3nPVShqO9wlg&usqp=CAU",
       "name": "888888",
       "category": "Fitness"
+    },
+    {
+      "title": "4بي",
+      "content": "ب4ثث",
+      "gif_url": "قث43ق4ق",
+      "id": 6
     }
   ],
   "CourseDetails": [
@@ -316,38 +339,47 @@
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 9
+      "id": 9,
+      "name": "sSG"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 10
+      "id": 10,
+      "name": "4567890",
+      "role": "admin"
     },
     {
       "email": "Mutaz.123@gmail.com",
       "password": "1cBn@4wlerg",
-      "id": 11
+      "id": 11,
+      "name": "szrgs"
     },
     {
       "email": "abdulah@gmail.com",
       "password": "A123#aa",
-      "id": 12
+      "id": 12,
+      "name": "zdgzdr"
     }
   ],
   "faqData": [
     {
+      "id": 1,
       "question": "How can I get started?",
       "answer": "Getting started is easy! Sign up for an account, and you'll have access to our platform's features. No credit card required for the initial signup."
     },
     {
+      "id": 2,
       "question": "What is the pricing structure?",
       "answer": "Our pricing structure is flexible. We offer both free and paid plans. You can choose the one that suits your needs and budget.,"
     },
     {
+      "id": 3,
       "question": "What kind of support do you provide?",
       "answer": "We offer comprehensive customer support. You can reach out to our support team through various channels, including email, chat, and a knowledge base."
     },
     {
+      "id": 4,
       "question": " Can I cancel my subscription anytime?",
       "answer": " Yes, you can cancel your subscription at any time without any hidden fees. We believe in providing a hassle-free experience for our users."
     }

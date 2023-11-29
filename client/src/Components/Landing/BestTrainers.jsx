@@ -25,8 +25,9 @@ const BestTrainers = () => {
   const firstFourTrainers = Array.isArray(trainers) ? trainers.slice(0, 4) : [];
 
   return (
-    <div data-aos="fade-up" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 mt-24">
-      <h1 className="text-[#22092C] text-4xl mb-6 font-bold text-center">Best Trainers</h1>
+    
+    <div data-aos="fade-up" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 mt-24 ">
+      <h1 className="text-black text-4xl mb-6 font-bold text-center">Best Trainers</h1>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {firstFourTrainers.map((trainer) => (
           <div key={trainer.trainer_id} className="group">
@@ -34,7 +35,7 @@ const BestTrainers = () => {
               <div className="relative overflow-hidden rounded-lg shadow-xl border-2  transition duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
                 <img
                   className="object-cover w-full h-56 md:h-64 xl:h-80 rounded-t-lg"
-                  src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltfGVufDB8fDB8fHww"
+                  src={trainer.profileimage}
                   alt="Person"
                 />
                 <div className="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-[#ebebeb] bg-opacity-90 opacity-0 group-hover:opacity-100">

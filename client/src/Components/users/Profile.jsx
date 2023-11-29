@@ -251,27 +251,25 @@ const Profile = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
+
+      
   const handleSaveChanges = async (e) => {
     e.preventDefault();
     if (!error) {
-      const updatedUser = new FormData();
-      updatedUser.append('user_id', user.user_id);
-      updatedUser.append('username_user', formValues.username || user.username);
-      updatedUser.append('bio', formValues.bio || user.bio);
-      updatedUser.append('location', formValues.location || user.location);
-      updatedUser.append('website', formValues.website || user.website);
-      updatedUser.append('profileimage', imageFile);
-  
-      // if (imageFile) {
-      //   updatedUser.append('profileimage', imageFile);
-      // }
-  
-      console.log("Updated User Data:", Object.fromEntries(updatedUser));
+      const updatedUser = {
+        username: formValues.username || user.username,
+        bio: formValues.bio || user.bio,
+        location: formValues.location || user.location,
+        website: formValues.website || user.website,
+        fileUrl: imageFile || user.fileUrl
+      };
+
+      console.log(user);
       console.log(updatedUser)
   
       try {
         const response = await axios.put(
-          `http://localhost:8080/updateUserProfileAndUser`,
+          `http://localhost:8080/updateUserProfileAndUser/${user.user_id}`,
           updatedUser,
           {
             headers: {
@@ -360,7 +358,7 @@ const Profile = () => {
             <div className="flex flex-col justify-start">
               <label htmlFor="location" className="self-start p-2 text-gray-800">
                 Location
-              </label>
+              </label>3
               <input
                 className="w-full p-2 border rounded-md bg-gray-200"
                 onChange={handleInputChange}

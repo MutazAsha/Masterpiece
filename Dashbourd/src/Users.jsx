@@ -141,7 +141,7 @@ const Users = () => {
                     onChange={(e) => handleInputChange(user.id, 'role', e.target.value)}
                   >
                     <option value="user">user</option>
-                    <option value="admin">admin</option>
+                    <option value="trainer">trainer</option> {/* Changed from "admin" to "trainer" */}
                   </select>
                 </td>
                 <td className="py-2 px-4 flex justify-end space-x-2">
@@ -188,7 +188,7 @@ const Users = () => {
                   onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
                 >
                   <option value="user">user</option>
-                  <option value="admin">admin</option>
+                  <option value="trainer">trainer</option> {/* Changed from "admin" to "trainer" */}
                 </select>
               </td>
               <td className="py-2 px-4 flex justify-end">

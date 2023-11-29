@@ -50,10 +50,10 @@ const Calculator = () => {
   };
 
   return (
-    <section data-aos="fade-up" className="calculator-section flex items-center justify-center min-h-screen bg-white">
-      <div className="container w-10/12 mx-auto p-8 bg-[#ebebeb] shadow-lg rounded-lg flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold mb-6 text-center text-[#27374D]">BMI CALCULATOR</h1>
-        <form className="bg-[#cbcbcb] p-6 rounded-md w-10/12">
+    <section data-aos="fade-up" className="calculator-section flex items-center justify-center min-h-screen ">
+      <div className="container w-10/12 mx-auto p-8 bg-white shadow-lg rounded-lg flex flex-col items-center justify-center">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-500">BMI CALCULATOR</h1>
+        <form className="bg-gray-400 p-6 rounded-md w-10/12">
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <div className="mb-4">
             <label className="block text-sm font-bold mb-2" htmlFor="height">
@@ -83,7 +83,7 @@ const Calculator = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="p-3 bg-gradient-to-r  rounded-xl mt-2 hover:bg-gradient-to-r from-[#22092C] to-[#363636] transition-all duration-300 text-white"
+              className="p-3 bg-gradient-to-r rounded-xl mt-2 hover:bg-gray-700 transition-all duration-300 text-white"
               type="button"
               onClick={calculateBMI}
             >
@@ -102,16 +102,16 @@ const Calculator = () => {
           )}
         </form>
         <div className="mt-8 w-8/12">
-          <h3 className="text-xl font-bold text-[#27374D] mb-4">BODY MASS INDEX</h3>
+          <h3 className="text-xl font-bold text-gray-500 mb-4">BODY MASS INDEX</h3>
           <div className="shadow-sm border rounded-lg overflow-x-auto">
             <table className="w-full table-auto text-sm text-left">
-              <thead className="bg-[#363636] text-white font-medium border-b">
+              <thead className="bg-gray-500 text-white font-medium border-b">
                 <tr>
                   <th className="py-2 px-4 text-center">BMI</th>
                   <th className="py-2 px-4 text-center">CLASSIFICATION</th>
                 </tr>
               </thead>
-              <tbody className="text-[#27374D] divide-y">
+              <tbody className="text-gray-700 divide-y">
                 {tableItems.map((item, idx) => (
                   <tr key={idx} className="divide-x">
                     <td className="px-4 py-2 text-center">{item.name}</td>
