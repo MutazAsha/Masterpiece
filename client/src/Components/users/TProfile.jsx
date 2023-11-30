@@ -4,7 +4,12 @@ import { useCookies } from 'react-cookie';
 
 const TProfile = () => {
   const [user, setUser] = useState({});
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({
+    username: "",
+    bio: "",
+    location: "",
+    website: "",
+  });
   const [cookie] = useCookies(["Authorization"]);
   const [photoName, setPhotoName] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
@@ -15,9 +20,10 @@ const TProfile = () => {
 
   useEffect(() => {
     if (cookie.token !== undefined) {
+   
       axios.get(`http://localhost:8080/user-profiles`, {
         headers: { 'Authorization': cookie.token }
-      }) 
+      })
         .then((response) => {
           setUser(response.data.userProfile);
           setFormValues(response.data.userProfile);
@@ -54,29 +60,34 @@ const TProfile = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
+  const handleCancel = () => {
+    setFormValues(user); // Reset to the original values
+  };
+
   const handleSaveChanges = async (e) => {
     e.preventDefault();
+
     if (!error) {
-      const updatedUser = new FormData();
-      updatedUser.append('user_id', user.user_id);
-      updatedUser.append('username_user', formValues.username || user.username);
-      updatedUser.append('bio', formValues.bio || user.bio);
-      updatedUser.append('location', formValues.location || user.location);
-      updatedUser.append('website', formValues.website || user.website);
-      updatedUser.append('profileimage', imageFile);
-  
+      // Create FormData object
+      const formData = new FormData();
+      formData.append("user_id", user.user_id);
+      formData.append("username_user", formValues.username || user.username);
+      formData.append("bio", formValues.bio || user.bio);
+      formData.append("location", formValues.location || user.location);
+      formData.append("website", formValues.website || user.website);
+      formData.append("profileimage", imageFile);
+
       try {
         const response = await axios.put(
-          `http://localhost:8080/updateUserProfileAndUser`,
-          updatedUser,
+          "http://localhost:8080/updateUserProfileAndUser",
+          formData,
           {
             headers: {
-              'Content-Type': 'multipart/form-data',
-              'Authorization': cookie.token,
+              Authorization: cookie.token,
             },
           }
         );
-  
+
         console.log("Server Response:", response.data);
         setSuccessMessage("Profile updated successfully!");
       } catch (error) {
@@ -86,7 +97,7 @@ const TProfile = () => {
       }
     }
   };
-  
+
   return (
     <div className="min-h-screen bg-white flex justify-center ml-20 items-center">
       <div className="w-9/12 h-5/6 bg-white my-6 md:ml-24 px-10 py-8 rounded-lg shadow-md">
@@ -136,7 +147,7 @@ const TProfile = () => {
                 onChange={handleInputChange}
                 type="text"
                 name="username"
-                value={formValues.username}
+                value={formValues.username || ""}
               />
             </div>
 
@@ -149,7 +160,7 @@ const TProfile = () => {
                 onChange={handleInputChange}
                 placeholder={user.bio}
                 name="bio"
-                value={formValues.bio}
+                value={formValues.bio || ""}
               />
             </div>
 
@@ -161,7 +172,7 @@ const TProfile = () => {
                 className="w-full p-2 border rounded-md bg-gray-200"
                 onChange={handleInputChange}
                 name="location"
-                value={formValues.location}
+                value={formValues.location || ""}
               />
             </div>
 
@@ -172,7 +183,7 @@ const TProfile = () => {
               <input
                 className="w-full p-2 border rounded-md bg-gray-200"
                 onChange={handleInputChange}
-                value={formValues.website}
+                value={formValues.website || ""}
                 name="website"
               />
             </div>
@@ -182,6 +193,7 @@ const TProfile = () => {
             <button
               className="w-1/4 mr-3 p-2 bg-red-500 hover:bg-red-600 text-white rounded-xl"
               type="button"
+              onClick={handleCancel}
             >
               Cancel
             </button>

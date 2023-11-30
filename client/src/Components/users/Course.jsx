@@ -5,9 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import AddTrainingCoursePage from "../AddCourse";
 import UpdatePlan from "../UpdatePlan";
 
-// ... (import statements remain the same)
-
-const Course = () => {
+const Course = ({ user_id }) => {
   const [trainers, setTrainers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [showPopup, setShowPopup] = useState(false);
@@ -18,7 +16,7 @@ const Course = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/getAllTrainers");
+        const response = await axios.get(`http://localhost:8080/getplansfortrainer/${user_id}`);
         setTrainers(response.data.trainers);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -26,7 +24,7 @@ const Course = () => {
     };
 
     fetchData();
-  }, []);
+  }, [user_id]);
 
   const indexOfLastTrainer = currentPage * 6;
   const indexOfFirstTrainer = indexOfLastTrainer - 6;
@@ -43,17 +41,15 @@ const Course = () => {
 
   const handleDelete = async (trainerId) => {
     try {
-      await axios.delete(`http://localhost:8080/getAllTrainers/${trainerId}`);
+      await axios.put(`http://localhost:8080/softDeletePlanById/${trainerId}`);
       setDeleteMessage("Trainer deleted successfully.");
 
-      // Refetch the data after successful deletion
-      const response = await axios.get("http://localhost:8080/getAllTrainers");
+      const response = await axios.get(`http://localhost:8080/getplansfortrainer/${user_id}`);
       setTrainers(response.data.trainers);
     } catch (error) {
       console.error("Error deleting trainer: ", error);
       setDeleteMessage("Error deleting trainer. Please try again.");
     } finally {
-      // Close the confirmation popup after a delay or based on user interaction
       setTimeout(() => {
         setShowPopup(false);
         setDeleteMessage("");
@@ -63,7 +59,7 @@ const Course = () => {
 
   const handleAdd = () => {
     setShowPopup(true);
-    setUpdateTrainerId(null); // Reset the updateTrainerId when adding a new trainer
+    setUpdateTrainerId(null);
   };
 
   return (
@@ -73,38 +69,34 @@ const Course = () => {
         {deleteMessage && <p className="text-green-500">{deleteMessage}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-4 my-4 items-end justify-end">
           {currentTrainers.map((trainer) => (
-            <div key={trainer.trainer_id} className="bg-white rounded-md overflow-hidden shadow-lg w-[20rem]">
+            <div key={trainer.id} className="bg-white rounded-md overflow-hidden shadow-lg w-[20rem]">
               <Link to="#">
-                <img src={trainer.profileimage} alt="" className="w-full h-40 object-cover" />
+                <img src={trainer.image} alt="" className="w-full h-40 object-cover" />
               </Link>
               <div className="p-4 w-[20rem]">
                 <Link to="#">
                   <h5 className="w-[20rem] mb-2 text-xl font-bold text-gray-900 dark:text-white">
-                    {trainer.username}
+                    {trainer.name}
                   </h5>
                 </Link>
                 <p className="w-[20rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
-                  Certification: {trainer.certification}
+                  Description: {trainer.description}
                 </p>
-                <p className="w-[20rem] mb-3 text-sm text-gray-700 dark:text-gray-400">
-                  Experience: {trainer.experience}
-                </p>
+                {/* Display other trainer properties */}
                 <Link
-                  to={`/Tcourse-details/${trainer.trainer_id}`}
+                  to={`/Tcourse-details/${trainer.id}`}
                   className="inline-block px-4 py-2 text-sm font-bold text-white bg-gray-800 rounded-full hover:bg-gray-700 focus:outline-none"
                 >
                   Read More
                 </Link>
-
                 <button
-                  onClick={() => handleUpdate(trainer.trainer_id)}
+                  onClick={() => handleUpdate(trainer.id)}
                   className="inline-block px-4 py-2 text-sm font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none ml-2"
                 >
                   Update
                 </button>
-
                 <button
-                  onClick={() => handleDelete(trainer.trainer_id)}
+                  onClick={() => handleDelete(trainer.id)}
                   className="inline-block px-4 py-2 text-sm font-bold text-white bg-red-500 rounded-full hover:bg-red-700 focus:outline-none ml-2"
                 >
                   Delete

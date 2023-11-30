@@ -112,7 +112,7 @@ const ContactUs = () => {
               <div className="mt-8 w-full border-t border-[#27374D] p-2 pt-8 text-center">
                 <a className="text-white">example@email.com</a>
                 <p className="my-5 leading-normal"></p>
-                <span className="inline-flex">
+                <span className="inline-flex">cd 
                   <a className="text-white">
                     <svg
                       fill="currentColor"
