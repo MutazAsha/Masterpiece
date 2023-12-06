@@ -31,7 +31,7 @@ const BestTrainers = () => {
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {firstFourTrainers.map((trainer) => (
           <div key={trainer.trainer_id} className="group">
-            <Link to={`/trainers/${trainer.username}`}>
+            <Link to={`/trainers/${trainer.user_id}`}>
               <div className="relative overflow-hidden rounded-lg shadow-xl border-2  transition duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
                 <img
                   className="object-cover w-full h-56 md:h-64 xl:h-80 rounded-t-lg"
@@ -46,7 +46,7 @@ const BestTrainers = () => {
                     Certification: {trainer.certification}
                   </p>
                   <p className="mb-1 text-xs text-[#6B7280] group-hover:text-white">
-                    Experience: {trainer.experience} years
+                    Experience: {trainer.experience} 
                   </p>
                   {/* <p className="mb-4 text-xs text-[#6B7280] group-hover:text-white">
                     Rating: {trainer.rating}

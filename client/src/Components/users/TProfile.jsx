@@ -1,15 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { useCookies } from 'react-cookie';
+import { Cookies, useCookies } from 'react-cookie';
 
 const TProfile = () => {
   const [user, setUser] = useState({});
-  const [formValues, setFormValues] = useState({
-    username: "",
-    bio: "",
-    location: "",
-    website: "",
-  });
+  const [formValues, setFormValues] = useState(
+[]);
   const [cookie] = useCookies(["Authorization"]);
   const [photoName, setPhotoName] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
@@ -17,6 +13,7 @@ const TProfile = () => {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const fileInputRef = useRef(null);
+  console.log(formValues)
 
   useEffect(() => {
     if (cookie.token !== undefined) {
@@ -70,36 +67,41 @@ const TProfile = () => {
     if (!error) {
       // Create FormData object
       const formData = new FormData();
-      formData.append("user_id", user.user_id);
-      formData.append("username_user", formValues.username || user.username);
-      formData.append("bio", formValues.bio || user.bio);
-      formData.append("location", formValues.location || user.location);
-      formData.append("website", formValues.website || user.website);
-      formData.append("profileimage", imageFile);
+      // formData.append("user_id", formValues.user_id);
+      formData.append("image", imageFile);
 
+      formData.append("username_user", formValues.username );
+      formData.append("bio", formValues.bio);
+      formData.append("location", formValues.location);
+      formData.append("website", formValues.website );
+
+      console.log(formData)
+
+      
       try {
         const response = await axios.put(
           "http://localhost:8080/updateUserProfileAndUser",
           formData,
           {
             headers: {
-              Authorization: cookie.token,
+              Authorization: Cookies.get('token'),
+              'Content-Type': 'multipart/form-data',  // Assuming you are sending form data
             },
           }
         );
-
-        console.log("Server Response:", response.data);
-        setSuccessMessage("Profile updated successfully!");
+        console.log('Response:', response.data);
       } catch (error) {
-        console.error("Error updating Information", error);
-        setSuccessMessage("");
-        setError("Error updating information. Please try again.");
+        console.error('Error updating user profile:', error);
       }
-    }
+      
+        
+
+      }
+    
   };
 
   return (
-    <div className="min-h-screen bg-white flex justify-center ml-20 items-center">
+    <div className="p-4 flex justify-center mt-28 ml-36">
       <div className="w-9/12 h-5/6 bg-white my-6 md:ml-24 px-10 py-8 rounded-lg shadow-md">
         <form>
           <div className="flex justify-center">
@@ -217,4 +219,4 @@ const TProfile = () => {
   );
 };
 
-export default TProfile;
+export default TProfile

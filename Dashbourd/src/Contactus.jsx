@@ -90,13 +90,9 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="text-gray-900 bg-white w-full md:w-11/12 lg:w-3/4 xl:w-2/3 flex justify-end mt-44 ml-40">
-      <div className="p-4 flex justify-center">
-        {/* <h1 className="text-3xl font-bold mb-4">Contact Us Submissions</h1> */}
-      </div>
-      <div className="px-3 py-4 flex justify-end">
-        <table className="w-full text-md bg-white shadow-md rounded mb-4">
-          <thead className="bg-[#9DB2BF] text-white">
+    <div className="p-4 flex justify-center mt-28 ml-36">
+    <table className="w-full sm:w-11/12 md:w-5/6 lg:w-4/5 xl:w-4/5 bg-white border border-gray-300">
+      <thead className="bg-[#9DB2BF] text-white">
             <tr>
               <th className="py-2 px-4">Name</th>
               <th className="py-2 px-4">Email</th>
@@ -191,7 +187,7 @@ const ContactUs = () => {
           </tbody>
         </table>
       </div>
-    </div>
+
   );
 };
 

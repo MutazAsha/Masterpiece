@@ -9,56 +9,55 @@ const Courses = () => {
     Course_Duration: '',
     Pricing: '',
     Course_description: '',
+    Image: null, // Updated field for file input
   });
 
   useEffect(() => {
-    // Fetch data from your API using Axios
     axios.get('http://localhost:3000/Corse')
       .then(response => {
-        // Update the state with the fetched data
         setCourses(response.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
-  }, []); // Empty dependency array ensures the effect runs only once on component mount
+  }, []);
 
   const handleSave = (courseData) => {
-    // Send a request to update the course data on the server
-    axios.put(`http://localhost:3000/Corse/${courseData.id}`, courseData)
-      .then(response => {
-        // Handle success, e.g., show a success message
-        console.log('Course data updated successfully:', response.data);
+    const formData = new FormData();
+    formData.append('Course_Name', courseData.Course_Name);
+    formData.append('Course_Category', courseData.Course_Category);
+    formData.append('Course_Duration', courseData.Course_Duration);
+    formData.append('Pricing', courseData.Pricing);
+    formData.append('Course_description', courseData.Course_description);
+    formData.append('Image', courseData.Image);
 
-        // Optionally, you can update the local state with the new data
+    axios.put(`http://localhost:3000/Corse/${courseData.id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then(response => {
+        console.log('Course data updated successfully:', response.data);
         setCourses(prevCourses => prevCourses.map(course =>
           course.id === courseData.id ? { ...course, ...courseData } : course
         ));
       })
       .catch(error => {
-        // Handle error, e.g., show an error message
         console.error('Error updating course data:', error);
       });
   };
 
   const handleDelete = (courseId) => {
-    // Optimistically remove the course from the local state
     setCourses(prevCourses => prevCourses.filter(course => course.id !== courseId));
 
-    // Send a request to delete the course from the server
     axios.delete(`http://localhost:3000/Corse/${courseId}`)
       .then(response => {
-        // Handle success, e.g., show a success message
         console.log('Course deleted successfully:', response.data);
       })
       .catch(error => {
-        // Handle error, e.g., show an error message
         console.error('Error deleting course:', error);
-
-        // Roll back the state if the request fails
         axios.get('http://localhost:3000/Corse')
           .then(response => {
-            // Update the state with the fetched data
             setCourses(response.data);
           })
           .catch(error => {
@@ -68,7 +67,6 @@ const Courses = () => {
   };
 
   const handleInputChange = (courseId, field, value) => {
-    // Update the local state with the changed input value
     setCourses(prevCourses =>
       prevCourses.map(course =>
         course.id === courseId ? { ...course, [field]: value } : course
@@ -76,169 +74,190 @@ const Courses = () => {
     );
   };
 
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setNewCourse(prevNewCourse => ({ ...prevNewCourse, Image: selectedFile }));
+  };
+
   const handleAdd = () => {
-    // Send a request to add the new course to the server
-    axios.post('http://localhost:3000/Corse', newCourse)
+    const formData = new FormData();
+    formData.append('Course_Name', newCourse.Course_Name);
+    formData.append('Course_Category', newCourse.Course_Category);
+    formData.append('Course_Duration', newCourse.Course_Duration);
+    formData.append('Pricing', newCourse.Pricing);
+    formData.append('Course_description', newCourse.Course_description);
+    formData.append('Image', newCourse.Image);
+
+    axios.post('http://localhost:8080/createPlan', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
       .then(response => {
-        // Handle success, e.g., show a success message
         console.log('New course added successfully:', response.data);
-
-        // Update the local state with the new data
         setCourses(prevCourses => [...prevCourses, response.data]);
-
-        // Clear the form fields after successful submission
         setNewCourse({
           Course_Name: '',
           Course_Category: '',
           Course_Duration: '',
           Pricing: '',
           Course_description: '',
+          Image: null,
         });
       })
       .catch(error => {
-        // Handle error, e.g., show an error message
         console.error('Error adding new course:', error);
       });
   };
 
   return (
-    <div className="text-gray-900 bg-white w-full md:w-11/12 lg:w-3/4 xl:w-2/3 flex justify-end mt-44 ml-72">
-      {/* <div className="p-4 flex justify-center">
-        <h1 className="text-3xl font-bold mb-4">Course Management</h1>
-      </div> */}
-      <div className="px-4 py-2 flex justify-center">
-        <table className="w-full text-md bg-white shadow-md rounded mb-4">
-          <thead className="bg-[#9DB2BF] text-white">
-            <tr>
-              <th className="py-2 px-4">Course Name</th>
-              <th className="py-2 px-4">Course Category</th>
-              <th className="py-2 px-4">Course Duration</th>
-              <th className="py-2 px-4">Pricing</th>
-              <th className="py-2 px-4">Course Description</th>
-              <th className="py-2 px-4">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courses.map((course, index) => (
-              <tr
-                key={index}
-                className={`border-b hover:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-50' : ''}`}
-              >
-                <td className="py-2 px-4">
-                  <input
-                    type="text"
-                    value={course.Course_Name}
-                    className="w-full bg-transparent"
-                    onChange={(e) => handleInputChange(course.id, 'Course_Name', e.target.value)}
-                  />
-                </td>
-                <td className="py-2 px-4">
-                  <input
-                    type="text"
-                    value={course.Course_Category}
-                    className="w-full bg-transparent"
-                    onChange={(e) => handleInputChange(course.id, 'Course_Category', e.target.value)}
-                  />
-                </td>
-                <td className="py-2 px-4">
-                  <input
-                    type="text"
-                    value={course.Course_Duration}
-                    className="w-full bg-transparent"
-                    onChange={(e) => handleInputChange(course.id, 'Course_Duration', e.target.value)}
-                  />
-                </td>
-                <td className="py-2 px-4">
-                  <input
-                    type="text"
-                    value={course.Pricing}
-                    className="w-full bg-transparent"
-                    onChange={(e) => handleInputChange(course.id, 'Pricing', e.target.value)}
-                  />
-                </td>
-                <td className="py-2 px-4">
-                  <textarea
-                    value={course.Course_description}
-                    className="w-full bg-transparent"
-                    onChange={(e) => handleInputChange(course.id, 'Course_description', e.target.value)}
-                  />
-                </td>
-                <td className="py-2 px-4 flex justify-end">
-                  <button
-                    type="button"
-                    className="mr-2 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-                    onClick={() => handleSave(course)}
-                  >
-                    Save
-                  </button>
-                  <button
-                    type="button"
-                    className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-                    onClick={() => handleDelete(course.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-            <tr className="border-b hover:bg-gray-100">
+    <div className="p-4 flex justify-center mt-28 ml-36">
+    <table className="w-full sm:w-11/12 md:w-5/6 lg:w-4/5 xl:w-4/5 bg-white border border-gray-300">
+        <thead className="bg-[#9DB2BF] text-white">
+          <tr>
+            <th className="py-2 px-4">Course Name</th>
+            <th className="py-2 px-4">Course Category</th>
+            <th className="py-2 px-4">Course Duration</th>
+            <th className="py-2 px-4">Pricing</th>
+            <th className="py-2 px-4">Course Description</th>
+            <th className="py-2 px-4">Image</th>
+            <th className="py-2 px-4">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {courses.map((course, index) => (
+            <tr
+              key={index}
+              className={`border-b hover:bg-gray-100 ${index % 2 === 0 ? 'bg-gray-50' : ''}`}
+            >
               <td className="py-2 px-4">
                 <input
                   type="text"
-                  value={newCourse.Course_Name}
+                  value={course.Course_Name}
                   className="w-full bg-transparent"
-                  placeholder="New Course Name"
-                  onChange={(e) => setNewCourse({ ...newCourse, Course_Name: e.target.value })}
+                  onChange={(e) => handleInputChange(course.id, 'Course_Name', e.target.value)}
                 />
               </td>
               <td className="py-2 px-4">
                 <input
                   type="text"
-                  value={newCourse.Course_Category}
+                  value={course.Course_Category}
                   className="w-full bg-transparent"
-                  placeholder="New Course Category"
-                  onChange={(e) => setNewCourse({ ...newCourse, Course_Category: e.target.value })}
+                  onChange={(e) => handleInputChange(course.id, 'Course_Category', e.target.value)}
                 />
               </td>
               <td className="py-2 px-4">
                 <input
                   type="text"
-                  value={newCourse.Course_Duration}
+                  value={course.Course_Duration}
                   className="w-full bg-transparent"
-                  placeholder="New Course Duration"
-                  onChange={(e) => setNewCourse({ ...newCourse, Course_Duration: e.target.value })}
+                  onChange={(e) => handleInputChange(course.id, 'Course_Duration', e.target.value)}
                 />
               </td>
               <td className="py-2 px-4">
                 <input
                   type="text"
-                  value={newCourse.Pricing}
+                  value={course.Pricing}
                   className="w-full bg-transparent"
-                  placeholder="New Pricing"
-                  onChange={(e) => setNewCourse({ ...newCourse, Pricing: e.target.value })}
+                  onChange={(e) => handleInputChange(course.id, 'Pricing', e.target.value)}
                 />
               </td>
               <td className="py-2 px-4">
                 <textarea
-                  value={newCourse.Course_description}
+                  value={course.Course_description}
                   className="w-full bg-transparent"
-                  placeholder="New Course Description"
-                  onChange={(e) => setNewCourse({ ...newCourse, Course_description: e.target.value })}
+                  onChange={(e) => handleInputChange(course.id, 'Course_description', e.target.value)}
+                />
+              </td>
+              <td className="py-2 px-4">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
                 />
               </td>
               <td className="py-2 px-4 flex justify-end">
                 <button
                   type="button"
-                  className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
-                  onClick={handleAdd}
+                  className="mr-2 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => handleSave(course)}
                 >
-                  Add
+                  Save
+                </button>
+                <button
+                  type="button"
+                  className="text-sm bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => handleDelete(course.id)}
+                >
+                  Delete
                 </button>
               </td>
             </tr>
-          </tbody>
-        </table>
-      </div>
+          ))}
+          <tr className="border-b hover:bg-gray-100">
+            <td className="py-2 px-4">
+              <input
+                type="text"
+                value={newCourse.Course_Name}
+                className="w-full bg-transparent"
+                placeholder="New Course Name"
+                onChange={(e) => setNewCourse({ ...newCourse, Course_Name: e.target.value })}
+              />
+            </td>
+            <td className="py-2 px-4">
+              <input
+                type="text"
+                value={newCourse.Course_Category}
+                className="w-full bg-transparent"
+                placeholder="New Course Category"
+                onChange={(e) => setNewCourse({ ...newCourse, Course_Category: e.target.value })}
+              />
+            </td>
+            <td className="py-2 px-4">
+              <input
+                type="text"
+                value={newCourse.Course_Duration}
+                className="w-full bg-transparent"
+                placeholder="New Course Duration"
+                onChange={(e) => setNewCourse({ ...newCourse, Course_Duration: e.target.value })}
+              />
+            </td>
+            <td className="py-2 px-4">
+              <input
+                type="text"
+                value={newCourse.Pricing}
+                className="w-full bg-transparent"
+                placeholder="New Pricing"
+                onChange={(e) => setNewCourse({ ...newCourse, Pricing: e.target.value })}
+              />
+            </td>
+            <td className="py-2 px-4">
+              <textarea
+                value={newCourse.Course_description}
+                className="w-full bg-transparent"
+                placeholder="New Course Description"
+                onChange={(e) => setNewCourse({ ...newCourse, Course_description: e.target.value })}
+              />
+            </td>
+            <td className="py-2 px-4">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
+            </td>
+            <td className="py-2 px-4 flex justify-end">
+              <button
+                type="button"
+                className="text-sm bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline"
+                onClick={handleAdd}
+              >
+                Add
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

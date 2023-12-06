@@ -16,7 +16,7 @@ const Faqs = () => {
       .get('http://localhost:8080/faqs')
       .then((response) => {
         const initialQuestionStates = {};
-        console.log(response.data);
+        // console.log(response.data);
         response.data.forEach((faq, index) => {
           initialQuestionStates[`question${index + 1}`] = 'closed';
         });

@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
       <div className="container mx-auto py-10 flex flex-col md:flex-row items-center md:items-start">
-        {/* TW elements section */}
+        {/* Logo and Description section */}
         <div className="md:pr-8 flex flex-col items-center md:items-start">
           <div>
             <img className="h-20" src={FitGrid} alt="CraftVine Logo" />
@@ -22,8 +22,9 @@ const Footer = () => {
             Your Home, Elevated. Discover modern and new furniture for a perfect blend of style and affordability.
           </p>
         </div>
+
         {/* Products section */}
-        <div className="mt-8 md:mt-0">
+        <div className="mt-8 md:mt-0 md:pr-8">
           <h6 className="mb-4 font-semibold text-gray-700 dark:text-gray-300">
             Explore
           </h6>
@@ -37,9 +38,15 @@ const Footer = () => {
               Trainers
             </Link>
           </p>
+          <p className="mb-4">
+            <Link to="/JoinOurTeam" className="text-gray-600 dark:text-gray-200 hover:text-gray-800 dark:hover:text-gray-300">
+              Join Our Team
+            </Link>
+          </p>
         </div>
+
         {/* Useful links section */}
-        <div className="mt-8 md:mt-0">
+        <div className="mt-8 md:mt-0 md:pr-8">
           <h6 className="mb-4 font-semibold text-gray-700 dark:text-gray-300">
             Useful links
           </h6>
@@ -48,7 +55,9 @@ const Footer = () => {
               Account
             </Link>
           </p>
+          {/* ... (other links) */}
         </div>
+
         {/* Contact section */}
         <div className="mt-8 md:mt-0">
           <h6 className="mb-4 font-semibold text-gray-700 dark:text-gray-300">

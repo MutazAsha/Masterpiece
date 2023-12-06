@@ -108,36 +108,7 @@ const Account = () => {
             </svg>
           </button>
           <aside className="flex flex-col w-64 h-auto px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-            <div className="w-auto h-12 flex justify-around items-center mx-6">
-              <img
-                className={`rounded-full w-1/4 ${
-                  user.profile_image_name === null && "hidden"
-                } border`}
-                src={photoPreview}
-                alt="Profile Picture"
-              />
-              <svg
-                className={`"absolute w-12 h-12 text-gray-400 -left-1 rounded-full ${
-                  user.profile_image_name === null ? "block" : "hidden"
-                } border`}
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <h1 className="text-xl font-bold text-grey-600">
-                {user.first_name} {user.last_name}
-              </h1>
-            </div>
-
-            <br />
-            <hr />
-            <br />
+          
 
             <div className="flex flex-col justify-between flex-1 mt-6">
               <nav className="-mx-3 space-y-6 ">

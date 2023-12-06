@@ -333,8 +333,8 @@ const Blog = () => {
 
         {/* Popup */}
         {showPopup && (
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="bg-white p-8 rounded-md shadow-lg">
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-16 ">
+            <div className="bg-white p-8 rounded-md shadow-lg ">
               {/* Display the content of BlogForm or UpdateBlogForm based on updateBlogData */}
               {updateBlogData ? (
                 <UpdateBlog

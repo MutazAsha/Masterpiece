@@ -142,8 +142,8 @@ const Course = ({ user_id }) => {
         </button>
 
         {showPopup && (
-          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-4 rounded-md shadow-lg">
+          <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-20 flex items-center justify-center mt-10 ">
+            <div className=" p-4   w-[60vh]  ">
               {updateTrainerId ? (
                 <UpdatePlan trainerId={updateTrainerId} onClose={() => setShowPopup(false)} />
               ) : (

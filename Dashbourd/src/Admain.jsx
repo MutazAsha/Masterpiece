@@ -10,6 +10,7 @@ import Dashboard from "./Dashboard";
 import Category from "./Category";
 import WorkoutPage from "./Workout";
 import FAQ from "./FAQ";
+import JoinOurTeam from "./JoinOurTeam";
 
 const Admain = () => {
   const [user, setUser] = useState([]);
@@ -46,6 +47,7 @@ const Admain = () => {
     navigate("/SignIn");
   }
 
+  
   return (
     <div className="flex h-full ">
       {/* sidebar */}
@@ -149,6 +151,14 @@ const Admain = () => {
                 >
                   <span className="mx-2 text-sm font-medium">FAQ</span>
                 </button>
+                <button
+                  className={`w-full flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 ${
+                    page === "JoinOurTeam" && "bg-gray-100 dark:bg-gray-800 dark:text-gray-200 text-gray-700"
+                  } hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+                  onClick={() => setPage("JoinOurTeam")}
+                >
+                  <span className="mx-2 text-sm font-medium">Join Trainer</span>
+                </button>
               </div>
 
               <div className="space-y-3">
@@ -178,7 +188,7 @@ const Admain = () => {
       </div>
 
       {/* content */}
-      <div className="flex-1">
+      <div className="flex justify-end flex-1  w-10/12 ml-24">
         <div className={`${page === "Dashboard" ? "block" : "hidden"} w-full`}>
           <Dashboard />
         </div>
@@ -206,7 +216,10 @@ const Admain = () => {
           <WorkoutPage/>
         </div>
         <div className={`${page === "FAQ" ? "block" : "hidden"} w-full`}>
-          <FAQ/>
+        <FAQ/>
+        </div>
+        <div className={`${page === "JoinOurTeam" ? "block" : "hidden"} w-full`}>
+        <JoinOurTeam/>
         </div>
       </div>
     </div>

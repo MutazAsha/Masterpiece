@@ -34,6 +34,7 @@ import TCourseDetails from "./Pages/TCourseDetails";
 
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import JoinOurTeam from "./Components/JoinOurTeam";
 // Set the Authorization header globally
 axios.defaults.headers.common['Authorization'] = `${Cookies.get('token')}`;
 
@@ -41,6 +42,7 @@ axios.defaults.headers.common['Authorization'] = `${Cookies.get('token')}`;
 function App() {
   return (
     <div className="App">
+      
       <Router>
         <Navbar />
         <div className="h-full">
@@ -61,10 +63,10 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/trainers/:id" element={<TrainerDetails />} />
             <Route path="/trainers" element={<Trainers />} />
+            <Route path="/JoinOurTeam" element={<JoinOurTeam/>} />
             <Route path="/Course" element={<Course />} />
             <Route path="/Exercises" element={<Exercises />} />
             <Route path="/product/:id" element={<ProductSection />} />
-
             <Route path="/CategoryItems"  element={<CategoryItems/>} />
             <Route
               path="/course-details/:courseId"

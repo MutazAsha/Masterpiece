@@ -7,22 +7,21 @@ const Statistics = () => {
   const [blogCount, setBlogCount] = useState(0);
 
   useEffect(() => {
-    // Fetch statistics data using Axios
     axios.get('http://localhost:3000/Corse')
-      .then(response => setPlanCount(response.data.count))
+      .then(response => setPlanCount(response.data.length))
       .catch(error => console.error('Error fetching plans:', error));
 
-    axios.get('http://localhost:3000/Users')
-      .then(response => setUserCount(response.data.count))
+    axios.get('http://localhost:8080/all_users')
+      .then(response => setUserCount(response.data.length))
       .catch(error => console.error('Error fetching users:', error));
 
-    axios.get('http://localhost:3000/Blog')
-      .then(response => setBlogCount(response.data.count))
+    axios.get('http://localhost:8080/getAllArticles')
+      .then(response => setBlogCount(response.data.length))
       .catch(error => console.error('Error fetching blogs:', error));
-  }, []); // Empty dependency array ensures the effect runs only once on component mount
+  }, []);
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-24 ml-80">
+    <div className="container mx-auto px-4 py-12 md:py-24 ml-60">
       <div className="flex flex-wrap text-center">
         {/* Plan Statistics */}
         <div className="p-4 md:w-1/2 lg:w-1/4">

@@ -117,7 +117,7 @@ const Trainers = () => {
                   Certification: {trainer.certification}
                 </p>
                 <p className="mb-1 text-xs text-[#6B7280] group-hover:text-white">
-                  Experience: {trainer.experience} years
+                  Experience: {trainer.experience}
                 </p>
                 {/* <p className="mb-4 text-xs text-[#6B7280] group-hover:text-white">
                     Rating: {trainer.rating}
