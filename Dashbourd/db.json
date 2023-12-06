@@ -463,14 +463,6 @@
   ],
   "Corse": [
     {
-      "Course_Name": "sxecee",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "333",
-      "Pricing": "32",
-      "Course_description": "ce",
-      "id": 3
-    },
-    {
       "Course_Name": "rgef",
       "Course_Category": "Grossfit",
       "Course_Duration": "333",
@@ -501,14 +493,6 @@
       "Pricing": "32",
       "Course_description": "rf",
       "id": 4
-    },
-    {
-      "Course_Name": "xdgvbfxdb",
-      "Course_Category": "Grossfit",
-      "Course_Duration": "122",
-      "Pricing": "222",
-      "Course_description": "sdgfxdgb",
-      "id": 5
     },
     {
       "Course_Name": "11111",

@@ -33,17 +33,26 @@ const Users = () => {
   };
 
   const handleDelete = (userId) => {
+    // Get the user to be deleted
+    const userToDelete = users.find(user => user.id === userId);
+  
+    // Optimistically remove the user from the local state
     setUsers(prevUsers => prevUsers.filter(user => user.id !== userId));
-
-    axios.delete(`http://localhost:8080/DeleteUser/${userId}`)
+  
+    // Send a request to delete the user from the server
+    axios.put('http://localhost:8080/DeleteUser', { data: userToDelete })
       .then(response => {
+        // Handle success, e.g., show a success message
         console.log('User deleted successfully:', response.data);
       })
       .catch(error => {
+        // Handle error, e.g., show an error message
         console.error('Error deleting user:', error);
-
-        axios.get('http://localhost:3000/Users')
+  
+        // Roll back the state if the request fails
+        axios.get('http://localhost:8080/all_users')
           .then(response => {
+            // Update the state with the fetched data
             setUsers(response.data);
           })
           .catch(error => {
@@ -51,6 +60,9 @@ const Users = () => {
           });
       });
   };
+  
+  
+  
 
   const handleInputChange = (userId, field, value) => {
     setUsers(prevUsers =>

@@ -17,14 +17,15 @@ const Course = ({ user_id }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/getplansfortrainer/${user_id}`);
-        setTrainers(response.data.trainers);
+        setTrainers(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
-
+  
     fetchData();
   }, [user_id]);
+  
 
   const indexOfLastTrainer = currentPage * 6;
   const indexOfFirstTrainer = indexOfLastTrainer - 6;

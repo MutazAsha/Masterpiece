@@ -6,7 +6,7 @@ const Category = () => {
   const [newSubmission, setNewSubmission] = useState({ image: '', category: '' });
 
   useEffect(() => {
-    axios.get('http://localhost:3000/category')
+    axios.get('http://localhost:8080/plans/getAllCategories')
       .then(response => {
         setSubmissions(response.data);
       })
@@ -16,7 +16,7 @@ const Category = () => {
   }, []);
 
   const handleSave = (submissionData) => {
-    axios.put(`http://localhost:3000/category/${submissionData.id}`, submissionData)
+    axios.put(`http://localhost:8080/plans/getAllCategories${submissionData.id}`, submissionData)
       .then(response => {
         console.log('Submission data updated successfully:', response.data);
         setSubmissions(prevSubmissions => prevSubmissions.map(submission =>
@@ -31,7 +31,7 @@ const Category = () => {
   const handleDelete = (submissionId) => {
     setSubmissions(prevSubmissions => prevSubmissions.filter(submission => submission.id !== submissionId));
 
-    axios.delete(`http://localhost:3000/category/${submissionId}`)
+    axios.delete(`http://localhost:8080/plans/getAllCategories${submissionId}`)
       .then(response => {
         console.log('Submission deleted successfully:', response.data);
       })

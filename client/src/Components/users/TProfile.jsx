@@ -1,41 +1,39 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { Cookies, useCookies } from 'react-cookie';
+import { useCookies } from 'react-cookie';
 
 const TProfile = () => {
   const [user, setUser] = useState({});
-  const [formValues, setFormValues] = useState(
-[]);
-  const [cookie] = useCookies(["Authorization"]);
+  const [formValues, setFormValues] = useState({});
+  const [cookie] = useCookies(["token"]);
   const [photoName, setPhotoName] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
-  const [imageFile, setImageFile] = useState(null);
+  const [image, setImage] = useState(null);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const fileInputRef = useRef(null);
-  console.log(formValues)
 
   useEffect(() => {
     if (cookie.token !== undefined) {
-   
-      axios.get(`http://localhost:8080/user-profiles`, {
+      axios.get(`http://localhost:8080/getTrainerByToken`, {
         headers: { 'Authorization': cookie.token }
       })
-        .then((response) => {
-          setUser(response.data.userProfile);
-          setFormValues(response.data.userProfile);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      .then((response) => {
+        setUser(response.data);
+        // console.log(response.data);
+        setFormValues(response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
     } else {
       setUser(false);
     }
   }, [cookie.token]);
 
-  const handleFileChange = (e) => {
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImageFile(file);
+    setImage(file);
     if (file) {
       setPhotoName(file.name);
 
@@ -57,60 +55,55 @@ const TProfile = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const handleCancel = () => {
-    setFormValues(user); // Reset to the original values
-  };
-
   const handleSaveChanges = async (e) => {
     e.preventDefault();
-
     if (!error) {
-      // Create FormData object
-      const formData = new FormData();
-      // formData.append("user_id", formValues.user_id);
-      formData.append("image", imageFile);
+      const updatedUser = new FormData();
 
-      formData.append("username_user", formValues.username );
-      formData.append("bio", formValues.bio);
-      formData.append("location", formValues.location);
-      formData.append("website", formValues.website );
+      updatedUser.append("username", formValues.username || user.username);
+      updatedUser.append("bio", formValues.bio || user.bio);
+      updatedUser.append("location", formValues.location || user.location);
+      updatedUser.append("website", formValues.website || user.website);
+      updatedUser.append("image", image || user.image);
 
-      console.log(formData)
+      // Add the new fields
+      updatedUser.append("experience", formValues.experience || user.experience);
+      updatedUser.append("certification", formValues.certification || user.certification);
 
-      
       try {
         const response = await axios.put(
-          "http://localhost:8080/updateUserProfileAndUser",
-          formData,
+          `http://localhost:8080/updateUserProfileAndTrainer`,
+          updatedUser,
           {
             headers: {
-              Authorization: Cookies.get('token'),
-              'Content-Type': 'multipart/form-data',  // Assuming you are sending form data
+              'Content-Type': 'multipart/form-data',
+              'Authorization': cookie.token,
             },
           }
         );
-        console.log('Response:', response.data);
-      } catch (error) {
-        console.error('Error updating user profile:', error);
-      }
-      
-        
 
+        console.log("Server Response:", response.data);
+        setSuccessMessage("Profile updated successfully!");
+      } catch (error) {
+        console.error("Error updating Information", error);
+        setSuccessMessage("");
+        setError("Error updating information. Please try again.");
       }
-    
+    }
   };
 
   return (
-    <div className="p-4 flex justify-center mt-28 ml-36">
+    <div className="min-h-screen bg-white flex justify-center ml-20 items-center">
       <div className="w-9/12 h-5/6 bg-white my-6 md:ml-24 px-10 py-8 rounded-lg shadow-md">
         <form>
           <div className="flex justify-center">
             <div className="col-span-6 ml-2 sm:col-span-4 md:mr-3">
               <input
                 type="file"
+                accept="image/*"
                 className="hidden"
                 ref={fileInputRef}
-                onChange={handleFileChange}
+                onChange={handleImageChange}
               />
               <div className="text-center">
                 <div className="mt-2">
@@ -149,7 +142,7 @@ const TProfile = () => {
                 onChange={handleInputChange}
                 type="text"
                 name="username"
-                value={formValues.username || ""}
+                value={formValues.username}
               />
             </div>
 
@@ -162,7 +155,7 @@ const TProfile = () => {
                 onChange={handleInputChange}
                 placeholder={user.bio}
                 name="bio"
-                value={formValues.bio || ""}
+                value={formValues.bio}
               />
             </div>
 
@@ -174,7 +167,7 @@ const TProfile = () => {
                 className="w-full p-2 border rounded-md bg-gray-200"
                 onChange={handleInputChange}
                 name="location"
-                value={formValues.location || ""}
+                value={formValues.location}
               />
             </div>
 
@@ -185,8 +178,34 @@ const TProfile = () => {
               <input
                 className="w-full p-2 border rounded-md bg-gray-200"
                 onChange={handleInputChange}
-                value={formValues.website || ""}
+                value={formValues.website}
                 name="website"
+              />
+            </div>
+
+            <div className="flex flex-col justify-start">
+              <label htmlFor="experience" className="self-start p-2 text-gray-800">
+                Experience
+              </label>
+              <textarea
+                className="w-full mb-3 p-2 border rounded-md bg-gray-200"
+                onChange={handleInputChange}
+                placeholder={user.experience}
+                name="experience"
+                value={formValues.experience}
+              />
+            </div>
+
+            <div className="flex flex-col justify-start">
+              <label htmlFor="certification" className="self-start p-2 text-gray-800">
+                Certification
+              </label>
+              <textarea
+                className="w-full mb-3 p-2 border rounded-md bg-gray-200"
+                onChange={handleInputChange}
+                placeholder={user.certification}
+                name="certification"
+                value={formValues.certification}
               />
             </div>
           </div>
@@ -195,7 +214,6 @@ const TProfile = () => {
             <button
               className="w-1/4 mr-3 p-2 bg-red-500 hover:bg-red-600 text-white rounded-xl"
               type="button"
-              onClick={handleCancel}
             >
               Cancel
             </button>
@@ -219,4 +237,4 @@ const TProfile = () => {
   );
 };
 
-export default TProfile
+export default TProfile;
